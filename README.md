@@ -1,2 +1,24 @@
-# milleniumframework
-Millenium PHP framework is a new modern and simple framework. Easy install and work with site.
+# Millenium PHP framework
+
+simple framework
+
+## Getting Started
+
+Let's go downlaod the Millenium framework
+
+### Installing
+
+For downloading install composer package with command:
+
+```
+composer create-project superhabber/mill <folder_name>
+```
+## Authors
+
+* **Yaroslav Palamarchuk** - *Initial work* - [PurpleBooth](https://github.com/superhabber)
+
+See also the list of [contributors](https://github.com/superhabber/milleniumframework/graphs/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
