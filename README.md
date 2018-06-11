@@ -13,10 +13,13 @@ For downloading install composer package with command:
 ```
 composer create-project superhabber/mill <folder_name>
 ```
+## Documentation
+
+[documentation of framework](https://milleniumframework.github.io/)
+
 ## Authors
 
 * **Yaroslav Palamarchuk** - *Initial work* - [superhabber](https://github.com/superhabber)
-
 See also the list of [contributors](https://github.com/superhabber/milleniumframework/graphs/contributors) who participated in this project.
 
 ## License
