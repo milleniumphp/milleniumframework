@@ -15,7 +15,7 @@ composer create-project superhabber/mill <folder_name>
 ```
 ## Authors
 
-* **Yaroslav Palamarchuk** - *Initial work* - [PurpleBooth](https://github.com/superhabber)
+* **Yaroslav Palamarchuk** - *Initial work* - [superhabber](https://github.com/superhabber)
 
 See also the list of [contributors](https://github.com/superhabber/milleniumframework/graphs/contributors) who participated in this project.
 
