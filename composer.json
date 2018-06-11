@@ -1,10 +1,10 @@
 {
-    "name": "mill/mill",
+    "name": "superhabber/mill",
     "type": "project",
     "authors": [
         {
             "name": "Yaroslav Palamarchuk",
-            "email": "superhabber@gmail.com"
+            "email": "milleniumframework@gmail.com"
         }
     ],
     "require": {
