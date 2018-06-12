@@ -1,12 +1,23 @@
 {
     "name": "superhabber/mill",
+    "description": "Millenium PHP framework is a simple and modern framework",
     "type": "project",
+    "version": "1.0.0",
+    "license": "MIT",
     "authors": [
         {
             "name": "Yaroslav Palamarchuk",
-            "email": "milleniumframework@gmail.com"
+            "email": "superhabber@gmail.com",
+            "homepage": "https://github.com/superhabber",
+            "role": "Developer"
         }
     ],
+    "support": {
+        "email": "milleniumframework@gmail.com",
+        "issues": "https://github.com/superhabber/milleniumframework/issues",
+        "source": "https://github.com/superhabber/milleniumframework",
+        "docs": "https://milleniumframework.github.io"
+    },
     "require": {
         "phpmailer/phpmailer": "^6.0",
         "guzzlehttp/guzzle": "^6.3",
@@ -19,4 +30,5 @@
             "app\\": "app"
         }
     }
+    
 }
