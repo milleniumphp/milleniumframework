@@ -2,7 +2,6 @@
     "name": "superhabber/mill",
     "description": "Millenium PHP framework is a simple and modern framework",
     "type": "project",
-    "version": "1.0.01",
     "license": "MIT",
     "authors": [
         {
