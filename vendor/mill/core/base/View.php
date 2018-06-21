@@ -49,6 +49,8 @@ class View {
      * @var array 
      */
     public $scripts = [];
+    
+    public $scriptsCache = true;
 
     /**
      * register view and layout
@@ -172,12 +174,26 @@ class View {
         }
     }
     
+    public function addScript($ar = []){
+        foreach ($ar as $t => $n){
+            foreach($n as $k => $v){
+                $this->scripts[$t][] = $v;
+            }
+        }
+    }
+    
+    public function scriptsCache($v = bool){
+        $this->scriptsCache = $v;
+    }
+
+
     public function miniscripts($js) {
-        if (\mill\core\App::$app->cache->get($js)) {
+        $this->addScript(['js'=>['/assets/mill/system/site.js',]]);
+        if (\mill\core\App::$app->cache->get($js) && ($this->scriptsCache === true)) {
             if(!file_exists(ROOT . '/public/js/minified/' . $js )){
                 file_put_contents(ROOT . '/public/js/minified/' . $js, \mill\core\App::$app->cache->get($js));
             }
-        } else {
+        }else{
             $minified = '';
             foreach ($this->scripts['js'] as $script) {
                 if (preg_match("/https:/", $script, $match)) {
@@ -206,6 +222,7 @@ class View {
             $data = preg_replace($search, $replace, $minified);
             
             \mill\core\App::$app->cache->set($js, $data);
+            file_put_contents(ROOT . '/public/js/minified/' . $js, $data);
             
         }
         echo "<script src='/js/minified/$js'></script>";

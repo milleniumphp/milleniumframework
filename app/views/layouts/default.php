@@ -11,7 +11,7 @@ use \mill\html\Url;
         <meta name="description" content="<?= $this->description ?>">
         <meta name="keywords" content="<?= $this->keywords ?>"> 
 
-        <? $this->styles() ?>
+        <?php $this->styles() ?>
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -27,8 +27,8 @@ use \mill\html\Url;
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?=Url::$baseUrl?>">Home</a></li>
-                    <li><a href="<?=Url::to('/pages/about')?>">About</a></li>
-                    <li><a href="<?=Url::to('/pages/contacts')?>">Contacts</a></li>
+                    <li class=""><a href="<?=Url::to('/pages/about')?>">About</a></li>
+                    <li class=""><a href="<?=Url::to('/pages/contacts')?>">Contacts</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?if(empty(\mill\core\App::$app->user->properties)):?>
@@ -67,5 +67,5 @@ use \mill\html\Url;
             </div>
         </div>
     </body>
-    <? $this->miniscripts('mini.js') ?>
+    <?php $this->miniscripts('mini.js') ?>
 </html>
