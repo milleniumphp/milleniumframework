@@ -10,30 +10,27 @@ class Request {
 
     public $post = [];
     public $get = [];
+    public $files = [];
 
     public function __construct() {
-        $this->post = $this->post();
-        $this->get = $this->get();
+        $this->post = $this->make($_POST);
+        $this->get = $this->make($_GET);
+        $this->files = $this->make($_FILES);
     }
-
-    public function get() {
+    
+    public function make($var){
         $m = [];
-        foreach ($_GET as $k => $post) {
-            $m[$k] = chars($post);
-        }
-        return $m;
-    }
-
-    public function post() {
-        $m = [];
-        foreach ($_POST as $k => $post) {
-            $m[$k] = chars($post);
+        foreach ($var as $k => $post) {
+            $m[$k] = $this->xss_protect($post);
         }
         return $m;
     }
 
     public function xss_protect(&$item) {
-        $item = htmlspecialchars($item);
+        if(!is_array($item)){
+            return htmlspecialchars($item);
+        }
+        return $item;  
     }
 
 }

@@ -92,38 +92,60 @@ class FormManager {
      */
     public function htmlForm($model, $field, $options){
         /**
-         * if input type inserted use it
-         */
-        $options['type'] = isset($options['type']) ? $options['type'] : 'text';
-        /**
          * id for input
          */
         $id = $field . '_' . $this->elemId;
         /**
+         * if input type inserted use it
+         */
+        $type = isset($options['type']) ? $options['type'] : 'text';
+        unset($options['type']);
+        /**
          * label for input if exists
          */
         $str = isset($options['label']) ? "<label for='$id'>".$options['label'].'</label>' : '<label>'.$field.'</label>';
+        unset($options['label']);
         /**
          * name for input
          * default like a field name
          */
         $name = isset($options['name']) ? $options['name'] : $field;
+        unset($options['name']);
         /**
          * default class name if doesn't exists user's
          */
         $class = isset($options['class']) ? $options['class'] : 'form-control';
+        unset($options['class']);
         /**
          * if label exsits
          */
         $islabel = isset($options['label']) ? $options['label'] : $field;
+        unset($options['label']);
         /**
          * placeholer for input
          */
         $placeholder = isset($options['placeholder']) ? $options['placeholder'] : $islabel;
+        unset($options['placeholder']);
+        $tags = '';
+        /**
+         * other options like multiple
+         */
+        foreach($options as $k => $v){
+            /**
+             * if multiple insert [] to name
+             */
+            if($k === 'multiple'){
+                $name .= '[]';
+            }
+            /**
+             * add other tags
+             */
+            $tags .= "$k='$v'";
+        }
         /**
          * make new input tag with params
-         */
-        $str .= "<input type='{$options['type']}' class='$class' id='$id' name='$name' placeholder='$placeholder'>";        
+        */
+        $str .= "<input type='{$type}' class='{$class}' id='{$id}' name='{$name}' placeholder='{$placeholder}' {$tags}>";        
                 
         return $str;    
     }
