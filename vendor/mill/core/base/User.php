@@ -4,7 +4,7 @@ namespace mill\core\base;
 
 /**
  * Description of User
- *
+ * base class of User
  * @author Yaroslav Palamarchuk
  */
 class User {
@@ -18,6 +18,13 @@ class User {
                 $this->properties[$k] = $v;
             }
         }
+    }
+    
+    public function isGuest(){
+        if(empty($this->properties)){
+            return true;
+        }
+        return false;
     }
     
     public function login($login, $password){

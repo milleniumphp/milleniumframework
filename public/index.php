@@ -21,8 +21,6 @@ new mill\core\App;
 
 Router::add('^$', ['controller'=>'Pages']);
 
-Router::add('^admin/?(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$', ['prefix'=>'admin']);
-
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
 Router::add('^', ['controller'=>'Error']);

@@ -82,7 +82,10 @@ class Router {
         if (self::matchRoute($url)) {
             
             //get camelcase name controller[ new-posts => NewPosts ] with namespace
-            $controller = 'app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
+            $controller = '\app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
+            /**
+             * if nor an error page 
+             */
             if (class_exists($controller)) {
                 $cObj = new $controller(self::$route);
                 //get action name[ indexAction ]
@@ -91,20 +94,24 @@ class Router {
                     $cObj->$action();
                     $cObj->getView();
                 } else {
-                    $errorview = $cObj->errorview ?: 'default';
+                    $errorview = isset($cObj->errorview) ? $cObj->errorview : 'default';
                     $errorlayout = $cObj->layout ?: LAYOUT;
                     if(!DEBUG){
                         $e = new base\ErrorController(404, $errorview, $errorlayout);
-                        $e->usererror(8,"Method {$controller}:{$action} not found");
+                        http_response_code(404);
+                        $e->usererror(8,"Page not found");
                     }else{
-                        throw new \Exception("Method {$controller}:{$action} not found");
+                        throw new \Exception("Method {$controller} : {$action} not found");
                     }
                     
                 }
+                return true;
             } else {
+                
                 if(!DEBUG){
+                    $e = new base\ErrorController(404, $errorview, $errorlayout);
                     http_response_code(404);
-                    throw new \Exception("Page not found", 404);
+                    $e->usererror(8,"Page not found");
                 }else{
                     throw new \Exception("controller {$controller} not found");
                 }
