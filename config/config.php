@@ -1,5 +1,4 @@
 <?php
-
 $config = [
     'components' => [
         'cache' => 'mill\libs\Cache',
@@ -8,5 +7,4 @@ $config = [
         'baseUrl'=>'/'
     ]
 ];
-
 return $config;

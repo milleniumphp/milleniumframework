@@ -1,12 +1,12 @@
 <h2>Sign Up</h2>
-<?if(isset($session->data['error'])):?>
+<?php if(isset($session->data['error'])):?>
     <div class="alert alert-danger"><?=$session->data['error']?></div>
-<?endif;?>
+<?php endif;?>
     
 <div class="row">
     <div class="col-md-6">
 
-        <?$form = mill\html\Form::create(['method'=>'post', 'action'=>'real'])?>
+        <?php $form = mill\html\Form::create(['method'=>'post', 'action'=>'real'])?>
             <div class="form-group">
                 <?=$form->field($model, 'login', [
                     'label'=>'Please enter login',
@@ -32,9 +32,9 @@
             <div class="form-group">
                 <?=$form->submit(['class'=>'btn btn-success'])?>
             </div>
-        <?$form->end()?>
+        <?php $form->end()?>
 
     </div>
 </div>
     
-<?unset($_SESSION['error'])?>
+<?php unset($_SESSION['error'])?>

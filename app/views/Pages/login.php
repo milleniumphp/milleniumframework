@@ -1,13 +1,13 @@
 <h2>Login</h2>
-<?if($session->alert):?>
+<?php if($session->alert):?>
 <div class="alert alert-danger">
-    <? echo $session->alert['login']?>
+    <?php echo $session->alert['login']?>
 </div>
-<?endif;?>
+<?php endif;?>
 <div class="row">
     <div class="col-md-6">
         <!--Create new form-->
-        <? $form = mill\html\Form::create(['method' => 'post', 'action' => 'real']) ?>
+        <?php $form = mill\html\Form::create(['method' => 'post', 'action' => 'real']) ?>
         <!--First form field with options-->
             <div class="form-group">
                 <?=$form->field($user, 'login', [
@@ -30,8 +30,8 @@
                 ]) ?>
             </div>
         <!--End Form tag-->
-        <? $form->end() ?>    
+        <?php $form->end() ?>    
         
     </div>
 </div>
-<?unset($session->alert)?>
+<?php unset($session->alert)?>

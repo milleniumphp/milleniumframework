@@ -13,7 +13,10 @@ class Url {
      * @var string
      */
     public static $baseUrl = '/';
-    
+    /**
+     * get main domain name
+     * @return string domain name
+     */
     public static function domain(){
         return $_SERVER['HTTP_HOST'];
     }
@@ -32,7 +35,7 @@ class Url {
      */
     public static function to($page){
         self::start();
-        echo self::$baseUrl . ltrim($page, '/');
+        return self::$baseUrl . ltrim($page, '/');
     }
     
     /**

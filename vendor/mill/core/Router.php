@@ -52,6 +52,9 @@ class Router {
                 if (!isset($route['action'])) {
                     $route['action'] = 'index';
                 }
+                if(!isset($route['auth'])){
+                    $route['auth'] = false;
+                }
                 //prefix for controllers
                 if(!isset($route['prefix'])){
                     $route['prefix'] = '';
@@ -76,13 +79,27 @@ class Router {
      * @return string      if error 404.html returns
      */
     public static function dispatch($url) {
-        
         $url = self::removeQueryString($url);
+        
         //if route exists
         if (self::matchRoute($url)) {
             
             //get camelcase name controller[ new-posts => NewPosts ] with namespace
             $controller = '\app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
+            /**
+             * if page for authorized users
+             * but open if debug contstant exists
+             */
+            if( self::$route['auth'] === true && App::$app->user->isGuest() && !DEBUG){
+                /**
+                 * error controller with default view and layout
+                 */
+                $e = new base\ErrorController(404, null, null);
+                http_response_code(404);
+                $e->usererror(8,'Page not found');
+                die;  
+            }
+            
             /**
              * if nor an error page 
              */
@@ -94,14 +111,14 @@ class Router {
                     $cObj->$action();
                     $cObj->getView();
                 } else {
-                    $errorview = isset($cObj->errorview) ? $cObj->errorview : 'default';
-                    $errorlayout = $cObj->layout ?: LAYOUT;
                     if(!DEBUG){
+                        $errorview = isset($cObj->errorview) ? $cObj->errorview : 'default';
+                        $errorlayout = $cObj->layout ?: LAYOUT;
                         $e = new base\ErrorController(404, $errorview, $errorlayout);
                         http_response_code(404);
-                        $e->usererror(8,"Page not found");
+                        $e->usererror(8, 'Page not found');
                     }else{
-                        throw new \Exception("Method {$controller} : {$action} not found");
+                        throw new \Exception('Method '. $controller .':'. $action .' not found');
                     }
                     
                 }
@@ -111,15 +128,15 @@ class Router {
                 if(!DEBUG){
                     $e = new base\ErrorController(404, $errorview, $errorlayout);
                     http_response_code(404);
-                    $e->usererror(8,"Page not found");
+                    $e->usererror(8, 'Page not found');
                 }else{
-                    throw new \Exception("controller {$controller} not found");
+                    throw new \Exception('controller'. $controller .'not found');
                 }
                 
             }
         } else {
             http_response_code(404);
-            throw new \Exception("Page not found", 404);
+            throw new \Exception('Page not found', 404);
         }
         
     }

@@ -3,7 +3,8 @@ namespace app\controllers;
 
 /**
  * ExamplesController
- *
+ * Contoller of Examples
+ * use console command * php mill start examples * to start examples
  * @author Yaroslav Palamarchuk
  */
 class ExamplesController extends AppController {

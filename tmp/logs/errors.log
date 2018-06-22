@@ -1,2 +1,0 @@
-[2018-06-22 09:50:55] Error text: Call to undefined method mill\core\base\User::isGuest() | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\index.php, | Line: 20
-=============

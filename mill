@@ -6,9 +6,7 @@ require __DIR__.'/vendor/mill/libs/basic/aliases.php';
  * for db using
  */
 new \mill\core\base\Model();
+/**
+ * console handler
+ */
 new \mill\core\console\Handler($argv);
-
-
-
-
-

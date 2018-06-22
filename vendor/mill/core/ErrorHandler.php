@@ -66,9 +66,9 @@ class ErrorHandler {
             die;
         }
         if(DEBUG){
-            require CORE . "/local/errors/dev.php";die;
+            require CORE . '/local/errors/dev.php';die;
         }else{
-            require CORE . "/local/errors/prod.php";
+            require CORE . '/local/errors/prod.php';
         }
     }
     

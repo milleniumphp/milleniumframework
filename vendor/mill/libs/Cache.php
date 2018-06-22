@@ -46,8 +46,7 @@ class Cache {
             if (time() <= $content['end_time']) {
                 return $content['data'];
             } else {
-                if (unlink($file))
-                    ;
+                if (unlink($file));
             }
             return false;
         }

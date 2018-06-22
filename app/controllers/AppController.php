@@ -2,7 +2,6 @@
 namespace app\controllers;
 
 use \mill\core\base\Controller;
-use \mill\libs\R;
 /**
  * default controller extends base controller
  * if you need functional in all controller just edit this one

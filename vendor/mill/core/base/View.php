@@ -51,6 +51,23 @@ class View {
     public $scripts = [];
     
     public $scriptsCache = true;
+    
+    public $searchMin = [
+            '/(\n)+/',
+            '/\r\n+/',
+            '/\n(\t)+/',
+            '/\n(\ )+/',
+            '/\>(\n)+</',
+            '/\r\n</'
+        ];
+    public $replaceMin = [
+            "\n",
+            "\n",
+            "\n",
+            "\n",
+            '><',
+            '><'
+        ];
 
     /**
      * register view and layout
@@ -68,23 +85,7 @@ class View {
     }
 
     protected function compressPage($buffer) {
-        $search = [
-            "/(\n)+/",
-            "/\r\n+/",
-            "/\n(\t)+/",
-            "/\n(\ )+/",
-            "/\>(\n)+</",
-            "/\r\n</"
-        ];
-        $replace = [
-            "\n",
-            "\n",
-            "\n",
-            "\n",
-            '><',
-            '><'
-        ];
-        return preg_replace($search, $replace, $buffer);
+        return preg_replace($this->searchMin, $this->replaceMin, $buffer);
     }
 
     /**
@@ -181,11 +182,6 @@ class View {
             }
         }
     }
-    
-    public function scriptsCache($v = bool){
-        $this->scriptsCache = $v;
-    }
-
 
     public function miniscripts($js) {
         $this->addScript(['js'=>['/assets/mill/system/site.js',]]);
@@ -203,23 +199,7 @@ class View {
                 }
                 $minified .= $s;
             }
-            $search = [
-                "/(\n)+/",
-                "/\r\n+/",
-                "/\n(\t)+/",
-                "/\n(\ )+/",
-                "/\>(\n)+</",
-                "/\r\n</"
-            ];
-            $replace = [
-                "\n",
-                "\n",
-                "\n",
-                "\n",
-                '><',
-                '><'
-            ];
-            $data = preg_replace($search, $replace, $minified);
+            $data = preg_replace($this->searchMin, $this->replaceMin, $minified);
             
             \mill\core\App::$app->cache->set($js, $data);
             file_put_contents(ROOT . '/public/js/minified/' . $js, $data);

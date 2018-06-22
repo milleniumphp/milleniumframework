@@ -15,7 +15,3 @@
     
     <h4>To open examples  insert this text to console: <code>php mill start examples</code> and go to <a href="/examples/">examples page</a></h4>
 </header>
-
-<div class="container">
-    <?php debug(\mill\core\App::$app->user->isGuest())?>
-</div>

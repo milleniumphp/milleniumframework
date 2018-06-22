@@ -3,7 +3,7 @@ namespace mill\html;
 
 /**
  * Description of Form
- *
+ * Form class for standart simple forms
  * @author Yaroslav Palamarchuk
  */
 class Form {

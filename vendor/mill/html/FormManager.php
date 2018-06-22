@@ -2,8 +2,7 @@
 namespace mill\html;
 
 /**
- * Description of FormManager
- *
+ * FormMamager
  * @author Yaroslav Palamarchuk
  */
 class FormManager {
@@ -69,6 +68,7 @@ class FormManager {
         return $this->htmlForm($model, $field, $options);
         
     }
+    
     /**
      * make new submit button with params
      * @param array $options like class, id, onclick...
@@ -155,6 +155,4 @@ class FormManager {
     public function end(){
         echo '</form>';
     }
-    
-    
 }

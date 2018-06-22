@@ -15,12 +15,16 @@ composer create-project superhabber/mill <folder_name>
 ```
 ## Documentation
 
-[documentation of framework](https://milleniumframework.github.io/)
+[documentation of framework](https://milleniumphp.github.io/documentation)
+
+## Main site
+
+[documentation of framework](https://milleniumphp.github.io/)
 
 ## Authors
 
 * **Yaroslav Palamarchuk** - *Initial work* - [superhabber](https://github.com/superhabber)
-See also the list of [contributors](https://github.com/superhabber/milleniumframework/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/milleniumphp/milleniumframework/graphs/contributors) who participated in this project.
 
 ## License
 

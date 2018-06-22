@@ -31,11 +31,12 @@ use \mill\html\Url;
                     <li class=""><a href="<?=Url::to('/pages/contacts')?>">Contacts</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <?if(empty(\mill\core\App::$app->user->properties)):?>
+                    <?php if(\mill\core\App::$app->user->isGuest()):?>
                         <li><a href="<?=Url::to('/pages/signup')?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                         <li><a href="<?=Url::to('/pages/login')?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                    <?endif;?>
-                    <li><a href="<?=Url::to('/pages/logout')?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <?php else:?>
+                        <li><a href="<?=Url::to('/pages/logout')?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                    <?php endif;?>
                 </ul>
             </div>
         </nav>
