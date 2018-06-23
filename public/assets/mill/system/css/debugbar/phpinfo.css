@@ -1,0 +1,18 @@
+#temp1 #debug-bar-show-php div.center {background-color: #fff; color: #222; font-family: sans-serif;}
+#temp1 #debug-bar-show-php div.center pre {margin: 0; font-family: monospace;}
+#temp1 #debug-bar-show-php div.center a:link {color: #009; text-decoration: none; background-color: #fff;}
+#temp1 #debug-bar-show-php div.center a:hover {text-decoration: underline;}
+#temp1 #debug-bar-show-php div.center table {border-collapse: collapse; border: 0; width: 100% !important; box-shadow: 1px 2px 3px #ccc;}
+#temp1 #debug-bar-show-php div.center {text-align: center;}
+#temp1 #debug-bar-show-php div.center table {margin: 1em auto; text-align: left;}
+#temp1 #debug-bar-show-php div.center th {text-align: center !important;}
+#temp1 #debug-bar-show-php div.center td, th {border: 1px solid #666; font-size: 75%; vertical-align: baseline; padding: 4px 5px;}
+#temp1 #debug-bar-show-php div.center h1 {font-size: 150%;}
+#temp1 #debug-bar-show-php div.center h2 {font-size: 125%;}
+#temp1 #debug-bar-show-php div.center .p {text-align: left;}
+#temp1 #debug-bar-show-php div.center .e {background-color: #ccf; width: 300px; font-weight: bold;}
+#temp1 #debug-bar-show-php div.center .h {background-color: #99c; font-weight: bold;}
+#temp1 #debug-bar-show-php div.center .v {background-color: #ddd; max-width: 300px; overflow-x: auto; word-wrap: break-word;}
+#temp1 #debug-bar-show-php div.center .v i {color: #999;}
+#temp1 #debug-bar-show-php div.center img {float: right; border: 0;}
+#temp1 #debug-bar-show-php div.center hr {width: 934px; background-color: #ccc; border: 0; height: 1px;}

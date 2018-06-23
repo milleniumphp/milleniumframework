@@ -1,7 +1,6 @@
 <?php
 
 namespace mill\core;
-
 /**
  * default Router Class for url routing
  * @author Yaroslav Palamarchuk
@@ -19,7 +18,11 @@ class Router {
      * @var array
      */
     protected static $routes = [
-        '^examples/?(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'examples']
+        /**
+         * default route for examples, debugbar
+         */
+        '^examples/?(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'examples'],
+        '^debug/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'debug']
     ];
 
     /**
@@ -52,6 +55,9 @@ class Router {
                 if (!isset($route['action'])) {
                     $route['action'] = 'index';
                 }
+                /**
+                 * if auth not exists set false
+                 */
                 if(!isset($route['auth'])){
                     $route['auth'] = false;
                 }
@@ -64,7 +70,7 @@ class Router {
                 $route['controller'] = self::upperCamelCase($route['controller']);
                 self::$route = $route;
                 
-                return true;
+                return self::$route;
             }
             
         }
@@ -76,16 +82,22 @@ class Router {
     /**
      * select route
      * @param  string $url select route
-     * @return string      if error 404.html returns
+     * @return string      if error returns new ErrorController error
      */
     public static function dispatch($url) {
         $url = self::removeQueryString($url);
         
         //if route exists
         if (self::matchRoute($url)) {
-            
-            //get camelcase name controller[ new-posts => NewPosts ] with namespace
-            $controller = '\app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
+            /**
+             * if not a section use standart path \app\controllers
+             */
+            if(self::$route['prefix'] != false){
+                $controller = '\sections\\' . self::$route['prefix'] . 'controllers\\' . self::$route['controller'] . 'Controller';
+            }else{
+                $controller = '\app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
+            }
+
             /**
              * if page for authorized users
              * but open if debug contstant exists
@@ -130,7 +142,7 @@ class Router {
                     http_response_code(404);
                     $e->usererror(8, 'Page not found');
                 }else{
-                    throw new \Exception('controller'. $controller .'not found');
+                    throw new \Exception('controller '. $controller .' not found');
                 }
                 
             }
@@ -168,7 +180,7 @@ class Router {
     }
 
     /**
-     * get lowerCamelCase name for action[ indexAction ]
+     * get lowerCamelCase name of action[ indexAction ]
      * @param  string $name from which string
      * @return string       return new edited string
      */
@@ -177,7 +189,7 @@ class Router {
     }
 
     /**
-     * get all routes for static var[for admins]
+     * get all routes
      * @return array all routes
      */
     public static function getRoutes() {
@@ -185,8 +197,8 @@ class Router {
     }
 
     /**
-     * get real route for this page
-     * @return array real route for this page*
+     * get real route of this page
+     * @return array real route of this page*
      */
     public static function getRoute() {
         return self::$route;

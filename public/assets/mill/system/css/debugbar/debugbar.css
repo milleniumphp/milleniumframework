@@ -1,0 +1,29 @@
+div.debugbar{
+    width:100%;
+    position: fixed;
+    bottom:0px;
+    right:0px;
+    z-index: 10000;
+}
+.mill-bar.icons{
+    height:46px;
+}
+.debug-item, .show-item{
+    cursor: pointer;
+    margin:0 7px 0 7px;
+    display: inline-block;
+    max-height: 46px;
+}
+.debug-item.hidebar, .show-item.showbar{
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+}
+.debug-item:hover{
+    opacity:0.5;
+}
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}

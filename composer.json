@@ -26,7 +26,8 @@
     "autoload": {
         "psr-4": {
             "mill\\": "vendor/mill",
-            "app\\": "app"
+            "app\\": "app",
+            "sections\\": "sections"
         }
     }
     

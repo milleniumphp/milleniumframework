@@ -105,7 +105,11 @@ class View {
          * view file name
          * @var string
          */
-        $file_view = APP . "/views/{$this->route['prefix']}{$this->route['controller']}/{$this->view}.php";
+        if($this->route['prefix'] == true){
+            $file_view = SECTIONS . "/{$this->route['prefix']}views/{$this->route['controller']}/{$this->view}.php";
+        }else{
+            $file_view = APP . "/views/{$this->route['prefix']}{$this->route['controller']}/{$this->view}.php";
+        }
         if(GZIP){
             ob_start([$this, 'compressPage']);
         }else{
@@ -116,7 +120,7 @@ class View {
         if (is_file($file_view)) {
             require $file_view;
         } else {
-            throw new \Exception("<b>Вид {$file_view} не найден</b>", 404);
+            throw new \Exception("<b>View {$file_view} not found</b>", 404);
         }
         /**
          * content from view file
@@ -134,11 +138,16 @@ class View {
              * layout file full path
              * @var string
              */
-            $file_layout = APP . "/views/layouts/{$this->layout}.php";
+            if($this->route['prefix'] === true){
+                $file_layout = SECTIONS . "/{$this->route['prefix']}views/layouts/{$this->layout}.php";
+            }else{
+                $file_layout = APP . "/views/layouts/{$this->layout}.php";
+            }
+            
             if (is_file($file_layout)) {
                 require $file_layout;
             } else {
-                throw new \Exception('<b>Шаблон '. $file_layout . ' не найден</b>', 404);
+                throw new \Exception('<b>Layout '. $file_layout . ' not found</b>', 404);
             }
         }else{
             echo $content;
@@ -147,6 +156,13 @@ class View {
 
     public function getScripts($scripts) {
         $s = require ROOT . '/config/scripts.php';
+        if(DEBUG && DEBUGBAR){
+            /**
+             * debug bar js file
+             */
+            $s['js'][] = '/assets/mill/system/js/debugbar/debugbar.js';
+        }
+        
         /**
          * first array loop
          */
@@ -184,7 +200,6 @@ class View {
     }
 
     public function miniscripts($js) {
-        $this->addScript(['js'=>['/assets/mill/system/site.js',]]);
         if (\mill\core\App::$app->cache->get($js) && ($this->scriptsCache === true)) {
             if(!file_exists(ROOT . '/public/js/minified/' . $js )){
                 file_put_contents(ROOT . '/public/js/minified/' . $js, \mill\core\App::$app->cache->get($js));
