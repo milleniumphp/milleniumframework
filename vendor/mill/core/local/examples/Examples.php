@@ -4,7 +4,6 @@ namespace mill\core\local\examples;
 
 /**
  * Description of Examples
- *
  * @author Yaroslav Palamarchuk
  */
 class Examples {

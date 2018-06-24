@@ -80,7 +80,6 @@ class Variables {
             }
             
         }
-        
         return $res;
     }
     

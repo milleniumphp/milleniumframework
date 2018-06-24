@@ -44,14 +44,15 @@ class Router {
         foreach (self::$routes as $pattern => $route) {
             //if route exists
             if (preg_match("#$pattern#i", $url, $matches)) {
-                
-                //if key name === "controller"...
+                /**
+                 * if key name is string like controller, action
+                 */
                 foreach ($matches as $k => $v) {
                     if (is_string($k)) {
                         $route[$k] = $v;
                     }
                 }
-                //if route without action
+                //if route without action add index
                 if (!isset($route['action'])) {
                     $route['action'] = 'index';
                 }
@@ -203,5 +204,4 @@ class Router {
     public static function getRoute() {
         return self::$route;
     }
-
 }

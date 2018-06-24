@@ -11,7 +11,7 @@ use \mill\html\Url;
         <meta name="description" content="<?= $this->description ?>">
         <meta name="keywords" content="<?= $this->keywords ?>"> 
 
-        <?php $this->styles() ?>
+        <?php mill\web\Scripts::styles() ?>
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -68,5 +68,5 @@ use \mill\html\Url;
             </div>
         </div>
     </body>
-    <?php $this->scripts('mini.js') ?>
+    <?php mill\web\Scripts::miniscripts('mini.js') ?>
 </html>

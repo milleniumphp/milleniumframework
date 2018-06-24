@@ -67,7 +67,7 @@ class Migration {
      * @param int $id
      */
     public function createMigrationFile($id){
-        file_put_contents(ROOT . "/app/migrations/{$this->options[1]}_" . ($id+1) . "_{$this->randomKey}.php", 
+        file_put_contents(ROOT . '/app/migrations'.$this->options[1].'_' . ($id+1) . '_'.$this->randomKey.'.php', 
 "<?php namespace app\migrations;
 
 class {$this->options[1]}_" . ($id+1) . "_{$this->randomKey} extends \mill\core\migrations\MigrationEditor{

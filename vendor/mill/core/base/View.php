@@ -48,32 +48,16 @@ class View {
      * css and js files
      * @var array 
      */
-    public $scripts = [];
+    //public $scripts = [];
     
-    public $scriptsCache = true;
-    
-    public $searchMin = [
-            '/(\n)+/',
-            '/\r\n+/',
-            '/\n(\t)+/',
-            '/\n(\ )+/',
-            '/\>(\n)+</',
-            '/\r\n</'
-        ];
-    public $replaceMin = [
-            "\n",
-            "\n",
-            "\n",
-            "\n",
-            '><',
-            '><'
-        ];
+    public $scripts;
 
     /**
      * register view and layout
      * @param array $route for real routes
      * */
     public function __construct($route, $layout = '', $view = '') {
+        $this->scripts = new \mill\web\Scripts();
         $this->route = $route;
         if ($layout === false) {
             $this->layout = false;
@@ -85,19 +69,15 @@ class View {
     }
 
     protected function compressPage($buffer) {
-        return preg_replace($this->searchMin, $this->replaceMin, $buffer);
+        return preg_replace(\mill\web\Scripts::$searchMin, \mill\web\Scripts::$replaceMin, $buffer);
     }
 
     /**
      * for variables from controller to view
      * @param array $vars for variables
      * */
-    public function render($vars, $metatags, $scripts) {
+    public function render($vars, $metatags) {
         $this->route['prefix'] = str_replace('\\', '/', $this->route['prefix']);
-        /**
-         * you can get this var in your layout and without function scripts() get all scripts
-         */
-        $scripts = $this->getScripts($scripts);
         //if variables in array get it
         if (is_array($vars))
             extract($vars);
@@ -153,80 +133,4 @@ class View {
             echo $content;
         }
     }
-
-    public function getScripts($scripts) {
-        $s = require ROOT . '/config/scripts.php';
-        if(DEBUG && DEBUGBAR){
-            /**
-             * debug bar js file
-             */
-            $s['js'][] = '/assets/mill/system/js/debugbar/debugbar.js';
-        }
-        
-        /**
-         * first array loop
-         */
-        foreach ($s as $name => $script) {
-            foreach ($script as $sc) {
-                $this->scripts[$name][] = $sc;
-            }
-        }
-        /**
-         * second array loop
-         */
-        foreach ($scripts as $name => $script) {
-            foreach ($script as $sc) {
-                $this->scripts[$name][] = $sc;
-            }
-        }
-        return $this->scripts;
-    }
-
-    /**
-     * makes script tags
-     */
-    public function scripts() {
-        foreach ($this->scripts['js'] as $script) {
-            echo "<script src='" . $script . "'> </script>";
-        }
-    }
-    
-    public function addScript($ar = []){
-        foreach ($ar as $t => $n){
-            foreach($n as $k => $v){
-                $this->scripts[$t][] = $v;
-            }
-        }
-    }
-
-    public function miniscripts($js) {
-        if (\mill\core\App::$app->cache->get($js) && ($this->scriptsCache === true)) {
-            if(!file_exists(ROOT . '/public/js/minified/' . $js )){
-                file_put_contents(ROOT . '/public/js/minified/' . $js, \mill\core\App::$app->cache->get($js));
-            }
-        }else{
-            $minified = '';
-            foreach ($this->scripts['js'] as $script) {
-                if (preg_match("/https:/", $script, $match)) {
-                    $s = file_get_contents($script);
-                } else {
-                    $s = file_get_contents('http://' . \mill\html\Url::domain() . '/' . $script);
-                }
-                $minified .= $s;
-            }
-            $data = preg_replace($this->searchMin, $this->replaceMin, $minified);
-            
-            \mill\core\App::$app->cache->set($js, $data);
-            file_put_contents(ROOT . '/public/js/minified/' . $js, $data);
-            
-        }
-        echo "<script src='/js/minified/$js'></script>";
-    }
-
-    public function styles() {
-        foreach ($this->scripts['css'] as $script) {
-            echo "<link href='/" . ltrim($script, '/') . "' rel='stylesheet'>";
-        }
-    }
-
 }

@@ -42,7 +42,6 @@ abstract class Controller {
         'description' => 'page description',
         'keywords' => 'keywords'
     ];
-    public $scripts = [];
     public $request;
     public $session;
 
@@ -65,7 +64,7 @@ abstract class Controller {
     public function getView() {
         //create new View object
         $vObj = new View($this->route, $this->layout, $this->view);
-        $vObj->render($this->vars, $this->metatags, $this->scripts);
+        $vObj->render($this->vars, $this->metatags);
     }
 
     /**

@@ -12,7 +12,7 @@ define('DEBUG', 1);
  * page debugbar
  * 1 - start 
  */
-define('DEBUGBAR', 1);
+define('DEBUGBAR', 0);
 
 /**
  * gzip for page/
@@ -20,7 +20,7 @@ define('DEBUGBAR', 1);
  * always check is your site working
  * 1 - maximum optimization[deleting all spaces]
  */
-define('GZIP', 0);
+define('GZIP', 1);
 
 $query = rtrim($_SERVER['QUERY_STRING'], '/');
 
