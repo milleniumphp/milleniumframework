@@ -24,10 +24,8 @@ define('GZIP', 1);
 
 $query = rtrim($_SERVER['QUERY_STRING'], '/');
 
-Router::add('^$', ['controller'=>'Pages', 'auth'=>true]);
-
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
-Router::add('^', ['controller'=>'Error']);
+Router::add('^$', ['controller'=>'Pages', 'auth'=>true]);
 
 Router::dispatch($query);

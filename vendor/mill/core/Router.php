@@ -137,7 +137,6 @@ class Router {
                 }
                 return true;
             } else {
-                
                 if(!DEBUG){
                     $e = new base\ErrorController(404, $errorview, $errorlayout);
                     http_response_code(404);
