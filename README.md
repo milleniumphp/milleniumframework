@@ -1,10 +1,10 @@
 # Millenium PHP framework
 
-simple framework
+simple and modern framework
 
 ## Getting Started
 
-Let's go downlaod the Millenium framework
+Let's go download the Millenium framework
 
 ### Installing
 
