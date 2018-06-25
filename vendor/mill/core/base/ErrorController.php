@@ -16,16 +16,18 @@ class ErrorController extends Controller {
     public $errorview = 'default';
     
     public $layout;
+    
+    public $vroute;
 
     /**
      * get response code from ErrorHandler
      * @param int $code
      */
-    public function __construct($code, $view = '', $layout = '') {
+    public function __construct($code, $view = '', $layout = '', $vroute = []) {
         $this->errorview = $view ?: 'default';
         $this->layout = $layout ?: LAYOUT;
         $this->response = $code;
-        
+        $this->vroute = $vroute;
     }
 
     /**
@@ -33,7 +35,7 @@ class ErrorController extends Controller {
      * @param int $errno
      * @param string $errstr
      */
-    public function usererror($errno, $errstr) {
+    public function usererror($errno = 8, $errstr) {
         
         $code = $this->response;
         $this->set([
@@ -42,9 +44,9 @@ class ErrorController extends Controller {
         ]);
         
         $this->route = [
-            'controller'=>'error',
-            'action'=>'error',
-            'prefix'=>''
+            'controller'=> 'error',
+            'action'=> 'error',
+            'prefix'=> $this->vroute['prefix']
         ];
         $this->metatags['title'] = $this->response . ' ' . $errstr;
         $this->view = $this->errorview;

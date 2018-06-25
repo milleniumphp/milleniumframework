@@ -1,5 +1,8 @@
 <?php namespace app\migrations;
-
+/**
+ * hello.
+ * 
+ */
 class examples_shopcategories_1_64459388 extends \mill\core\migrations\MigrationEditor{
    
     public $table = 'examples_shopcategories';

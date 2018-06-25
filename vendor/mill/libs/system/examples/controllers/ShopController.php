@@ -1,16 +1,7 @@
 <?php
-
 namespace sections\examples\controllers;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- * Description of ShopController
- *
  * @author Yaroslav Palamarchuk
  */
 class ShopController extends \app\controllers\AppController {
@@ -35,13 +26,13 @@ class ShopController extends \app\controllers\AppController {
     }
 
     public function categoryAction() {
-        $category = \R::findOne('examples_shopcategories', 'id = ? LIMIT 1', [ $this->request->get()['id'] ]);
+        $category = \R::findOne('examples_shopcategories', 'id = ? LIMIT 1', [ $this->request->get['id'] ]);
 
         $this->metatags['title'] = 'Category'. $category['title']; 
         $total = \R::count('examples_shopproducts', 'category_id = ?', [ $category['id'] ]);
         
 
-        $page = isset( $this->request->get()['page'] ) ? (int) chars( $this->request->get()['page'] ) : 1;
+        $page = isset( $this->request->get['page'] ) ? (int) chars( $this->request->get['page'] ) : 1;
 
         $perpage = 3;
 

@@ -3,7 +3,6 @@
 namespace mill\core\local\examples;
 
 /**
- * Description of Examples
  * @author Yaroslav Palamarchuk
  */
 class Examples {
@@ -30,8 +29,10 @@ class Examples {
         $this->copydir($system . '/examples/controllers/', ROOT . '/sections/examples/controllers');
         
         $this->copydir($system . '/examples/views/Shop', ROOT . '/sections/examples/views/Shop/');
+        $this->copydir($system . '/examples/views/main', ROOT . '/sections/examples/views/main/');
 
         $this->copydir($system . '/examples/views/layouts', ROOT . '/sections/examples/views/layouts/');
+        $this->copydir($system . '/examples/views/error', ROOT . '/sections/examples/views/error/');
 
         copy($system . '/examples/migrations/examples_shopcategories_1_64459388.php', ROOT . '/app/migrations/examples_shopcategories_1_64459388.php');
         copy($system . '/examples/migrations/examples_shopproducts_1_1241795668.php', ROOT . '/app/migrations/examples_shopproducts_1_1241795668.php');

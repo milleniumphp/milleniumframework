@@ -118,18 +118,18 @@ class Router {
              */
             if (class_exists($controller)) {
                 $cObj = new $controller(self::$route);
+                $errorview = isset($cObj->errorview) ? $cObj->errorview : 'default';
+                $errorlayout = $cObj->layout ?: LAYOUT;
                 //get action name[ indexAction ]
                 $action = self::lowerCamelCase(self::$route['action']) . 'Action';
                 if (method_exists($cObj, $action)) {
                     $cObj->$action();
                     $cObj->getView();
                 } else {
-                    if(!DEBUG){
-                        $errorview = isset($cObj->errorview) ? $cObj->errorview : 'default';
-                        $errorlayout = $cObj->layout ?: LAYOUT;
-                        $e = new base\ErrorController(404, $errorview, $errorlayout);
-                        http_response_code(404);
-                        $e->usererror(8, 'Page not found');
+                    if(DEBUG){
+                        $e = new base\ErrorController(404, $errorview, $errorlayout, self::$route);
+                        $e->usererror(null, 'Page not found');
+                        
                     }else{
                         throw new \Exception('Method '. $controller .':'. $action .' not found');
                     }
@@ -138,8 +138,7 @@ class Router {
                 return true;
             } else {
                 if(!DEBUG){
-                    $e = new base\ErrorController(404, $errorview, $errorlayout);
-                    http_response_code(404);
+                    $e = new base\ErrorController(404, $errorview, $errorlayout, self::$route);
                     $e->usererror(8, 'Page not found');
                 }else{
                     throw new \Exception('controller '. $controller .' not found');

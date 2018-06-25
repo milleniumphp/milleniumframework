@@ -13,5 +13,5 @@
     <h4 class="text-center">and update your database setting in <code> <?=ROOT . '\config\db.php'?> </code></h4>
     <hr>
     
-    <h4>To open examples  insert this command to console: <code>php mill start examples</code> and go to <a href="/examples/">examples page</a></h4>
+    <h4>To open examples  insert this command to console: <code>php mill start examples</code> and go to <a href="/examples/main/">examples page</a></h4>
 </header>
