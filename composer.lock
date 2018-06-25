@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "b4e2ffb457f37d629a6ec9b72fd0d9c85f3dfe2c"
+                "reference": "003757426cdd50fbad1c34cdbcc8a55f70a4fe8b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/b4e2ffb457f37d629a6ec9b72fd0d9c85f3dfe2c",
-                "reference": "b4e2ffb457f37d629a6ec9b72fd0d9c85f3dfe2c",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/003757426cdd50fbad1c34cdbcc8a55f70a4fe8b",
+                "reference": "003757426cdd50fbad1c34cdbcc8a55f70a4fe8b",
                 "shasum": ""
             },
             "require": {
@@ -69,7 +69,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-06-14T22:09:16+00:00"
+            "time": "2018-06-23T21:34:47+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -294,12 +294,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "7f7baf5436870c0c391a2220a9843c47915a3896"
+                "reference": "46869d46b97cc699e2a37f3719d6beb982962820"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/7f7baf5436870c0c391a2220a9843c47915a3896",
-                "reference": "7f7baf5436870c0c391a2220a9843c47915a3896",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/46869d46b97cc699e2a37f3719d6beb982962820",
+                "reference": "46869d46b97cc699e2a37f3719d6beb982962820",
                 "shasum": ""
             },
             "require": {
@@ -352,7 +352,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2018-06-11T14:32:06+00:00"
+            "time": "2018-06-25T09:22:50+00:00"
         },
         {
             "name": "psr/http-message",

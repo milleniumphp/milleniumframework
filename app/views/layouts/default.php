@@ -68,5 +68,5 @@ use \mill\html\Url;
             </div>
         </div>
     </body>
-    <?php mill\web\Scripts::miniscripts('mini.js') ?>
+    <?php mill\web\Scripts::scripts('mini.js') ?>
 </html>
