@@ -10,14 +10,8 @@ class Registry {
     
     public static $objects = [];
     protected static $instance;
-    public $user;
-    public $request;
-    public $session;
 
     protected function __construct() {
-        $this->user = new \mill\core\base\User();
-        $this->request = new \mill\core\base\Request();
-        $this->session = new \mill\core\base\Session();
         require ROOT . '/config/config.php';
         foreach ($config['components'] as $name => $component) {
             self::$objects[$name] = new $component;

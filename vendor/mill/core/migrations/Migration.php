@@ -110,7 +110,7 @@ class {$this->options[1]}_" . ($id+1) . "_{$this->randomKey} extends \mill\core\
                 }
             }
             rsort($ef);
-            $cpath = "\app\migrations\\" . $ef[0][0];
+            $cpath = '\app\migrations\\' . $ef[0][0];
             
         }else{
             
@@ -124,7 +124,7 @@ class {$this->options[1]}_" . ($id+1) . "_{$this->randomKey} extends \mill\core\
                 }
             }
             
-            $cpath = "\app\migrations\\" . $c;
+            $cpath = '\app\migrations\\' . $c;
             
         }
         

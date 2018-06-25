@@ -22,7 +22,7 @@ class Handler {
      */
     public $classes = [
         'migration'=>'\mill\core\migrations\Migration',
-        'examples'=>'\mill\core\local\examples\Examples',
+        'examples'=>'\mill\core\console\Examples',
         'start'=>'\mill\core\console\Start'
     ];
     

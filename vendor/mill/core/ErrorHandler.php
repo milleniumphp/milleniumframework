@@ -7,7 +7,6 @@ namespace mill\core;
  * error files in /vendor/mill/core/local/errors 
  * @author Yaroslav Palamarchuk
  */
-use mill\libs\R;
 
 class ErrorHandler {
     

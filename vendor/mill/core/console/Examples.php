@@ -1,6 +1,6 @@
 <?php
 
-namespace mill\core\local\examples;
+namespace mill\core\console;
 
 /**
  * @author Yaroslav Palamarchuk

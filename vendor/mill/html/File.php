@@ -1,5 +1,5 @@
 <?php
-namespace mill\html\files;
+namespace mill\html;
 
 /**
  * base class for actions on files
