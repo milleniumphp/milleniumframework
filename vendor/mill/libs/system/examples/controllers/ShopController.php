@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers\examples;
+namespace sections\examples\controllers;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,14 +15,14 @@ namespace app\controllers\examples;
  */
 class ShopController extends \app\controllers\AppController {
 
-    public $layout = 'examples/shop';
+    public $layout = 'shop';
     
-    public $errorview = 'examples/shop';
+    public $errorview = 'shop';
 
     public function indexAction() {  
         $total = \R::count('examples_shopproducts');
 
-        $page = isset( $this->request->get()['page'] ) ? (int) chars( $this->request->get()['page'] ) : 1;
+        $page = isset( $this->request->get['page'] ) ? (int) chars( $this->request->get['page'] ) : 1;
 
         $pagination = new \mill\libs\Pagination($page, 6, $total);
         $start = $pagination->getStart();

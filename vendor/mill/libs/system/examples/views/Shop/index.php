@@ -71,9 +71,9 @@
                     <h2>Category</h2>
                     <div class="panel-group category-products" id="accordian">
                         
-                        <? new \mill\widgets\menu\Menu([
+                        <?php new \mill\widgets\menu\Menu([
                             'table'=>'examples_shopcategories',
-                            'tpl'=>ROOT.'/app/views/examples/Shop/menu_tpl.php'
+                            'tpl'=>ROOT.'/sections/examples/views/Shop/menu_tpl.php'
                         ])?>
 
                     </div>
@@ -111,7 +111,7 @@
                 <div class="features_items"><!--features_items-->
                     <h2 class="title text-center">Features Items</h2>
                     
-                    <? foreach ($products as $p): ?>
+                    <?php foreach ($products as $p): ?>
                         <div class="col-sm-4">
                             <div class="product-image-wrapper">
                                 <div class="single-products">
@@ -140,12 +140,12 @@
                                 </div>
                             </div>
                         </div>
-                    <? endforeach; ?>
+                    <?php endforeach; ?>
                     
                     <div clas="text-center">
-                        <? if ($pagination->countPages > 1): ?>
+                        <?php if ($pagination->countPages > 1): ?>
                             <?= $pagination ?>
-                        <? endif; ?>
+                        <?php endif; ?>
                     </div>
 
                 </div><!--features_items-->

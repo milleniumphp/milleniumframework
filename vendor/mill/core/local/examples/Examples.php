@@ -15,27 +15,27 @@ class Examples {
     }
 
     public function make() {
-
         $this->folders();
         $this->migrations();
     }
 
     public function folders() {
         $system = ROOT . '/vendor/mill/libs/system';
+        
+        if (!is_dir(ROOT.'/sections/examples/')) mkdir(ROOT.'/sections/examples/');
+        if (!is_dir(ROOT . '/sections/examples/views/')) mkdir(ROOT . '/sections/examples/views/');
+        if (!is_dir(ROOT . '/sections/examples/controllers/')) mkdir(ROOT . '/sections/examples/controllers/');
+        if (!is_dir(ROOT . '/sections/examples/models/')) mkdir(ROOT . '/sections/examples/models/'); 
 
-        $this->copydir($system . '/examples/controllers/', ROOT . '/app/controllers/examples/');
+        $this->copydir($system . '/examples/controllers/', ROOT . '/sections/examples/controllers');
+        
+        $this->copydir($system . '/examples/views/Shop', ROOT . '/sections/examples/views/Shop/');
 
-        $this->copydir($system . '/examples/views/error/examples', ROOT . '/app/views/error/examples/');
-
-        if (!is_dir(ROOT . '/app/views/examples/')) mkdir(ROOT . '/app/views/examples/');
-
-        $this->copydir($system . '/examples/views/examples/Shop', ROOT . '/app/views/examples/Shop/');
-
-        $this->copydir($system . '/examples/views/layouts/examples', ROOT . '/app/views/layouts/examples/');
+        $this->copydir($system . '/examples/views/layouts', ROOT . '/sections/examples/views/layouts/');
 
         copy($system . '/examples/migrations/examples_shopcategories_1_64459388.php', ROOT . '/app/migrations/examples_shopcategories_1_64459388.php');
         copy($system . '/examples/migrations/examples_shopproducts_1_1241795668.php', ROOT . '/app/migrations/examples_shopproducts_1_1241795668.php');
-        copy($system . '/examples/views/examples/index.php', ROOT . '/app/views/examples/index.php');
+        copy($system . '/examples/views/index.php', ROOT . '/sections/examples/views/index.php');
     }
 
     public function migrations() {
@@ -46,7 +46,7 @@ class Examples {
     public function copydir($source, $destination) {
         if (!is_dir($destination)) {
             $oldumask = umask(0);
-            mkdir($destination, 01777);
+            mkdir($destination);
             umask($oldumask);
         }
         $dir_handle = @opendir($source) or die("Unable to open");

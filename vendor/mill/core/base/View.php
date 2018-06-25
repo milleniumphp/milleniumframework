@@ -118,7 +118,7 @@ class View {
              * layout file full path
              * @var string
              */
-            if($this->route['prefix'] === true){
+            if($this->route['prefix']){
                 $file_layout = SECTIONS . "/{$this->route['prefix']}views/layouts/{$this->layout}.php";
             }else{
                 $file_layout = APP . "/views/layouts/{$this->layout}.php";
