@@ -35,9 +35,16 @@ class Db {
     public static $queries = [];
 
     protected function __construct() {
+        //ini_set('extension','php_pdo_sqlite.dll ');
+
         $db = require ROOT . '/config/db.php';
         require LIBS . '/rb.php';
-        \R::setup($db['dsn'], $db['user'], $db['pass']);
+        if($db['type'] == 'sqlite'){
+            \R::setup('sqlite:/tmp/dbfile.txt',$db['user'],$db['pass']);
+        }else{
+            \R::setup($db['dsn'], $db['user'], $db['pass']);
+        }
+
         \R::freeze(true);
     }
 

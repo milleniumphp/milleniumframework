@@ -3,7 +3,7 @@
         <div class="container">
             <h1 class="masthead-heading mb-0">Millenium Framework</h1>
             <h2 class="masthead-subheading mb-0">Will make you happy :)</h2>
-            <a href="https://milleniumframework.github.io" target="_blank" class="btn btn-primary btn-xl rounded-pill mt-5">Documentation</a>
+            <a href="https://milleniumphp.github.io" target="_blank" class="btn btn-primary btn-xl rounded-pill mt-5">Documentation</a>
         </div>
     </div>
     <h4>P.S <code>now you are in <?=__FILE__?></code></h4>
