@@ -59,21 +59,56 @@ abstract class MigrationEditor {
      * @param array $rows rows for table wit params
      */
     public function createTable($table, $rows){
-       /**
-        * if table already exists
-        */
-       if (\R::exec("SHOW TABLES LIKE '{$table}'")) {
-            foreach ($rows as $k => $row) {
-                if (\R::exec("SHOW COLUMNS FROM `{$table}` LIKE '{$k}'")) {
-                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
-                } else {
-                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
-                }
-            }
-        } else {
-            /**
-             * else create a table with columns
-             */
+        \R::fancyDebug();
+        /**
+         * todo
+         */
+        
+        if(\mill\core\Db::$dbtype == 'sqlite'){
+            $this->sqlite_create($table, $rows);
+        }else{
+            
+        }$this->mysql_create($table, $rows);
+        
+        
+        
+
+
+
+
+
+//        if (\R::exec("SELECT name FROM sqlite_master WHERE type='table' AND name='{$table}'")) {
+//            foreach ($rows as $k => $row) {
+//                if (\R::exec("SHOW COLUMNS FROM `{$table}` LIKE '{$k}'")) {
+//                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
+//                } else {
+//                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
+//                }
+//            }
+//        } else {
+//            /**
+//             * else create a table with columns
+//             */
+//            $query = "CREATE TABLE {$table}(";
+//
+//            $i = count($rows);
+//            $a = 0;
+//            foreach ($rows as $k => $row) {
+//                $a++;
+//                $query .= $k . ' ' . $row;
+//                if ($a != $i) {
+//                    $query .= ',';
+//                }
+//            }
+//            $query .= ');';
+//
+//            \R::exec($query);
+//        }
+    }
+    
+    
+    public function sqlite_create($table, $rows){
+        try {
             $query = "CREATE TABLE {$table}(";
 
             $i = count($rows);
@@ -86,9 +121,47 @@ abstract class MigrationEditor {
                 }
             }
             $query .= ');';
+            
+            \R::exec($query);        
+            
+        } catch (\RedBeanPHP\RedException\SQL $e) {
+            
+            foreach ($rows as $k => $row) {
+                
+//                $result = \R::getAll("PRAGMA table_info({$table})");
+//                $s = 0;
+//                foreach ($result as $key => $val){
+//                    if($val['name'] == $key){
+//                        $s = 1;
+//                    }
+//                    
+//                }
 
-            \R::exec($query);
+                    
+                    
+                
+                \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
+                
+                
+//                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
+//                } else {
+//                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
+//                }
+                
+                
+                
+//                if (\R::exec("SHOW COLUMNS FROM `{$table}` LIKE '{$k}'")) {
+//                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
+//                } else {
+//                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
+//                }
+                
+            }
         }
+    }
+    
+    public function mysql_create($table, $row){
+        
     }
     
     /**

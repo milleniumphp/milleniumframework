@@ -1,7 +1,9 @@
 <?php
 return [
-    'dsn' => 'mysql:host=localhost;dbname=millenium;charset=utf8',
+    'type' => 'sqlite', //use sqlite or mysql
+    'host' => 'localhost', // host
+    'dbname' => 'millenium', // database name
+    'charset' => 'utf-8', // default charset
     'user' => 'root', //username
-    'pass' => '', //user password
-    'type' => 'sqlite' //use sqlite or mysql
+    'pass' => '' //user password
 ];

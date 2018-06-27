@@ -29,3 +29,4 @@ Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 Router::add('^$', ['controller'=>'Pages', 'auth'=>true]);
 
 Router::dispatch($query);
+//\R::close();

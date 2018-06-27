@@ -33,16 +33,20 @@ class Db {
      * @var array
      */
     public static $queries = [];
+    /**
+     * database type like sqlite or mysql
+     * @var string 
+     */
+    public static $dbtype;
 
     protected function __construct() {
-        //ini_set('extension','php_pdo_sqlite.dll ');
-
         $db = require ROOT . '/config/db.php';
         require LIBS . '/rb.php';
+        self::$dbtype = $db['type'];
         if($db['type'] == 'sqlite'){
-            \R::setup('sqlite:/tmp/dbfile.txt',$db['user'],$db['pass']);
+            \R::setup('sqlite:'.ROOT.'/tmp/millenium.txt',$db['user'],$db['pass']);
         }else{
-            \R::setup($db['dsn'], $db['user'], $db['pass']);
+            \R::setup("mysql:host={$db['host']};dbname={$db['dbname']};charset={$db['charset']}", $db['user'], $db['pass']);
         }
 
         \R::freeze(true);

@@ -9,14 +9,24 @@ class Variables {
     
     public $type;
     
+    public $dbtype;
+    
     /**
      *
      * @var array simple names for column types
      */
     public $types = [
-        'integer'=>'int',
-        'string'=>'varchar',
-        'enum'=>'ENUM'
+        'mysql'=>[
+            'integer'=>'int',
+            'string'=>'varchar',
+            'enum'=>'ENUM'
+        ],
+        'sqlite'=>[
+            'integer'=>'INTEGER',
+            'string'=>'TEXT',
+            'enum'=>'CHAR'
+        ]
+        
     ];
     
     /**
@@ -37,13 +47,24 @@ class Variables {
      * @var array options names converted to SQL type
      */
     public $optionNames = [
-        'notNull'=> 'NOT NULL',
-        'unique'=>'UNIQUE',
-        'primary'=>'PRIMARY KEY',
-        'increment'=>'AUTO_INCREMENT',
-        'default'=>'DEFAULT '
+        'mysql' => ['notNull' => 'NOT NULL',
+            'unique' => 'UNIQUE',
+            'primary' => 'PRIMARY KEY',
+            'increment' => 'AUTO_INCREMENT',
+            'default' => 'DEFAULT '
+        ],
+        'sqlite' => [
+            'unique' => 'UNIQUE',
+            'primary' => 'PRIMARY KEY',
+            'increment' => 'AUTOINCREMENT',
+            'default' => 'DEFAULT '
+        ]
     ];
     
+    public function __construct() {
+        $this->dbtype = \mill\core\Db::$dbtype;
+    }
+
     /**
      * makes new variable string with options and returnes it
      * @param string $type
@@ -51,18 +72,21 @@ class Variables {
      * @return string query
      */
     public function make($type, $options = []){
-        foreach ($this->types as $k => $n){
+        foreach ($this->types[$this->dbtype] as $k => $n){
             if($k == $type){
                 $this->type = $n;
+                if($k == 'enum' && $this->dbtype == 'sqlite'){
+                    $this->type .= '(1)';
+                }
             }
         }
         foreach ($options as $k => $v){
             $this->options[$k] = $v;
         }
         
-        $this->optionNames['default'] .= $this->options['default'];
+        $this->optionNames[$this->dbtype]['default'] .= $this->options['default'];
         
-        $res = "$this->type({$this->options['length']})";
+        $res = $this->dbtype=='sqlite' ? $this->type : "$this->type($this->options['length'])";
         
         return $this->createQuery($res);
         
@@ -76,7 +100,7 @@ class Variables {
     public function createQuery($res){
         foreach ($this->options as $k =>$n){
             if($n){
-                $res .= ' ' . $this->optionNames[$k];
+                $res .= ' ' . $this->optionNames[$this->dbtype][$k];
             }
             
         }
