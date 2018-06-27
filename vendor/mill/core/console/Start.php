@@ -25,7 +25,7 @@ class Start {
     }
     
     public function examples(){
-        $e = new \mill\core\local\examples\Examples($this->argv);
+        $e = new \mill\core\console\Examples($this->argv);
         $e->make();
     }
 }
