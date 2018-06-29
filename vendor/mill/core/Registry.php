@@ -7,8 +7,14 @@ namespace mill\core;
  * @author Yaroslav Palamarchuk
  */
 class Registry {
-    
+    /*
+     * classes for using
+     */
     public static $objects = [];
+    /**
+     *
+     * @var object
+     */
     protected static $instance;
 
     protected function __construct() {
@@ -17,6 +23,7 @@ class Registry {
             self::$objects[$name] = new $component;
         }
     }
+    
     /**
      * create new self class clone
      * @return object

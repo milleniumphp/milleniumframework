@@ -1,6 +1,6 @@
 <?php
 return [
-    'type' => 'sqlite', //use sqlite or mysql
+    'type' => 'mysql', //use sqlite or mysql
     'host' => 'localhost', // host
     'dbname' => 'millenium', // database name
     'charset' => 'utf-8', // default charset
