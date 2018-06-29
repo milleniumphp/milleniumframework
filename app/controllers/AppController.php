@@ -2,6 +2,8 @@
 namespace app\controllers;
 
 use \mill\core\base\Controller;
+use mill\core\App;
+use \mill\widgets\language\Language;
 /**
  * default controller extends base controller
  * if you need functional in all controller just edit this one
@@ -13,6 +15,9 @@ class AppController extends Controller{
     public function __construct($route) {
         parent::__construct($route);
         new \app\models\Main;
+        App::$bin->setProperty('langs', Language::getLanguages());
+        App::$bin->setProperty('lang', Language::getLanguage(App::$bin->getProperty('langs')));
+        debug(App::$bin->getProperties());
     }
    
     

@@ -14,7 +14,6 @@ class PagesController extends AppController{
      * index base page action 
      */
     public function indexAction() {  
-        debug(App::$bin->getProperties());
         $this->metatags['title'] = 'Main Page';
     }
 

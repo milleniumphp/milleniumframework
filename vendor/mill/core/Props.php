@@ -13,8 +13,8 @@ class Props {
         self::$properties[$name] = $value;
     }
     
-    public function getProperty($name, $value){
-        if (!isset(self::$properties[$name])) {
+    public function getProperty($name){
+        if (isset(self::$properties[$name])) {
             return self::$properties[$name];
         }
         return null;

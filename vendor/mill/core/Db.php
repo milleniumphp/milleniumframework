@@ -46,7 +46,7 @@ class Db {
         if($db['type'] == 'sqlite'){
             \R::setup('sqlite:'.ROOT.'/tmp/millenium.txt',$db['user'],$db['pass']);
         }else{
-            \R::setup("mysql:host={$db['host']};dbname={$db['dbname']};charset={$db['charset']}", $db['user'], $db['pass']);
+            \R::setup("mysql:host={$db['host']};dbname={$db['dbname']};", $db['user'], $db['pass']);
         }
 
         \R::freeze(true);
