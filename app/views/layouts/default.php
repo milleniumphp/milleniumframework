@@ -29,6 +29,7 @@ use \mill\html\Url;
                     <li class="active"><a href="<?=Url::$baseUrl?>">Home</a></li>
                     <li class=""><a href="<?=Url::to('/pages/about')?>">About</a></li>
                     <li class=""><a href="<?=Url::to('/pages/contacts')?>">Contacts</a></li>
+                    <li class=""><?php new mill\widgets\language\Language()?></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(\mill\core\App::$app->user->isGuest()):?>

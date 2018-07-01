@@ -1,6 +1,6 @@
 <?php
 namespace mill\widgets\language;
-
+use mill\core\App;
 /**
  * Description of Language
  *
@@ -18,7 +18,9 @@ class Language {
     }
     
     protected function run(){
-        
+        $this->languages = App::$bin->getProperty('langs');
+        $this->language = App::$bin->getProperty('lang');
+        echo $this->getHtml();
     }
     
     public static function getLanguages(){
@@ -37,7 +39,9 @@ class Language {
     }
     
     protected function getHtml(){
-        
+        ob_start();
+        require_once $this->tpl;
+        return ob_get_clean();
     }
     
 }

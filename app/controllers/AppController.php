@@ -17,7 +17,6 @@ class AppController extends Controller{
         new \app\models\Main;
         App::$bin->setProperty('langs', Language::getLanguages());
         App::$bin->setProperty('lang', Language::getLanguage(App::$bin->getProperty('langs')));
-        debug(App::$bin->getProperties());
     }
    
     
