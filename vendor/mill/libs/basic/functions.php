@@ -19,3 +19,7 @@ function chars($str){
 function hashstring($v){
     return password_hash($v, PASSWORD_DEFAULT);
 }
+
+function __($key){
+    echo mill\core\base\Language::get($key);
+}

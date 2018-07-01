@@ -27,7 +27,7 @@ use \mill\html\Url;
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?=Url::$baseUrl?>">Home</a></li>
-                    <li class=""><a href="<?=Url::to('/pages/about')?>">About</a></li>
+                    <li class=""><a href="<?=Url::to('/pages/about')?>"><?php __('about') ?></a></li>
                     <li class=""><a href="<?=Url::to('/pages/contacts')?>">Contacts</a></li>
                     <li class=""><?php new mill\widgets\language\Language()?></li>
                 </ul>
