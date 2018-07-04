@@ -69,41 +69,7 @@ abstract class MigrationEditor {
         }else{
             
         }$this->mysql_create($table, $rows);
-        
-        
-        
 
-
-
-
-
-//        if (\R::exec("SELECT name FROM sqlite_master WHERE type='table' AND name='{$table}'")) {
-//            foreach ($rows as $k => $row) {
-//                if (\R::exec("SHOW COLUMNS FROM `{$table}` LIKE '{$k}'")) {
-//                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
-//                } else {
-//                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
-//                }
-//            }
-//        } else {
-//            /**
-//             * else create a table with columns
-//             */
-//            $query = "CREATE TABLE {$table}(";
-//
-//            $i = count($rows);
-//            $a = 0;
-//            foreach ($rows as $k => $row) {
-//                $a++;
-//                $query .= $k . ' ' . $row;
-//                if ($a != $i) {
-//                    $query .= ',';
-//                }
-//            }
-//            $query .= ');';
-//
-//            \R::exec($query);
-//        }
     }
     
     
@@ -128,40 +94,40 @@ abstract class MigrationEditor {
             
             foreach ($rows as $k => $row) {
                 
-//                $result = \R::getAll("PRAGMA table_info({$table})");
-//                $s = 0;
-//                foreach ($result as $key => $val){
-//                    if($val['name'] == $key){
-//                        $s = 1;
-//                    }
-//                    
-//                }
-
-                    
-                    
-                
                 \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
-                
-                
-//                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
-//                } else {
-//                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
-//                }
-                
-                
-                
-//                if (\R::exec("SHOW COLUMNS FROM `{$table}` LIKE '{$k}'")) {
-//                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
-//                } else {
-//                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
-//                }
                 
             }
         }
     }
     
     public function mysql_create($table, $row){
-        
+        if (\R::exec("SELECT name FROM sqlite_master WHERE type='table' AND name='{$table}'")) {
+            foreach ($rows as $k => $row) {
+                if (\R::exec("SHOW COLUMNS FROM `{$table}` LIKE '{$k}'")) {
+                    \R::exec("ALTER TABLE `{$table}` MODIFY {$k} {$row}");
+                } else {
+                    \R::exec("ALTER TABLE {$table} ADD {$k} {$row}");
+                }
+            }
+        } else {
+            /**
+             * else create a table with columns
+             */
+            $query = "CREATE TABLE {$table}(";
+
+            $i = count($rows);
+            $a = 0;
+            foreach ($rows as $k => $row) {
+                $a++;
+                $query .= $k . ' ' . $row;
+                if ($a != $i) {
+                    $query .= ',';
+                }
+            }
+            $query .= ');';
+
+            \R::exec($query);
+        }
     }
     
     /**

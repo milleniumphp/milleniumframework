@@ -21,7 +21,8 @@
         "phpmailer/phpmailer": "@dev",
         "guzzlehttp/guzzle": "@dev",
         "ircmaxell/random-lib": "@dev",
-        "vlucas/valitron": "@dev"
+        "vlucas/valitron": "@dev",
+        "robmorgan/phinx": "^0.10.3"
     },
     "autoload": {
         "psr-4": {

@@ -1,0 +1,4 @@
+[2018-07-04 21:24:10] Error text: Could not connect to database (millenium). | File: D:\OpenServer\domains\milleniumframework\vendor\mill\libs\rb.php, | Line: 738
+=============
+[2018-07-04 21:24:16] Error text: Page not found | File: D:\OpenServer\domains\milleniumframework\vendor\mill\core\Router.php, | Line: 150
+=============
