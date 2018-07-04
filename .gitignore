@@ -24,6 +24,9 @@ Thumbs.db
 
 # composer vendor dir
 /vendor
+
+# composer vendor dir
+/vendor_1
 # cubrid install dir
 /cubrid
 
