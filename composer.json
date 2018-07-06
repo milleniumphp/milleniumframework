@@ -18,6 +18,7 @@
         "docs": "https://milleniumframework.github.io"
     },
     "require": {
+        "superhabber/millcore": "latest",
         "phpmailer/phpmailer": "@dev",
         "guzzlehttp/guzzle": "@dev",
         "ircmaxell/random-lib": "@dev",
