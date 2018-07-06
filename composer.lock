@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd0e6dbe78f42130a00514995eeb974f",
+    "content-hash": "d49cd7ff41532711aa0e1102dc6e160b",
     "packages": [
         {
             "name": "cakephp/cache",
@@ -299,16 +299,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "dev-master",
+            "version": "6.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "003757426cdd50fbad1c34cdbcc8a55f70a4fe8b"
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/003757426cdd50fbad1c34cdbcc8a55f70a4fe8b",
-                "reference": "003757426cdd50fbad1c34cdbcc8a55f70a4fe8b",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
                 "shasum": ""
             },
             "require": {
@@ -360,7 +360,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-06-23T21:34:47+00:00"
+            "time": "2018-04-22T15:46:56+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -480,7 +480,7 @@
         },
         {
             "name": "ircmaxell/random-lib",
-            "version": "dev-master",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ircmaxell/RandomLib.git",
@@ -581,16 +581,16 @@
         },
         {
             "name": "phpmailer/phpmailer",
-            "version": "dev-master",
+            "version": "v6.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPMailer/PHPMailer.git",
-                "reference": "46869d46b97cc699e2a37f3719d6beb982962820"
+                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/46869d46b97cc699e2a37f3719d6beb982962820",
-                "reference": "46869d46b97cc699e2a37f3719d6beb982962820",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/cb3ea134d4d3729e7857737d5f320cce9caf4d32",
+                "reference": "cb3ea134d4d3729e7857737d5f320cce9caf4d32",
                 "shasum": ""
             },
             "require": {
@@ -643,7 +643,7 @@
                 }
             ],
             "description": "PHPMailer is a full-featured email creation and transfer class for PHP",
-            "time": "2018-06-25T09:22:50+00:00"
+            "time": "2018-03-27T13:49:45+00:00"
         },
         {
             "name": "psr/http-message",
@@ -815,6 +815,34 @@
                 "phinx"
             ],
             "time": "2018-06-22T12:02:01+00:00"
+        },
+        {
+            "name": "superhabber/millcore",
+            "version": "v0.0.01",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/milleniumphp/millcore.git",
+                "reference": "6530e8491a38facf690c296ed148261daf8b9eba"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/milleniumphp/millcore/zipball/6530e8491a38facf690c296ed148261daf8b9eba",
+                "reference": "6530e8491a38facf690c296ed148261daf8b9eba",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yaroslav Palamarchuk",
+                    "email": "superhabber@gmail.com"
+                }
+            ],
+            "description": "core of milleniumphp framework",
+            "time": "2018-07-06T16:37:02+00:00"
         },
         {
             "name": "symfony/config",
@@ -1230,7 +1258,7 @@
         },
         {
             "name": "vlucas/valitron",
-            "version": "dev-master",
+            "version": "v1.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vlucas/valitron.git",
@@ -1281,12 +1309,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "phpmailer/phpmailer": 20,
-        "guzzlehttp/guzzle": 20,
-        "ircmaxell/random-lib": 20,
-        "vlucas/valitron": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
