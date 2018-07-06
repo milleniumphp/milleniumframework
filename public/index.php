@@ -1,7 +1,8 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__.'/../vendor/mill/libs/basic/functions.php';
-require __DIR__.'/../vendor/mill/libs/basic/aliases.php';
+require __DIR__.'/../vendor/superhabber/millcore/libs/basic/aliases.php';
+require LIBS .'/basic/functions.php';
+
 
 use mill\core\Router;
 new mill\core\App;
