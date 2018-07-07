@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f471e22817b78dcb6c3d5c6cfc742e91",
+    "content-hash": "d49cd7ff41532711aa0e1102dc6e160b",
     "packages": [
         {
             "name": "cakephp/cache",
@@ -822,12 +822,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/milleniumphp/millcore.git",
-                "reference": "217a029561619750df0688c28b7bd22bc8038003"
+                "reference": "f098ed865551a8b3363db81ec131042b361f2916"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/milleniumphp/millcore/zipball/217a029561619750df0688c28b7bd22bc8038003",
-                "reference": "217a029561619750df0688c28b7bd22bc8038003",
+                "url": "https://api.github.com/repos/milleniumphp/millcore/zipball/f098ed865551a8b3363db81ec131042b361f2916",
+                "reference": "f098ed865551a8b3363db81ec131042b361f2916",
                 "shasum": ""
             },
             "type": "library",
@@ -842,7 +842,7 @@
                 }
             ],
             "description": "core of milleniumphp framework",
-            "time": "2018-07-06T17:23:38+00:00"
+            "time": "2018-07-07T14:13:32+00:00"
         },
         {
             "name": "symfony/config",

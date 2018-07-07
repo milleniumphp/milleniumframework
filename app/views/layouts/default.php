@@ -1,6 +1,4 @@
-<?php
-use \mill\html\Url;
-?>
+<?php use \mill\html\Url; ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -26,40 +24,31 @@ use \mill\html\Url;
                     <a class="navbar-brand" href="<?=Url::base()?>">Millenium Framework</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="<?=Url::$baseUrl?>">Home</a></li>
-                    <li class=""><a href="<?=Url::to('/pages/about')?>"><?php __('about') ?></a></li>
-                    <li class=""><a href="<?=Url::to('/pages/contacts')?>">Contacts</a></li>
-                    <li class=""><?php new mill\widgets\language\Language()?></li>
+                    <li>
+                        <a href="<?=Url::$baseUrl?>"> <?php __('home') ?> </a>
+                    </li>
+                    <li>
+                        <a href="<?=Url::to('/pages/about')?>"> <?php __('about') ?> </a>
+                    </li>
+                    <li>
+                        <a href="<?=Url::to('/pages/contacts')?>"> <?php __('contacts') ?> </a>
+                    </li>
+                    <li>
+                        <a href="" onclick="return false;"><?php new mill\widgets\language\Language()?></a>
+                    </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <?php if(\mill\core\App::$app->user->isGuest()):?>
-                        <li><a href="<?=Url::to('/pages/signup')?>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="<?=Url::to('/pages/login')?>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="<?=Url::to('/pages/signup')?>"><span class="glyphicon glyphicon-user"></span> <?php __('signup') ?> </a></li>
+                        <li><a href="<?=Url::to('/pages/login')?>"><span class="glyphicon glyphicon-log-in"></span> <?php __('login') ?> </a></li>
                     <?php else:?>
-                        <li><a href="<?=Url::to('/pages/logout')?>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <li><a href="<?=Url::to('/pages/logout')?>"><span class="glyphicon glyphicon-log-out"></span> <?php __('logout') ?> </a></li>
                     <?php endif;?>
                 </ul>
             </div>
-        </nav>
+        </nav> 
         
-        <div class="container" style="margin-top:60px">
-            <? if (isset($_SESSION['key'])): ?>
-                <div class="alert alert-danger">
-                    <?=$_SESSION['key'];unset($_SESSION['key'])?>
-                </div>
-            <? endif; ?>
-
-            <? if (isset($_SESSION['success'])): ?>
-                <div class="alert alert-success">
-                    <?=$_SESSION['success'];unset($_SESSION['success'])?>
-                </div>
-            <? endif; ?>
-
-            <?unset($_SESSION['form_data'])?>
-        </div>
-        
-        
-        <div class="container" style="margin-top:60px">
+        <div class="container" style="margin-top:90px">
             <?= $content ?>
         </div>
         
