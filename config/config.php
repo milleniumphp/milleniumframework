@@ -6,8 +6,10 @@ $config = [
         'request'=> '\mill\core\base\Request',
         'session' => '\mill\core\base\Session'
     ],
+    
     'url'=>[
         'baseUrl'=>'/'
-    ]
+    ],
+
 ];
 return $config;

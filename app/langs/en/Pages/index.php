@@ -1,6 +1,6 @@
-<?php
-
+<?php 
 return [
-    'test' => 'Test string',
     
 ];
+
+?>

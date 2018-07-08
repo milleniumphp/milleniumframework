@@ -4,11 +4,44 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d49cd7ff41532711aa0e1102dc6e160b",
+    "content-hash": "8d21784e51cd4eaf079480912e13d1b2",
     "packages": [
         {
+            "name": "asika/minify",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/asika32764/minify.git",
+                "reference": "48931e1c45ecac564d55a919f7b553599c4fc0a7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/asika32764/minify/zipball/48931e1c45ecac564d55a919f7b553599c4fc0a7",
+                "reference": "48931e1c45ecac564d55a919f7b553599c4fc0a7",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Asika\\Minifier\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Simon Asika",
+                    "email": "asika32764@gmail.com"
+                }
+            ],
+            "description": "Simple CSS & JS minify package",
+            "time": "2017-05-17T16:22:19+00:00"
+        },
+        {
             "name": "cakephp/cache",
-            "version": "3.6.6",
+            "version": "3.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/cache.git",
@@ -51,7 +84,7 @@
         },
         {
             "name": "cakephp/collection",
-            "version": "3.6.6",
+            "version": "3.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/collection.git",
@@ -97,16 +130,16 @@
         },
         {
             "name": "cakephp/core",
-            "version": "3.6.6",
+            "version": "3.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/core.git",
-                "reference": "ad1ddaf85c88332392d999db4993ff1fb5429bea"
+                "reference": "6b9a318ba91fad450ecfc42b303fbbc2fb1c15bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/core/zipball/ad1ddaf85c88332392d999db4993ff1fb5429bea",
-                "reference": "ad1ddaf85c88332392d999db4993ff1fb5429bea",
+                "url": "https://api.github.com/repos/cakephp/core/zipball/6b9a318ba91fad450ecfc42b303fbbc2fb1c15bd",
+                "reference": "6b9a318ba91fad450ecfc42b303fbbc2fb1c15bd",
                 "shasum": ""
             },
             "require": {
@@ -142,20 +175,20 @@
                 "core",
                 "framework"
             ],
-            "time": "2018-06-21T02:41:27+00:00"
+            "time": "2018-07-03T20:27:53+00:00"
         },
         {
             "name": "cakephp/database",
-            "version": "3.6.6",
+            "version": "3.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/database.git",
-                "reference": "a7200722b2fbf22502700b9d8515581007616a77"
+                "reference": "332c82c40c3e28fdbdf723b4ef822c1b6a10fd23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cakephp/database/zipball/a7200722b2fbf22502700b9d8515581007616a77",
-                "reference": "a7200722b2fbf22502700b9d8515581007616a77",
+                "url": "https://api.github.com/repos/cakephp/database/zipball/332c82c40c3e28fdbdf723b4ef822c1b6a10fd23",
+                "reference": "332c82c40c3e28fdbdf723b4ef822c1b6a10fd23",
                 "shasum": ""
             },
             "require": {
@@ -192,11 +225,11 @@
                 "database abstraction",
                 "pdo"
             ],
-            "time": "2018-06-13T23:11:10+00:00"
+            "time": "2018-07-05T01:30:21+00:00"
         },
         {
             "name": "cakephp/datasource",
-            "version": "3.6.6",
+            "version": "3.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/datasource.git",
@@ -246,7 +279,7 @@
         },
         {
             "name": "cakephp/utility",
-            "version": "3.6.6",
+            "version": "3.6.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cakephp/utility.git",
