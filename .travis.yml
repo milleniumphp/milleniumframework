@@ -37,10 +37,6 @@ sudo: false
 # Disable x-debug to speed up things
 before_install: phpenv config-rm xdebug.ini
 
-# Install packages those will be required during build
-install:
-  - composer install --no-interaction
-
 #after_script:
 
 #after_success:
