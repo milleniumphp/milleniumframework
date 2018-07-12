@@ -33,7 +33,8 @@ matrix:
 # We don't want to run linux commands as super user
 # false means Travis will run this in a container
 sudo: false
-
+before_script:
+    - composer install
 # Disable x-debug to speed up things
 before_install: phpenv config-rm xdebug.ini
 
