@@ -8,8 +8,8 @@ actor: AcceptanceTester
 modules:
     enabled:
         - PhpBrowser:
-            url: 'https://localhost:8080/'
+            url: 'http://localhost:8080/'
         - \Helper\Acceptance
     config:
         PhpBrowser:
-            url: 'https://localhost:8080/'
+            url: 'http://localhost:8080/'
