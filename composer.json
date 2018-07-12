@@ -25,6 +25,11 @@
         "vlucas/valitron": "~1.4.3",
         "robmorgan/phinx": "^0.10.3"
     },
+     "require-dev": {
+        "codeception/base": "^2.2.3",
+        "codeception/verify": "~0.3.1",
+        "codeception/specify": "~0.4.3"
+    },
     "autoload": {
         "psr-4": {
             "mill\\": "vendor/superhabber/millcore",
