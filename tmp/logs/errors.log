@@ -1,2 +1,6 @@
 [2018-07-12 12:49:53] Error text: Page not found | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\core\Router.php, | Line: 149
 =============
+[2018-07-12 16:02:06] Error text: key() expects parameter 1 to be array, null given | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\widgets\language\Language.php, | Line: 59
+=============
+[2018-07-12 16:04:00] Error text: Array to string conversion | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\widgets\language\Language.php, | Line: 56
+=============
