@@ -6,7 +6,10 @@
 
 actor: AcceptanceTester
 modules:
+    enabled:
+        - PhpBrowser:
+            url: 'http://localhost:8000'
+        - \Helper\Acceptance
     config:
-        WPWebDriver:
-            url: 'http://127.0.0.1:8888'
-            browser: phantomjs
+       PhpBrowser:
+          url: 'http://localhost:8000'
