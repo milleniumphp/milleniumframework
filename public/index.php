@@ -22,8 +22,7 @@ define('DEBUGBAR', 0);
  * 1 - maximum optimization[deleting all spaces]
  */
 define('GZIP', 1);
-
-$query = rtrim($_SERVER['QUERY_STRING'], '/');
+$query = ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/');
 
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 

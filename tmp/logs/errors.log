@@ -4,3 +4,37 @@
 =============
 [2018-07-12 16:04:00] Error text: Array to string conversion | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\widgets\language\Language.php, | Line: 56
 =============
+[2018-07-12 16:35:33] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:36:13] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:36:47] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:37:33] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:40] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:40] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:41] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:42] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:43] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:43] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:44] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:38:45] Error text: Undefined index: QUERY_STRING | File: D:\OpenServer\domains\milleniumframework\public\index.php, | Line: 26
+=============
+[2018-07-12 16:39:30] Error text: Page not found | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\core\Router.php, | Line: 149
+=============
+[2018-07-12 16:39:56] Error text: Page not found | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\core\Router.php, | Line: 149
+=============
+[2018-07-12 16:43:20] Error text: controller \app\controllers\PublicController not found | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\core\Router.php, | Line: 143
+=============
+[2018-07-12 16:43:36] Error text: Page not found | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\core\Router.php, | Line: 149
+=============
+[2018-07-12 16:43:50] Error text: Page not found | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\core\Router.php, | Line: 149
+=============
