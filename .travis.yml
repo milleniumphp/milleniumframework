@@ -38,8 +38,6 @@ before_script:
     - composer require superhabber/millcore
     
 # Disable x-debug to speed up things
-install: 
-    - composer update
 
 script:
   - |
