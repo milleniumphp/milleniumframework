@@ -1,7 +1,7 @@
 <header class="masthead text-center text-white">
     <div class="masthead-content">
         <div class="container">
-            <h1 class="masthead-heading mb-0">Millenium Framework</h1>
+            <h1 class="masthead-heading mb-0 title">Millenium Framework</h1>
             <h2 class="masthead-subheading mb-0">Will make you happy :)</h2>
             <a href="https://milleniumphp.github.io" target="_blank" class="btn btn-primary btn-xl rounded-pill mt-5">Documentation</a>
         </div>

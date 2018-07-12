@@ -17,7 +17,6 @@
         <![endif]-->
     </head>
     <body>
-
         <nav class="navbar navbar-inverse navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -25,13 +24,13 @@
                 </div>
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="<?=Url::$baseUrl?>"> <?php __('home') ?> </a>
+                        <a href="<?=Url::$baseUrl?>"><?php __('home') ?></a>
                     </li>
                     <li>
-                        <a href="<?=Url::to('/pages/about')?>"> <?php __('about') ?> </a>
+                        <a href="<?=Url::to('/pages/about')?>"><?php __('about') ?></a>
                     </li>
                     <li>
-                        <a href="<?=Url::to('/pages/contacts')?>"> <?php __('contacts') ?> </a>
+                        <a href="<?=Url::to('/pages/contacts')?>"><?php __('contacts') ?></a>
                     </li>
                     <li>
                         <a href="" onclick="return false;"><?php new mill\widgets\language\Language()?></a>
