@@ -3,7 +3,7 @@ class HomeCest
 {
     public function ensureThatHomePageWorks(AcceptanceTester $I)
     {
-        $I->amOnPage('/');        
+        $I->amOnPage('/pages/index');        
         $I->see('Millenium Framework');
         
         $I->seeLink('About us');
