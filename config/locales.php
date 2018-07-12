@@ -2,11 +2,11 @@
 return [
     'ru' => [
         'title' => 'Русский',
-        'base' => 1
+        'base' => 0
     ],
     'en' => [
         'title' => 'English',
-        'base' => 0
+        'base' => 1
     ]
        
 ];
