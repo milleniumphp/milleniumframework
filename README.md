@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/milleniumphp/milleniumframework.svg?branch=master)](https://travis-ci.org/milleniumphp/milleniumframework)
 [![Build Status](https://img.shields.io/packagist/dt/superhabber/mill.svg)](https://packagist.org/packages/superhabber/mill)
 [![Latest Stable Version](https://img.shields.io/packagist/v/superhabber/mill.svg)](https://packagist.org/packages/superhabber/mill)
+[![License](https://poser.pugx.org/superhabber/mill/license.svg)](https://packagist.org/packages/superhabber/mill)
 #
 
 simple and modern framework
