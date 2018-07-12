@@ -36,7 +36,8 @@ sudo: false
 
 # Disable x-debug to speed up things
 before_install: phpenv config-rm xdebug.ini
-
+script:
+  - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 #after_script:
 
 #after_success:
