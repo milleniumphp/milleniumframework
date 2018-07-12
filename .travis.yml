@@ -40,7 +40,7 @@ install: composer update
 
 script:
   - |
-    php -S localhost:8080 -t public/
+    php -S localhost:8080 -t public > /dev/null 2>&1 &
     vendor/bin/codecept run
 
 #after_success:
