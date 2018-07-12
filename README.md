@@ -1,5 +1,7 @@
 # Millenium PHP framework
 
+# [![Build Status](https://travis-ci.org/milleniumphp/milleniumframework.svg?branch=master)](https://travis-ci.org/milleniumphp/milleniumframework)
+
 simple and modern framework
 
 ## Getting Started
