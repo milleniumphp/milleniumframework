@@ -36,11 +36,9 @@ sudo: false
 before_script:
     - composer install
 # Disable x-debug to speed up things
-before_install: phpenv config-rm xdebug.ini
+install: composer install
 
-script:
-  - ./vendor/bin/phpunit
-#after_script:
+script: ./vendor/bin/phpunit
 
 #after_success:
 
