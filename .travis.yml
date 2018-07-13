@@ -1,11 +1,9 @@
-# Config file for https://travis-ci.org/
-# Validate this file here - http://lint.travis-ci.org/
 
-# Tell Travis CI we are using PHP
 language: php
 
 # The platforms you wants to test on
 dist: trusty
+
 os:
   - linux
 
@@ -22,6 +20,7 @@ git:
 # Define the php versions against we want to test our code
 php:
   - 5.6
+  - 7.0
   - 7.1
 
 matrix:
@@ -33,20 +32,14 @@ install:
     - composer update
  
 sudo: false
+
 before_script:
     - composer install
-    
-# Disable x-debug to speed up things
 
 script:
   - |
     php -S localhost:8000 -t public > /dev/null 2>&1 &
     vendor/bin/codecept run
-
-#after_success:
-
-#after_failure:
-
 
 # Tell Travis CI to monitor only 'master' branch
 branches:
