@@ -8,7 +8,7 @@ function dirname_r($path, $count=1){
 }
 
 define('WWW', dirname_r(__DIR__, 4).'/public');
-define('CORE', dirname_r(__DIR__, 4).'/vendor/superhabber/millcore/core');
+define('CORE', dirname_r(__DIR__, 4).'/vendor/superhabber/core');
 define('ROOT', dirname_r(__DIR__, 4));
 define('APP', dirname_r(__DIR__, 4). '/app');
 define('SECTIONS', dirname_r(__DIR__, 4). '/sections');

@@ -1,7 +1,7 @@
 <h2>Login</h2>
-<?php if($session->alert):?>
+<?php if(isset($session->data['error'])):?>
 <div class="alert alert-danger">
-    <?php echo $session->alert['login']; unset($session->alert['login'])?>
+    <?php echo $session->data('error') ?>
 </div>
 <?php endif;?>
 <div class="row">
@@ -34,4 +34,3 @@
         
     </div>
 </div>
-<?php unset($session->alert)?>

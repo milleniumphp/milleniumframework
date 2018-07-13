@@ -1,2 +1,64 @@
 [2018-07-13 21:17:20] Error text: Cannot modify header information - headers already sent by (output started at D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\libs\basic\functions.php:7) | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\libs\basic\functions.php, | Line: 19
 =============
+[2018-07-13 22:26:38] Error text: Cannot use object of type mill\core\base\Session as array | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:26:38] Error text: require(D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php): failed to open stream: No such file or directory | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:26:38] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:26:38] Error text: Cannot use object of type mill\core\base\Session as array | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:26:38] Error text: require(D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php): failed to open stream: No such file or directory | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:26:38] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:26:53] Error text: Cannot use object of type mill\core\base\Session as array | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:26:53] Error text: require(D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php): failed to open stream: No such file or directory | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:26:53] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:41:05] Error text: Undefined index: error | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:41:05] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:41:08] Error text: Undefined index: error | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:41:08] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:41:09] Error text: Undefined index: error | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:41:09] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:41:59] Error text: Undefined index: error | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:41:59] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:43:08] Error text: Undefined index: error | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:43:08] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 22:43:19] Error text: Undefined index: error | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 22:43:19] Error text: require(): Failed opening required 'D:\OpenServer\domains\milleniumframework/vendor/superhabber/millcore/core/local/errors/dev.php' (include_path='.;d:/openserver/modules/php/PHP-7.1;d:/openserver/modules/php/PHP-7.1/PEAR/pear') | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\ErrorHandler.php, | Line: 68
+=============
+[2018-07-13 23:10:54] Error text: Undefined index: error | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 2
+=============
+[2018-07-13 23:11:37] Error text: Use of undefined constant php - assumed 'php' | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 4
+=============
+[2018-07-13 23:11:39] Error text: Use of undefined constant php - assumed 'php' | File: D:\OpenServer\domains\milleniumframework\app\views\Pages\login.php, | Line: 4
+=============
+[2018-07-13 23:19:41] Error text: Accessing static property app\models\LoginForm::$errors as non static | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\base\Model.php, | Line: 67
+=============
+[2018-07-13 23:19:57] Error text: Accessing static property app\models\LoginForm::$errors as non static | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\base\Model.php, | Line: 67
+=============
+[2018-07-13 23:19:58] Error text: Accessing static property app\models\LoginForm::$errors as non static | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\base\Model.php, | Line: 67
+=============
+[2018-07-13 23:20:56] Error text: Invalid argument supplied for foreach() | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\base\Model.php, | Line: 74
+=============
+[2018-07-13 23:21:30] Error text: Undefined index: login | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\base\User.php, | Line: 43
+=============
+[2018-07-13 23:21:40] Error text: Invalid argument supplied for foreach() | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\base\Model.php, | Line: 74
+=============
+[2018-07-13 23:21:55] Error text: Undefined index: typic | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\core\base\User.php, | Line: 43
+=============

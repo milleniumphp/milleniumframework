@@ -2,10 +2,6 @@
 
 namespace mill\core;
 
-use mill\core\Registry;
-use mill\core\Props;
-use mill\core\ErrorHandler;
-
 /**
  * Description of App
  * Main Class for Application

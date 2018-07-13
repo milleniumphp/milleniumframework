@@ -26,7 +26,7 @@ class User {
         return false;
     }
     
-    public function login($login, $password, $data = []){
+    public function login($login, $password, $data = [], $options = []){
         if($login && $password){
             if(isset($data)){
                 foreach ($data as $k => $v){
@@ -40,6 +40,7 @@ class User {
                         return true;
                     }
                 }
+                Model::$errors['type'][] = isset($options['wrong']) ?  $options['wrong'] : 'Incorrect data entered';
                 return false;
             }
             $user = \R::findOne('user', 'login = ? LIMIT 1', [$login]);
@@ -56,6 +57,7 @@ class User {
             }
         }
         return false;
+        Model::$errors['type'][] = isset($options['wrong']) ?  $options['wrong'] : 'Incorrect data entered';
     }
     
     public function logout($redirect){

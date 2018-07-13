@@ -11,21 +11,22 @@ class LoginFormCest
         $I->see('Login', 'h2');
     }
     
-    public function loginWithEmptyCredentials(\FunctionalTester $I)
+    public function loginWithEmptyData(\FunctionalTester $I)
     {
         $I->submitForm('form#login-form', []);
         $I->expectTo('see validations errors');
-        $I->see('bad');
+        $I->see('Login is required');
+        $I->see('Password is required');
     }
 
-    public function loginWithWrongCredentials(\FunctionalTester $I)
+    public function loginWithWrongData(\FunctionalTester $I)
     {
         $I->submitForm('form#login-form', [
             'login' => 'wrong',
             'password' => 'wrong',
         ]);
-        $I->see('bad');
         $I->expectTo('see validations errors');
+        $I->see('Incorrect data entered');
     }
     
     public function loginSuccessfully(\FunctionalTester $I)

@@ -3,11 +3,11 @@
 namespace app\models;
 
 /**
- * Description of User
+ * Description of Sign Up Form Base Class
  *
  * @author Yaroslav Palamarchuk
  */
-class User extends \mill\core\base\Model {
+class SignUpForm extends \mill\core\base\Model {
 
     public $attributes = [
         'login' => '',
@@ -43,7 +43,5 @@ class User extends \mill\core\base\Model {
         }
         return true;
     }
-    
-
 
 }

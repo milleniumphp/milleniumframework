@@ -41,7 +41,7 @@ class Model {
      * registration errors
      * @var array
      */
-    public $errors = [];
+    public static $errors = [];
 
     /**
      * default instance
@@ -64,19 +64,19 @@ class Model {
         if ($v->validate()) {
             return true;
         }
-        $this->errors = $v->errors();
+        self::$errors = $v->errors();
         return false;
     }
 
-    public function getErrors() {
+    public function getErrors($session) {
         $errors = '<ul>';
-        foreach ($this->errors as $error) {
+        foreach (self::$errors as $error) {
             foreach ($error as $item) {
-                $errors .= "<li>$item</li>";
+                $errors .= "<li>{$item}</li>";
             }
         }
         $errors .= '</ul>';
-        $_SESSION['error'] = $errors;
+        $session->data['error'] = $errors;
     }
 
     /**

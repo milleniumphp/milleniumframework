@@ -47,7 +47,7 @@ class PagesController extends AppController{
         /**
         * create new user
         */
-        $user = new \app\models\User();
+        $user = new \app\models\SignUpForm();
         /**
          * make new session for alerting
          */
@@ -132,20 +132,20 @@ class PagesController extends AppController{
                 'password' => 'user'
             ]
         ];
-        $user = new \app\models\User();
+        $user = new \app\models\LoginForm();
         if(!empty($this->request->post)){
             /**
              * make new user
              */
-            
-            if($user->login($data)){
+            if($user->validate($this->request->post) && $user->login($data)){
                 /**
                  * maek new alert
                  */
-                $session->alert('login', 'ok');
                 Url::redirect('/');
-            }
-            $session->alert('login', 'bad');
+            }else{
+                $user->getErrors($session);
+            } 
+            
         }
        /**
         * put the variables to the view file
