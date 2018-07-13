@@ -22,6 +22,26 @@ composer create-project superhabber/mill <folder_name>
 ## Documentation
 
 [documentation of framework](https://milleniumphp.github.io/documentation)
+## Testing
+
+-------
+
+Tests are located in `tests` directory. They are developed with [Codeception PHP Testing Framework](http://codeception.com/).
+By default there are 3 test suites:
+
+- `unit`
+- `functional`
+- `acceptance`
+
+Tests can be executed by running
+
+```
+vendor/bin/codecept run
+```
+
+The command above will execute unit and functional tests. Unit tests are testing the system components, while functional
+tests are for testing user interaction. Acceptance tests are disabled by default as they require additional setup since
+they perform testing in real browser. 
 
 ## Main site
 
