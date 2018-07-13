@@ -1,6 +1,6 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__.'/../vendor/superhabber/millcore/libs/basic/aliases.php';
+require __DIR__.'/../vendor/superhabber/libs/basic/aliases.php';
 require LIBS .'/basic/functions.php';
 
 
