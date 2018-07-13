@@ -12,5 +12,6 @@ modules:
         - \Helper\Acceptance
     config:
        PhpBrowser:
-            url: 'http://milleniumframework'
+            url: 'http://localhost:8000'
+          #url: 'http://milleniumframework'
           #url: 'http://localhost:8000'
