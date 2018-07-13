@@ -28,9 +28,9 @@ matrix:
   allow_failures:
     - php: 7.0
 
-
-# We don't want to run linux commands as super user
-# false means Travis will run this in a container
+install:
+    -composer update
+ 
 sudo: false
 before_script:
     - composer install

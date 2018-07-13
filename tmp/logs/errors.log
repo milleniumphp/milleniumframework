@@ -1,0 +1,2 @@
+[2018-07-13 21:17:20] Error text: Cannot modify header information - headers already sent by (output started at D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\libs\basic\functions.php:7) | File: D:\OpenServer\domains\milleniumframework\vendor\superhabber\millcore\libs\basic\functions.php, | Line: 19
+=============
