@@ -21,6 +21,7 @@ git:
 
 # Define the php versions against we want to test our code
 php:
+  - 5.6
   - 7.1
 
 matrix:
@@ -34,7 +35,6 @@ install:
 sudo: false
 before_script:
     - composer install
-    - composer require superhabber/millcore
     
 # Disable x-debug to speed up things
 
