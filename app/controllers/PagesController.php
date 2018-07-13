@@ -122,19 +122,30 @@ class PagesController extends AppController{
         /**
          * if user clicks on submit button
          */
+        $data = [
+            [
+                'login' => 'admin',
+                'password' => 'admin'
+            ],
+            [
+                'login' => 'user',
+                'password' => 'user'
+            ]
+        ];
         $user = new \app\models\User();
         if(!empty($this->request->post)){
             /**
              * make new user
              */
             
-            if($user->login()){
+            if($user->login($data)){
                 /**
                  * maek new alert
                  */
                 $session->alert('login', 'ok');
                 Url::redirect('/');
             }
+            $session->alert('login', 'bad');
         }
        /**
         * put the variables to the view file

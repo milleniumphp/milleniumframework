@@ -8,5 +8,7 @@
 actor: FunctionalTester
 modules:
     enabled:
+        - PhpBrowser:
+            url: 'http://milleniumframework'
         # add a framework module here
         - \Helper\Functional

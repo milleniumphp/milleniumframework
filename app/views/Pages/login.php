@@ -1,13 +1,13 @@
 <h2>Login</h2>
 <?php if($session->alert):?>
 <div class="alert alert-danger">
-    <?php echo $session->alert['login']?>
+    <?php echo $session->alert['login']; unset($session->alert['login'])?>
 </div>
 <?php endif;?>
 <div class="row">
     <div class="col-md-6">
         <!--Create new form-->
-        <?php $form = mill\html\Form::create(['method' => 'post', 'action' => 'real']) ?>
+        <?php $form = mill\html\Form::create(['method' => 'post', 'action' => 'real', 'id'=>'login-form']) ?>
         <!--First form field with options-->
             <div class="form-group">
                 <?=$form->field($user, 'login', [
