@@ -29,7 +29,7 @@ matrix:
     - php: 7.0
 
 install:
-    -composer update
+    - composer update
  
 sudo: false
 before_script:
