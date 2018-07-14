@@ -10,7 +10,3 @@ modules:
         - PhpBrowser:
             url: 'http://localhost:8000'
         - \Helper\Acceptance
-    config:
-       PhpBrowser:
-          url: 'http://localhost:8000'
-          # url: 'http://milleniumframework'
