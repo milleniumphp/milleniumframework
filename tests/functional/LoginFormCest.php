@@ -39,6 +39,8 @@ class LoginFormCest
             'password' => 'admin',
         ]);
         
+        $I->click('#submit');
+        
         $I->dontSeeElement('form#login-form');
         
         $I->seeCurrentUrlEquals('/');

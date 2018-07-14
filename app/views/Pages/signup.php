@@ -30,7 +30,10 @@
                 ])?>
             </div>
             <div class="form-group">
-                <?=$form->submit(['class'=>'btn btn-success'])?>
+                <?=$form->submit([
+                    'class'=>'btn btn-success',
+                    'id' => 'submit'
+                ])?>
             </div>
         <?php $form->end()?>
 
