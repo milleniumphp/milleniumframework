@@ -14,6 +14,7 @@ class LoginFormCest
     public function loginWithEmptyData(\FunctionalTester $I)
     {
         $I->submitForm('form#login-form', []);
+        $I->wait(2);
         $I->expectTo('see validations errors');
         $I->see('Login is required');
         $I->see('Password is required');
@@ -25,6 +26,7 @@ class LoginFormCest
             'login' => 'wrong',
             'password' => 'wrong',
         ]);
+        $I->wait(2);
         $I->expectTo('see validations errors');
         $I->see('Incorrect data entered');
     }
