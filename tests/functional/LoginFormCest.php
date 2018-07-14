@@ -13,11 +13,11 @@ class LoginFormCest
     
     public function loginWithEmptyData(\FunctionalTester $I)
     {
-        $I->submitForm('form#login-form', []);
-        $I->wait(2);
-        $I->expectTo('see validations errors');
-        $I->see('Login is required');
-        $I->see('Password is required');
+        $I->fillField('login', '');
+        $I->fillField('password', '');
+        $I->click('#submit');
+        $I->see('Password is required', 'li');
+        $I->see('Login is required', 'li');
     }
 
     public function loginWithWrongData(\FunctionalTester $I)
@@ -26,7 +26,6 @@ class LoginFormCest
             'login' => 'wrong',
             'password' => 'wrong',
         ]);
-        $I->wait(2);
         $I->expectTo('see validations errors');
         $I->see('Incorrect data entered');
     }
@@ -39,6 +38,9 @@ class LoginFormCest
         ]);
         
         $I->dontSeeElement('form#login-form');
+        
+        $I->seeCurrentUrlEquals('/');
+        
         $I->see('Logout');
         
     }

@@ -25,8 +25,9 @@
             </div>
         <!--success button almost with params-->
             <div class="form-group">
-                <?= $form->submit(
-                    ['class' => 'btn btn-success'
+                <?= $form->submit([
+                    'class' => 'btn btn-success',
+                    'id' => 'submit'
                 ]) ?>
             </div>
         <!--End Form tag-->
