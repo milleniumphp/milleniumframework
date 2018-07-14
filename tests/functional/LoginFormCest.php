@@ -13,8 +13,10 @@ class LoginFormCest
     
     public function loginWithEmptyData(\FunctionalTester $I)
     {
-        $I->fillField('login', '');
-        $I->fillField('password', '');
+        $I->submitForm('form#login-form', [
+            'login' => ' ',
+            'password' => ' ',
+        ]);
         $I->click('#submit');
         $I->see('Password is required', 'li');
         $I->see('Login is required', 'li');
