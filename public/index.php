@@ -3,9 +3,7 @@ require __DIR__ . '/../vendor/autoload.php';
 require __DIR__.'/../vendor/superhabber/libs/basic/aliases.php';
 require LIBS .'/basic/functions.php';
 
-
 use mill\core\Router;
-new mill\core\App;
 
 define('DEBUG', 1);
 
@@ -22,6 +20,9 @@ define('DEBUGBAR', 0);
  * 1 - maximum optimization[deleting all spaces]
  */
 define('GZIP', 1);
+
+new mill\core\App;
+
 $query = ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/');
 
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
