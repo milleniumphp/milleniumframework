@@ -3,8 +3,8 @@ modules:
     enabled:
         - PhpBrowser:
             
-            url: 'http://milleniumframework'
+            # url: 'http://milleniumframework'
             
-            # url: 'http://localhost:8000'
+            url: 'http://localhost:8000'
             
         - \Helper\Functional
