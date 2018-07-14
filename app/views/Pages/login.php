@@ -32,6 +32,7 @@
             </div>
         <!--End Form tag-->
         <?php $form->end() ?>    
+        <?php debug(mill\core\base\Model::$errors) ?>
         
     </div>
 </div>

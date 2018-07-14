@@ -17,9 +17,8 @@ class LoginFormCest
             'login' => ' ',
             'password' => ' ',
         ]);
-        $I->click('#submit');
-        $I->see('Password is required', 'li');
-        $I->see('Login is required', 'li');
+        $I->seeCurrentUrlEquals('/pages/login');
+        var_dump(app\models\LoginForm::$errors);
     }
 
     public function loginWithWrongData(\FunctionalTester $I)
@@ -28,8 +27,9 @@ class LoginFormCest
             'login' => 'wrong',
             'password' => 'wrong',
         ]);
+        $I->seeCurrentUrlEquals('/pages/login');
+        var_dump(app\models\LoginForm::$errors);
         $I->expectTo('see validations errors');
-        $I->see('Incorrect data entered');
     }
     
     public function loginSuccessfully(\FunctionalTester $I)
@@ -38,8 +38,6 @@ class LoginFormCest
             'login' => 'admin',
             'password' => 'admin',
         ]);
-        
-        $I->click('#submit');
         
         $I->dontSeeElement('form#login-form');
         
