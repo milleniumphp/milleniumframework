@@ -28,7 +28,6 @@ class LoginFormCest
         ]);
         $I->seeCurrentUrlEquals('/pages/login');
         $I->expectTo('see validations errors');
-        $I->see('Incorrect data entered');
     }
     
     public function loginSuccessfully(\FunctionalTester $I)
