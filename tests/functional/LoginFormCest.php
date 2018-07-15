@@ -18,7 +18,16 @@ class LoginFormCest
             'password' => ' ',
         ]);
         $I->seeCurrentUrlEquals('/pages/login');
-        var_dump(app\models\LoginForm::$errors);
+    }
+    
+    public function loginWithWrongData(\FunctionalTester $I)
+    {
+        $I->submitForm('form#login-form', [
+            'login' => 'wrong',
+            'password' => 'wrong',
+        ]);
+        $I->seeCurrentUrlEquals('/pages/login');
+        $I->expectTo('see validations errors');
     }
     
     public function loginSuccessfully(\FunctionalTester $I)
