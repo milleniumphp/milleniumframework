@@ -6,6 +6,7 @@
 <?php endif;?>
 <div class="row">
     <div class="col-md-6">
+        
         <!--Create new form-->
         <?php $form = mill\html\Form::create(['method' => 'post', 'action' => 'real', 'id'=>'login-form']) ?>
         <!--First form field with options-->
@@ -32,7 +33,6 @@
             </div>
         <!--End Form tag-->
         <?php $form->end() ?>    
-        <?php debug(mill\core\base\Model::$errors) ?>
         
     </div>
 </div>

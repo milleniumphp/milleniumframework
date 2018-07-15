@@ -38,7 +38,7 @@ before_script:
 
 script:
   - |
-    php -S localhost:8000 -t public > /dev/null 2>&1 &
+    php -S localhost:8000 -t public &
     vendor/bin/codecept run
 
 # Tell Travis CI to monitor only 'master' branch
