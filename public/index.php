@@ -4,7 +4,6 @@ require __DIR__.'/../vendor/superhabber/libs/basic/aliases.php';
 require LIBS .'/basic/functions.php';
 
 use mill\core\Router;
-
 define('DEBUG', 1);
 
 /**
@@ -23,7 +22,7 @@ define('GZIP', 1);
 
 new mill\core\App;
 
-$query = query_string();
+$query = GetQueryString();
 
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
