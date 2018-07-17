@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-require __DIR__.'/../vendor/superhabber/libs/basic/aliases.php';
-require __DIR__.'/../vendor/superhabber/libs/basic/functions.php';
+require __DIR__ . '/../vendor/superhabber/libs/basic/aliases.php';
+require LIBS . '/basic/functions.php';
 
 use mill\core\Router;
 define('DEBUG', 1);
@@ -22,7 +22,7 @@ define('GZIP', 1);
 
 new mill\core\App;
 
-$query = query_string();
+$query = \mill\html\Url::query_string();
 
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
