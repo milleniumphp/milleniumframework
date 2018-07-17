@@ -43,6 +43,6 @@ function __($key){
     echo mill\core\base\Language::get($key);
 }
 
-function GetQueryString(){
+function query_string(){
     return str_replace('?', '&',ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'));
 }
