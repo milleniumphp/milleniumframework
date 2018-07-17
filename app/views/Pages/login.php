@@ -1,9 +1,8 @@
 <h2>Login</h2>
 <?php if(isset($session->data['error'])):?>
-ghbdn
-<div class="alert alert-danger">
-    <?php echo $session->data('error') ?>
-</div>
+    <div class="alert alert-danger">
+        <?php echo $session->data('error') ?>
+    </div>
 <?php endif;?>
 <div class="row">
     <div class="col-md-6">

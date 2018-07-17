@@ -61,7 +61,6 @@ class User {
     }
     
     public function logout($redirect){
-        $this->logined = false;
         if(isset($_SESSION['user'])) unset($_SESSION['user']);
         redirect($redirect);
     }
