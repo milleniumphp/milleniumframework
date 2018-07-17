@@ -8,14 +8,14 @@
             "name": "Yaroslav Palamarchuk",
             "email": "superhabber@gmail.com",
             "homepage": "https://github.com/superhabber",
-            "role": "developer"
+            "role": "founder, developer"
         }
     ],
     "support": {
         "email": "milleniumframework@gmail.com",
-        "issues": "https://github.com/superhabber/milleniumframework/issues",
-        "source": "https://github.com/superhabber/milleniumframework",
-        "docs": "https://milleniumframework.github.io"
+        "issues": "https://github.com/milleniumphp/milleniumframework/issues",
+        "source": "https://github.com/milleniumphp/milleniumframework",
+        "docs": "https://milleniumframework.github.io/documentation/"
     },
     "require": {
         "phpmailer/phpmailer": "~6.0",
