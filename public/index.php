@@ -22,7 +22,7 @@ define('GZIP', 1);
 
 new mill\core\App;
 
-$query = \mill\html\Url::query_string();
+$query = str_replace('?', '&', ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'));
 
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
