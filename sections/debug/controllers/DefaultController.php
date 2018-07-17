@@ -24,4 +24,7 @@ class DefaultController extends \mill\core\base\Controller{
         $pinfo = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $pinfo);
         return '<style>' . file_get_contents('assets/mill/system/css/debugbar/phpinfo.css') . '</style>'.$pinfo;
     }
+    /*
+     * WAIT FOR UPDATES
+     */
 }

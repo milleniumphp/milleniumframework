@@ -15,15 +15,16 @@ class App {
 
     public function __construct() {
         
+        defined(DEBUG) or define(DEBUG, 0);
+        
+        defined(DEBUGBAR) or define(DEBUGBAR, 0);
+        
+        new ErrorHandler();
+        
         session_start();
         
         self::$app = Registry::instance();
-//        
-//        \Symfony\Component\Debug\Debug::enable();
-        new ErrorHandler();
+        
         self::$bin = new Props();
-        
-        
     }
-
 }

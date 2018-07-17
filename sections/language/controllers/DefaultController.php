@@ -1,7 +1,7 @@
 <?php
-namespace app\controllers;
+namespace sections\language\controllers;
 
-class LanguageController extends AppController{
+class DefaultController extends \app\controllers\AppController{
     
     public function changeAction(){
         $lang = !empty($_GET['lang']) ? $_GET['lang'] : null;

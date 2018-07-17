@@ -53,5 +53,9 @@ class Url {
     public static function redirect($http = false) {
         redirect($http);
     }
+    
+    public static function query_string(){
+        return str_replace('?', '&',ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'));
+    }
 
 }

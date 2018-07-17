@@ -21,7 +21,8 @@ class Router {
         /**
          * default route for examples, debugbar
          */
-        '^debug/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'debug']
+        '^debug/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'debug'],
+        '^language/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'language'],
     ];
 
     /**

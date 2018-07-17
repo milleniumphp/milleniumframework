@@ -1,8 +1,6 @@
 <?php
-
 namespace mill\core;
 
-use R;
 /**
  * Description of DataBase Class
  * methods for work with database and connection
