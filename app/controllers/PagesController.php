@@ -16,6 +16,7 @@ class PagesController extends AppController{
      */
     public function indexAction() {  
         $this->metatags['title'] = 'Main Page';
+        $test = \R::findAll('languages');
     }
 
     /**

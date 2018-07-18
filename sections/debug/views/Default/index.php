@@ -7,19 +7,24 @@
             <div class="debug-item logo" data-page="logo" onclick="getdebugbarbody(this)">
                 <img src="/assets/mill/system/icon.png" style="max-height: 46px;">
             </div>
-            <div class="debug-item php text-center" data-page="php" onclick="getdebugbarbody(this)">
+            <div class="debug-item php text-center" data-page="php" onclick="getdebugbarbody(this)" data-opened="false">
                 <div class="vcenter">
                     <h4>PHP</h4>
                 </div>
             </div>
-            <div class="debug-item php text-center" data-page="route" onclick="getdebugbarbody(this)">
+            <div class="debug-item php text-center" data-page="route" onclick="getdebugbarbody(this)" data-opened="false">
                 <div class="vcenter">
                     <h4>Route</h4>
                 </div>
             </div>
-            <div class="debug-item php text-center" data-page="time" onclick="getdebugbarbody(this)">
+            <div class="debug-item php text-center" data-page="time" onclick="getdebugbarbody(this)" data-opened="false">
                 <div class="vcenter">
                     <h4><?php echo $_GET['time'];?></h4>
+                </div>
+            </div>
+            <div class="debug-item php text-center" data-page="log" onclick="getdebugbarbody(this)" data-opened="false">
+                <div class="vcenter">
+                    <h4>Log</h4>
                 </div>
             </div>
             

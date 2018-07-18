@@ -38,6 +38,7 @@ class Db {
     public static $dbtype;
 
     protected function __construct() {
+        
         require LIBS . '/rb.php';
         /**
          * database config
@@ -71,6 +72,10 @@ class Db {
         }
         
         \R::freeze(true);
+        
+        debug(\R::fancyDebug());
+        
+        $logger = \R::getLogger();
     }
 
     public static function instance() {

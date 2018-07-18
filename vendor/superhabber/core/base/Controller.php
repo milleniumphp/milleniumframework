@@ -56,6 +56,7 @@ abstract class Controller {
 
         $this->request = \mill\core\App::$app->request;
         $this->session = \mill\core\App::$app->session;
+
     }
 
     /**

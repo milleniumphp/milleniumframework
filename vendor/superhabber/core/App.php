@@ -2,6 +2,7 @@
 
 namespace mill\core;
 
+use \R;
 /**
  * Description of App
  * Main Class for Application
@@ -27,4 +28,5 @@ class App {
         
         self::$bin = new Props();
     }
+
 }

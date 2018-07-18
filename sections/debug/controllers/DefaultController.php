@@ -11,8 +11,22 @@ class DefaultController extends \mill\core\base\Controller{
     
     public function viewAction(){
         $phpinfo = $this->php_about();
+        $route = \mill\core\Router::matchRoute(isset($_GET['route']) ? ltrim($_GET['route'], '/') : '/');
+        
+//        if(!empty($route['prefix'])){
+//            $logger = '\sections\\' . $route['prefix'] . $route['controller'] . 'Controller';
+//        }else{
+//            $logger = '\app\controllers\\' . $route['controller'] . 'Controller';
+//        }
+//        $c = new $logger($route);
+//        
+//        debug($c->debug_queries);
+        
+                
         $this->set([
-            'phpinfo'=>$phpinfo
+            'phpinfo' => $phpinfo,
+            'log' => \R::debug(true),
+            'route' => $route
         ]);
         
     }
@@ -25,6 +39,7 @@ class DefaultController extends \mill\core\base\Controller{
         $pinfo = preg_replace('%^.*<body>(.*)</body>.*$%ms', '$1', $pinfo);
         return '<style>' . file_get_contents('assets/mill/system/css/debugbar/phpinfo.css') . '</style>'.$pinfo;
     }
+
     /*
      * WAIT FOR UPDATES
     */

@@ -46,11 +46,24 @@ function showdebugbarmenu(){
 }
 
 function getdebugbarbody(elem){
-    if($('.debugbar .mill-debug-bar.content').attr('data-opened') === 'true'){
-        $('.debugbar .mill-debug-bar.content').hide();
-    }else{
+
+    if($(elem).attr('data-opened') === 'true' && $('div[data-page="'+$(elem).attr('data-page')+ '"]').attr('data-opened') === 'true'){
+        
+        $('div[data-page="'+$(elem).attr('data-page')+ '"]').attr('data-opened', 'false');
+        $(elem).attr('data-opened', 'false');
         $('.debugbar .mill-debug-bar.content').slideToggle('slow'); 
+ 
+    }else if ($(elem).attr('data-opened') === 'false' && $('.mill-debug-bar.content').is(":hidden")){
+        
         $('a#debug-bar-'+$(elem).attr('data-page')).trigger('click');
+        $(elem).attr('data-opened', 'true');
+        $('div[data-page="'+$(elem).attr('data-page')+ '"]').attr('data-opened', 'true');
+        $('.debugbar .mill-debug-bar.content').slideToggle('slow'); 
+        
+    }else{
+        
+        $('a#debug-bar-'+$(elem).attr('data-page')).trigger('click');
+        
     }
-    console.log(location.href);
+
 }
