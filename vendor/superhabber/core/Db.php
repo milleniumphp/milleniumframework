@@ -72,10 +72,7 @@ class Db {
         }
         
         \R::freeze(true);
-        
-        debug(\R::fancyDebug());
-        
-        $logger = \R::getLogger();
+
     }
 
     public static function instance() {
