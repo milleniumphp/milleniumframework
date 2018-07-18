@@ -29,7 +29,8 @@ matrix:
     - php: 7.0
 
 install:
-    - composer update
+    - travis_retry composer self-update && composer --version
+    - travis_retry composer update
  
 sudo: false
 
@@ -44,9 +45,3 @@ script:
 # Tell Travis CI to monitor only 'master' branch
 branches:
   only: master
-
-# Cache folder, you can delete cache from Travis CI web interface
-cache:
-    directories:
-        - vendor
-        - $HOME/.composer/cache
