@@ -19,9 +19,9 @@ git:
 
 # Define the php versions against we want to test our code
 php:
-  - 5.6
+  # - 5.6
   - 7.0
-  - 7.1
+  # - 7.1
 
 matrix:
   fast_finish: true
