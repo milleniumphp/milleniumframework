@@ -28,7 +28,7 @@ class User {
     
     public function login($login, $password, $data = [], $options = []){
         if($login && $password){
-            if(isset($data)){
+            if(!empty($data)){
                 foreach ($data as $k => $v){
                     if($v['login'] == $login && $v['password'] == $password){
                         foreach ($v as $d) {

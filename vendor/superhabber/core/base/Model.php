@@ -68,7 +68,7 @@ class Model {
         return false;
     }
 
-    public function getErrors($session) {
+    public function getErrors($session = null) {
         $errors = '<ul>';
         foreach (self::$errors as $error) {
             foreach ($error as $item) {
@@ -76,7 +76,7 @@ class Model {
             }
         }
         $errors .= '</ul>';
-        $session->data['error'] = $errors;
+        if(isset($session)) $session->data['error'] = $errors;
     }
 
     /**

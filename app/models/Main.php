@@ -1,6 +1,6 @@
 <?php
 namespace app\models;
 
-class Main extends \mill\core\base\Model{
+class Main extends \mill\core\base\Model {
 
 }

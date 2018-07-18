@@ -1,4 +1,5 @@
 <?php
+
 return [
     'css' => [
         '/assets/bootstrap/css/bootstrap.css',

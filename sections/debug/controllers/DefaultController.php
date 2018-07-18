@@ -2,6 +2,7 @@
 namespace sections\debug\controllers;
 
 class DefaultController extends \mill\core\base\Controller{
+    
     public $layout = false;
     
     public function indexAction() {
@@ -26,5 +27,6 @@ class DefaultController extends \mill\core\base\Controller{
     }
     /*
      * WAIT FOR UPDATES
-     */
+    */
+    
 }

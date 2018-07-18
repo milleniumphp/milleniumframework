@@ -1,6 +1,9 @@
 <h2>Sign Up</h2>
+
 <?php if(isset($session->data['error'])):?>
-    <div class="alert alert-danger"><?=$session->data['error']?></div>
+    <div class="alert alert-danger">
+        <?php echo $session->data('error') ?>
+    </div>
 <?php endif;?>
     
 <div class="row">
@@ -39,5 +42,3 @@
 
     </div>
 </div>
-    
-<?php unset($_SESSION['error'])?>

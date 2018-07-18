@@ -1,4 +1,5 @@
 <?php
+
 $config = [
     'components' => [
         'cache' => '\mill\libs\Cache',
@@ -12,4 +13,5 @@ $config = [
     ],
 
 ];
+
 return $config;

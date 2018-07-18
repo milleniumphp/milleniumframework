@@ -1,5 +1,4 @@
 <?php
-
 namespace app\models;
 
 /**
@@ -15,6 +14,7 @@ class SignUpForm extends \mill\core\base\Model {
         'email' => '',
         'name' => ''
     ];
+    
     public $rules = [
         'required' => [
             ['login'],

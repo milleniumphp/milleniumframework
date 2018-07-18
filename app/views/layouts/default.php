@@ -48,7 +48,7 @@
         </nav> 
         
         <div class="container" style="margin-top:90px">
-            <?= $content ?>
+            <?php echo $content ?>
         </div>
         
         <div class="navbar-fixed-bottom row-fluid">

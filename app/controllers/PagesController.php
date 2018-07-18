@@ -5,11 +5,12 @@ use \mill\core\App;
 use \mill\html\Url;
 
 /**
- * Description of base PagesController
+ * PagesController
  *
  * @author Yaroslav Palamarchuk
  */
 class PagesController extends AppController{
+    
     /**
      * index base page action 
      */
@@ -85,16 +86,15 @@ class PagesController extends AppController{
             /**
              * user saving
              */
-            if($user->save('user')){
+            if($user->validate($this->request->post) && $user->save('user')){
                 /**
-                 * make new alert message for user
+                 * user registered
                  */
-                $_SESSION['success'] = 'You have registered!';
             }else{
                 /**
                  * make danger message for user
                  */
-                $_SESSION['error'] = 'Fail';
+                $user->getErrors($session);
             }
             /*
              * and redirect to home page
@@ -157,8 +157,6 @@ class PagesController extends AppController{
      */
     public function logoutAction(){
         App::$app->user->logout('/');
-
-        
     }
     
 }
