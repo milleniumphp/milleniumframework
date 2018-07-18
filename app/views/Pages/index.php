@@ -12,5 +12,4 @@
     <h4 class="text-center">If you want to have an authentication system, go to console and insert this command:<code> vendor/bin/phinx migrate -e development </code><br></h4>
     <h4 class="text-center">and update your database setting in <code> <?php echo ROOT . '\config\db.php'?> </code></h4>
     <hr>
-    
 </header>

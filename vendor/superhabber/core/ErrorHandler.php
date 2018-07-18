@@ -65,8 +65,7 @@ class ErrorHandler {
             die;
         }
         if(DEBUG){
-            echo $errstr;die;
-            require CORE . '/local/errors/dev.php';die;
+            require ROOT . '/vendor/superhabber/local/errors/dev.php';die;
         }else{
             require CORE . '/local/errors/prod.php';
         }
