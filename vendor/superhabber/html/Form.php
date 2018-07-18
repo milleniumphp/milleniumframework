@@ -6,25 +6,17 @@ namespace mill\html;
  * @author Yaroslav Palamarchuk
  */
 class Form {
-    
-    public static function create($options = []){
-        $man = new FormManager();
-        $man->start($options);
-        return $man;
-    }
-
-}
-
-/**
- * FormMamager
- * @author Yaroslav Palamarchuk
- */
-class FormManager {
     /**
      * last field id for input id
      * @var int
      */
     public $elemId = 0;
+    
+    public static function create($options = []){
+        $form = new self;
+        $form->start($options);
+        return $form;
+    }
        
     /**
      * new form method
@@ -79,7 +71,7 @@ class FormManager {
         /**
          * returns html code
          */
-        return $this->htmlForm($model, $field, $options);
+        return $this->htmlForm($field, $options);
         
     }
     
@@ -104,7 +96,7 @@ class FormManager {
      * @param array $options
      * @return string
      */
-    public function htmlForm($model, $field, $options){
+    public function htmlForm($field, $options){
         /**
          * id for input
          */
@@ -140,21 +132,27 @@ class FormManager {
          */
         $placeholder = isset($options['placeholder']) ? $options['placeholder'] : $islabel;
         unset($options['placeholder']);
+        /**
+         * other tags like multiple...
+         */
         $tags = '';
+        
         /**
          * other options like multiple
          */
-        foreach($options as $k => $v){
-            /**
-             * if multiple insert [] to name
-             */
-            if($k === 'multiple'){
-                $name .= '[]';
+        if (isset($options)) {
+            foreach ($options as $k => $v) {
+                /**
+                 * if multiple insert [] to name
+                 */
+                if ($k === 'multiple') {
+                    $name .= '[]';
+                }
+                /**
+                 * add other tags
+                 */
+                $tags .= "$k='$v'";
             }
-            /**
-             * add other tags
-             */
-            $tags .= "$k='$v'";
         }
         $value = isset($_POST[$name]) ? $_POST[$name] : '';
         /**

@@ -9,9 +9,8 @@
     <h4>P.S <code>now you are in <?=__FILE__?></code></h4>
     <hr>
     
-    <h4 class="text-center">If you want to have authentication system, go to console and insert this command:<code> php mill start auth </code><br></h4>
+    <h4 class="text-center">If you want to have an authentication system, go to console and insert this command:<code> vendor/bin/phinx migrate </code><br></h4>
     <h4 class="text-center">and update your database setting in <code> <?=ROOT . '\config\db.php'?> </code></h4>
     <hr>
     
-    <h4>To open examples  insert this command to console: <code>php mill start examples</code> and go to <a href="/examples/main/">examples page</a></h4>
 </header>

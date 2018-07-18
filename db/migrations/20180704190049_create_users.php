@@ -17,7 +17,6 @@ class CreateUsers extends AbstractMigration
               ->addColumn('login', 'string', ['limit' => 255])
               ->addColumn('password', 'string', ['limit' => 255])
               ->addColumn('email', 'string', ['limit' => 255])
-              ->addColumn('role', 'enum', ['values' => ['user', 'admin']])
               ->addColumn('updated_at', 'datetime')
               ->addColumn('created_at', 'datetime',['null' => true])
         ->create();
