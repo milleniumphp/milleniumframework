@@ -1,6 +1,12 @@
 <?php
 
 $config = [
+    
+    'app'=>[
+        'name' => 'Name of your application',
+        '_csrf' => \mill\core\App::generateCsrfCode()
+    ],
+    
     'components' => [
         'cache' => '\mill\libs\Cache',
         'user'=> '\mill\core\base\User',

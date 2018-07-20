@@ -5,9 +5,14 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?= $this->title ?></title>
+        
+        <title><?= $this->title ?> | <?= \mill\core\Props::getSetting('app')['name'] ?></title>
+        
         <meta name="description" content="<?= $this->description ?>">
+        
         <meta name="keywords" content="<?= $this->keywords ?>"> 
+        
+        <input type="hidden" name="token" value="<?php echo \mill\core\Props::getSetting('app')['_csrf'] ?>" />
 
         <?php mill\web\Scripts::styles() ?>
 

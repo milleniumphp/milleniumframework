@@ -36,6 +36,10 @@ class Props {
     }
     
     public static function setSetting($name, $value){
+        if(isset(self::$settings[$name])){
+            self::$settings[$name] += $value;
+            return true;
+        }
         self::$settings[$name] = $value;
     }
     

@@ -22,14 +22,20 @@ class App {
         
         session_start();
         
-        self::$app = Registry::instance();
-        
         self::$bin = new Props('/config/config.php');
+        
+        self::$app = Registry::instance();   
 
     }
     
     public static function debug($work = true){
         new Logger($work);
+    }
+    
+    public static function generateCsrfCode(){
+        Props::setSetting('app', ['_csrf'=> bin2hex(openssl_random_pseudo_bytes(32)) ]);
+        $_SESSION['_csrf'] = Props::getSetting('app')['_csrf'];   
+        return (Props::getSetting('app')['_csrf']);
     }
 
 }
