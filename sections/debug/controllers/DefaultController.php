@@ -13,15 +13,7 @@ class DefaultController extends \mill\core\base\Controller{
         $phpinfo = $this->php_about();
         $route = \mill\core\Router::matchRoute(isset($_GET['route']) ? ltrim($_GET['route'], '/') : '/');
         
-//        if(!empty($route['prefix'])){
-//            $logger = '\sections\\' . $route['prefix'] . $route['controller'] . 'Controller';
-//        }else{
-//            $logger = '\app\controllers\\' . $route['controller'] . 'Controller';
-//        }
-//        $c = new $logger($route);
-//        
-//        debug($c->debug_queries);
-        
+        //debug(\mill\core\Logger::getDbQueries());
                 
         $this->set([
             'phpinfo' => $phpinfo,

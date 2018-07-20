@@ -10,7 +10,7 @@ define('DEBUG', 1);
  * page debugbar
  * 1 - start 
  */
-define('DEBUGBAR', 1);
+define('DEBUGBAR', 0);
 
 /**
  * gzip for page/
@@ -29,3 +29,7 @@ Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 Router::add('^$', ['controller'=>'Pages', 'auth'=>true]);
 
 Router::dispatch($query);
+
+if(DEBUGBAR){
+    mill\core\App::debug();
+}

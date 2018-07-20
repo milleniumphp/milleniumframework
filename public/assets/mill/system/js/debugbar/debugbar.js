@@ -5,6 +5,7 @@ window.onload = function() {
     var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart;
     var href = location.href;
     var route = href.substring(href.indexOf('/', 9));
+    console.log(route);
     
     $.ajax({
         url: '/debug/default/', 

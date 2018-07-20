@@ -1,8 +1,6 @@
 <?php
-
 namespace mill\core;
 
-use \R;
 /**
  * Description of App
  * Main Class for Application
@@ -16,17 +14,22 @@ class App {
 
     public function __construct() {
         
+        new ErrorHandler();
+        
         defined(DEBUG) or define(DEBUG, 0);
         
         defined(DEBUGBAR) or define(DEBUGBAR, 0);
-        
-        new ErrorHandler();
         
         session_start();
         
         self::$app = Registry::instance();
         
-        self::$bin = new Props();
+        self::$bin = new Props('/config/config.php');
+
+    }
+    
+    public static function debug($work = true){
+        new Logger($work);
     }
 
 }

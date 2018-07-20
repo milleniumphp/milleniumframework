@@ -9,6 +9,17 @@ class Props {
     */
     protected static $properties = [];
     
+    protected static $settings = [];
+    
+    public function __construct($config = '/config/config.php') {
+        $config = require(ROOT . $config);
+        
+        foreach ($config as $k => $v){
+            self::setSetting($k, $v);
+        }
+        
+    }
+
     public function setProperty($name, $value){
         self::$properties[$name] = $value;
     }
@@ -23,4 +34,17 @@ class Props {
     public function getProperties(){
         return self::$properties;
     }
+    
+    public static function setSetting($name, $value){
+        self::$settings[$name] = $value;
+    }
+    
+    public static function getSetting($name){
+        return self::$settings[$name];
+    }
+    
+    public static function getSettings(){
+        return self::$settings;
+    }
+    
 }

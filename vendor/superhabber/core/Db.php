@@ -9,36 +9,18 @@ namespace mill\core;
 class Db {
 
     /**
-     * pdo prototype
-     * @var db
-     */
-    protected static $pdo;
-
-    /**
      * instance
      * @var instance
      */
     protected static $instance;
 
     /**
-     * count SQL queries for debug panel
-     * @var integer
-     */
-    public static $countSql = 0;
-
-    /**
      * queries for debug panel
      * @var array
      */
     public static $queries = [];
-    /**
-     * database type like sqlite or mysql
-     * @var string 
-     */
-    public static $dbtype;
 
     protected function __construct() {
-        
         require LIBS . '/rb.php';
         /**
          * database config
@@ -70,6 +52,7 @@ class Db {
              */
             \R::setup("{$real[0]['adapter']}:host={$real[0]['host']};dbname={$real[0]['name']};", $real[0]['user'], $real[0]['pass']);
         }
+        \R::startLogging();
         
         \R::freeze(true);
 
@@ -79,6 +62,7 @@ class Db {
         if (self::$instance === null) {
             self::$instance = new self;
         }
+        
         return self::$instance;
     }
     
