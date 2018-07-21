@@ -4,7 +4,7 @@ $config = [
     
     'app'=>[
         'name' => 'Name of your application',
-        '_csrf' => \mill\core\App::generateCsrfCode()
+        '_csrf' => \mill\core\App::generateCsrfCode(),
     ],
     
     'components' => [

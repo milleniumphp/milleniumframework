@@ -79,10 +79,10 @@ class View {
      * */
     public function render($vars, $metatags) {
         Language::load(App::$bin->getProperty('lang')['code'], $this->route);
+        
         $this->route['prefix'] = str_replace('\\', '/', $this->route['prefix']);
         //if variables in array get it
-        if (is_array($vars))
-            extract($vars);
+        if (is_array($vars)) extract($vars); 
         /**
          * view file name
          * @var string
@@ -114,7 +114,7 @@ class View {
         $this->title = $metatags['title'];
         $this->description = $metatags['description'];
         $this->keywords = $metatags['keywords'];
-
+        
         if (false !== $this->layout) {
             /**
              * layout file full path
@@ -134,5 +134,6 @@ class View {
         }else{
             echo $content;
         }
+
     }
 }

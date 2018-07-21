@@ -38,10 +38,11 @@ abstract class Controller {
      * @var array metatags for page[title, description, keywords]
      */
     public $metatags = [
-        'title' => 'Page title / Millenium Framework',
-        'description' => 'page description',
-        'keywords' => 'keywords'
+        'title' => '', 
+        'description' => '', 
+        'keywords' => ''
     ];
+    
     public $request;
     public $session;
 
