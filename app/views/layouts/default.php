@@ -5,15 +5,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
         <title><?= $this->title ?> | <?= \mill\core\Props::getSetting('app')['name'] ?></title>
-        
         <meta name="description" content="<?= $this->description ?>">
-        
         <meta name="keywords" content="<?= $this->keywords ?>"> 
+        <meta name="csrf-token" content="<?php echo \mill\core\Props::getSetting('app')['_csrf'] ?>" />
         
-        <input type="hidden" name="token" value="<?php echo \mill\core\Props::getSetting('app')['_csrf'] ?>" />
-
         <?php mill\web\Scripts::styles() ?>
 
         <!--[if lt IE 9]>
@@ -22,34 +18,43 @@
         <![endif]-->
     </head>
     <body>
-        <nav class="navbar navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="<?=Url::base()?>">Millenium Framework</a>
-                </div>
+        <nav class="container-fluid navbar navbar-default navbar-inverse navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<?= Url::$baseUrl ?>">
+                    <?php echo \mill\core\Props::getSetting('app')['name'] ?>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="<?=Url::$baseUrl?>"><?php __('home') ?></a>
+                        <a href="<?= Url::$baseUrl ?>"><?php __('home') ?></a>
                     </li>
                     <li>
-                        <a href="<?=Url::to('/pages/about')?>"><?php __('about') ?></a>
+                        <a href="<?= Url::to('/pages/about') ?>"><?php __('about') ?></a>
                     </li>
                     <li>
-                        <a href="<?=Url::to('/pages/contacts')?>"><?php __('contacts') ?></a>
+                        <a href="<?= Url::to('/pages/contacts') ?>"><?php __('contacts') ?></a>
                     </li>
                     <li>
-                        <a href="" onclick="return false;"><?php new mill\widgets\language\Language()?></a>
+                        <a href="" onclick="return false;"><?php new mill\widgets\language\Language() ?></a>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <?php if(\mill\core\App::$app->user->isGuest()):?>
-                        <li><a href="<?=Url::to('/pages/signup')?>"><span class="glyphicon glyphicon-user"></span> <?php __('signup') ?> </a></li>
-                        <li><a href="<?=Url::to('/pages/login')?>"><span class="glyphicon glyphicon-log-in"></span> <?php __('login') ?> </a></li>
-                    <?php else:?>
-                        <li><a href="<?=Url::to('/pages/logout')?>"><span class="glyphicon glyphicon-log-out"></span> <?php __('logout') ?> </a></li>
-                    <?php endif;?>
+                    <?php if (\mill\core\App::$app->user->isGuest()): ?>
+                        <li><a href="<?= Url::to('/pages/signup') ?>"><span class="glyphicon glyphicon-user"></span> <?php __('signup') ?> </a></li>
+                        <li><a href="<?= Url::to('/pages/login') ?>"><span class="glyphicon glyphicon-log-in"></span> <?php __('login') ?> </a></li>
+                    <?php else: ?>
+                        <li><a href="<?= Url::to('/pages/logout') ?>"><span class="glyphicon glyphicon-log-out"></span> <?php __('logout') ?> </a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
+
         </nav> 
         
         <div class="container" style="margin-top:90px">

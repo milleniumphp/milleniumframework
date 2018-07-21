@@ -3,7 +3,7 @@
 $config = [
     
     'app'=>[
-        'name' => 'Name of your application',
+        'name' => 'Application name',
         '_csrf' => \mill\core\App::generateCsrfCode(),
     ],
     
