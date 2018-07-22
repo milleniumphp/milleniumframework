@@ -52,6 +52,7 @@ class ErrorController extends Controller {
         $this->view = $this->errorview;
         $this->layout = $this->layout;
         $this->getView();
+        die;
     }
 
 }

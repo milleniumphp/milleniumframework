@@ -8,7 +8,7 @@ environments:
     production:
         adapter: mysql
         host: localhost
-        name: production_db
+        name: millenium
         user: root
         pass: ''
         port: 3306

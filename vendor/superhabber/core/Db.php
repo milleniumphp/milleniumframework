@@ -14,27 +14,19 @@ class Db {
      */
     protected static $instance;
 
-    /**
-     * queries for debug panel
-     * @var array
-     */
-    public static $queries = [];
-
     protected function __construct() {
         require LIBS . '/rb.php';
         /**
          * database config
          * used phinx migration system
          */
-        $config = \Symfony\Component\Yaml\Yaml::parse(file_get_contents(ROOT.'/phinx.yml'));
+        $config = \Symfony\Component\Yaml\Yaml::parse(file_get_contents(ROOT . '/phinx.yml'));
         /**
          * if DEBUG use development databse from db settings file /phinx.yml
          */
-        if(DEBUG){
-            $type = 'development';
-        }else{
-            $type = 'production';
-        }
+        
+        $type = DEBUG ? 'development' : 'production';
+        
         /**
          * get data attributes from development or production db
          */

@@ -1,8 +1,8 @@
 <?php
-
 namespace mill\core;
 
 class Props {
+    
     /**
      * settings
      * @var array

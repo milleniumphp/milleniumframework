@@ -9,20 +9,26 @@ namespace mill\core\base;
  */
 class User {
     
-    public $properties = [];
+    const AUTH_USER = [
+        'auth' => true,
+        'guest' => false
+    ];
+    
+    const REAL_USER = [];
+    
+    const ALL_USER = [
+        'auth' => true,
+        'guest' => true
+    ];
+    
+    public static $properties = [];
     
     public function __construct() {
-        if (isset($_SESSION['user'])) {
-            foreach ($_SESSION['user'] as $k => $v) {
-                $this->properties[$k] = $v;
-            }
-        }
+        self::$properties = $_SESSION['user'][0];
     }
 
     public function isGuest(){
-        if(empty($this->properties)){
-            return true;
-        }
+        if(empty(self::$properties)) return true;
         return false;
     }
     
@@ -34,7 +40,7 @@ class User {
                         foreach ($v as $d) {
                             if ($d != 'password') {
                                 $_SESSION['user'][$k] = $v;
-                                $this->properties[$k] = $v;
+                                self::$properties[$k] = $v;
                             }
                         }
                         return true;
@@ -49,7 +55,7 @@ class User {
                     foreach ($user as $k => $v){
                         if($k != 'password'){
                             $_SESSION['user'][$k] = $v;
-                            $this->properties[$k] = $v;
+                            self::$properties[$k] = $v;
                         }
                     }
                     return true;
@@ -67,9 +73,21 @@ class User {
     
     public function property($name = ''){
         if($name){
-            return $this->properties[$name];
+            return self::$properties[$name];
         }else{
-            return $this->properties;
+            return self::$properties;
+        }
+    }
+    
+    public static function middleware($rule){
+        if($rule(__CLASS__)['type']['auth'] == true && !empty(self::$properties) ){
+            $rule(__CLASS__)['preaction'](__CLASS__);
+        }else if ($rule(__CLASS__)['type']['guest'] == true && $rule(__CLASS__)['type']['auth'] == true ){
+            $rule(__CLASS__)['preaction'](__CLASS__);
+        }else{
+            $e = new \mill\core\base\ErrorController(404, null, null);
+            http_response_code(404);
+            $e->usererror(8,'Access Forbidden');
         }
     }
     

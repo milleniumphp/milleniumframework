@@ -88,6 +88,7 @@ class Router {
     public static function dispatch($url) {
         $url = self::removeQueryString($url);
         
+        
         //if route exists
         if (self::matchRoute($url)) {
             /**

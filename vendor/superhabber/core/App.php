@@ -34,7 +34,7 @@ class App {
         /**
          * app variable
          */
-        self::$app = Registry::instance();   
+        self::$app = Registry::instance();
 
     }
     

@@ -1,12 +1,13 @@
 <?php
-
 namespace mill\core;
+
 /**
  * Registry registers all methods which you need
  * error files in /vendor/mill/core/local/errors 
  * @author Yaroslav Palamarchuk
  */
 class Registry {
+    
     /*
      * classes for using
      */
