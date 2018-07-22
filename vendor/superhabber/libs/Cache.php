@@ -1,5 +1,4 @@
 <?php
-
 namespace mill\libs;
 
 /**
@@ -10,9 +9,7 @@ namespace mill\libs;
 class Cache {
 
     public function __construct() {
-        /**
-         * test
-         */
+
     }
 
     /**

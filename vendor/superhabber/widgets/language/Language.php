@@ -1,6 +1,8 @@
 <?php
 namespace mill\widgets\language;
+
 use mill\core\App;
+
 /**
  * Description of Language
  *
@@ -45,7 +47,6 @@ class Language {
         arsort($locales);
         
         return $locales;
-        
     }
     
     public static function getLanguage($languages){

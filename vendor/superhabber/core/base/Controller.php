@@ -52,12 +52,11 @@ abstract class Controller {
      * */
     public function __construct($route) {
         new Main;
-        $this->route = $route;
+        $this->route = $route ?: \mill\core\Router::getRoute();
         $this->view = $route['action'];
 
         $this->request = \mill\core\App::$app->request;
         $this->session = \mill\core\App::$app->session;
-
     }
 
     /**

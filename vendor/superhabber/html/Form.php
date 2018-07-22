@@ -71,8 +71,8 @@ class Form {
         /**
          * returns html code
          */
-        return $this->htmlForm($field, $options);
         
+        return $this->htmlForm($field, $options);
     }
     
     /**
@@ -168,4 +168,5 @@ class Form {
     public function end(){
         echo '</form>';
     }
+    
 }

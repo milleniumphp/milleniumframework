@@ -60,13 +60,8 @@ class View {
     public function __construct($route, $layout = '', $view = '') {
         $this->scripts = new \mill\web\Scripts();
         $this->route = $route;
-        if ($layout === false) {
-            $this->layout = false;
-        } else {
-            $this->layout = $layout ?: LAYOUT;
-        }
+        $this->layout = ($layout === false) ? false : ($layout ?: LAYOUT);
         $this->view = $view;
-
     }
 
     protected function compressPage($buffer) {
@@ -92,18 +87,16 @@ class View {
         }else{
             $file_view = APP . "/views/{$this->route['prefix']}{$this->route['controller']}/{$this->view}.php";
         }
-        if(GZIP){
-            ob_start([$this, 'compressPage']);
-        }else{
-            ob_start();
-        }
+        
+        GZIP ? ob_start([$this, 'compressPage']) : ob_start();
 
         //if file exists
         if (is_file($file_view)) {
             require $file_view;
-        } else {
+        }else{
             throw new \Exception("<b>View {$file_view} not found</b>", 404);
         }
+        
         /**
          * content from view file
          * @var string
@@ -134,6 +127,6 @@ class View {
         }else{
             echo $content;
         }
-
     }
+    
 }

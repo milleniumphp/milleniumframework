@@ -8,34 +8,10 @@ use mill\core\Db;
 class Model {
 
     /**
-     * pdo prototype
-     * @var db
-     */
-    protected $pdo;
-
-    /**
-     * table name
-     * @var string
-     */
-    protected $table;
-
-    /**
-     * key for model[standart = id]
-     * @var string
-     */
-    protected $pk = 'id';
-
-    /**
      * columns for form
      * @var array
      */
     public $attributes = [];
-
-    /**
-     * rules for validation
-     * @var array
-     */
-    public $rules = [];
 
     /**
      * registration errors
@@ -92,62 +68,10 @@ class Model {
         return \R::store($tbl);
     }
 
-    /**
-     * method query returns false if is in query error
-     * @param  string $sql sql query
-     * @return bool      
-     */
-//    public function query($sql) {
-//        return $this->pdo->execute($sql);
-//    }
-
-    /**
-     * find all data from table in self::$table
-     * @return array returned data
-     */
-//    public function findAll() {
-//        $sql = "SELECT * FROM {$this->table}";
-//        return $this->pdo->query($sql);
-//    }
-
-    /**
-     * find one data from table in self::$table with self::pk
-     * @return array returned data
-     */
-//    public function findOne($id, $field = '') {
-//        $field = $field ?: $this->pk;
-//        $sql = "SELECT * FROM {$this->table} WHERE $field = ? LIMIT 1";
-//        return $this->pdo->query($sql, [$id]);
-//    }
-
-    /**
-     * find by sql query
-     * @param  string $sql    sql query string
-     * @param  array  $params params for finding 
-     * @return array         data which returned
-     */
-//    public function findBySql($sql, $params = []) {
-//        return $this->pdo->query($sql, $params);
-//    }
-
-    /**
-     * find with like cond
-     * @param  string $str   which str you wanna find
-     * @param  string $field table field
-     * @param  string $table table name
-     * @return db        
-     */
-//    public function findLike($str, $field, $table = '') {
-//        $table = $table ?: $this->table;
-//        $sql = "SELECT * FROM $table WHERE $field LIKE ?";
-//        return $this->pdo->query($sql, ['%' . $str . '%']);
-//    }
-
     public function login($data = []) {
         $login = !empty(trim($_POST['login'])) ? trim($_POST['login']) : null;
         $password = !empty(trim($_POST['password'])) ? trim($_POST['password']) : null;
         if(\mill\core\App::$app->user->login($login, $password, $data)) return true;
-
     }
 
 }

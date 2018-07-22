@@ -1,14 +1,13 @@
 <?php
 namespace mill\web;
 
-use Asika\Minifier\MinifierFactory;
-
 /**
  * Description of Scripts
  * Scripts editing class
  * @author Yaroslav Palamarchuk
  */
 class Scripts {
+    
     /**
      * search spaces and delete it for optimization
      * @var array
@@ -82,4 +81,5 @@ class Scripts {
             echo "<link href='/" . ltrim($script, '/') . "' rel='stylesheet'>";
         }
     }
+    
 }

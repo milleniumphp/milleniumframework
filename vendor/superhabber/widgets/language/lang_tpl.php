@@ -1,4 +1,3 @@
-
 <select class="form-control" name="lang" id="lang" style="margin-top: -6px;height: auto;">
 
     <option value="<?= $this->language['code']; ?>">
