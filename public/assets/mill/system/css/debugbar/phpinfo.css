@@ -6,7 +6,7 @@
 #temp1 #debug-bar-show-php div.center {text-align: center;}
 #temp1 #debug-bar-show-php div.center table {margin: 1em auto; text-align: left;}
 #temp1 #debug-bar-show-php div.center th {text-align: center !important;}
-#temp1 #debug-bar-show-php div.center td, th {border: 1px solid #666; font-size: 75%; vertical-align: baseline; padding: 4px 5px;}
+#temp1 #debug-bar-show-php div.center td {border: 1px solid #666; font-size: 75%; vertical-align: baseline; padding: 4px 5px;}
 #temp1 #debug-bar-show-php div.center h1 {font-size: 150%;}
 #temp1 #debug-bar-show-php div.center h2 {font-size: 125%;}
 #temp1 #debug-bar-show-php div.center .p {text-align: left;}

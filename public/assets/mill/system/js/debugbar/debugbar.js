@@ -1,9 +1,10 @@
 window.onload = function() {
-    
     var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart;
     var href = location.href;
     var route = href.substring(href.indexOf('/', 9));
-    console.log(route);
+    var csrf = $('meta[name="csrf-token"]').attr('content').slice(0, 8);
+    
+    console.log(csrf);
     
     $.ajax({
         url: '/debug/default/', 
@@ -18,14 +19,14 @@ window.onload = function() {
         url: '/debug/default/view',
         data: {
             'route':route,
-            'time':loadTime
+            'time':loadTime,
+            'csrf': csrf
         },
         success: function (result) {
             $('.debugbar .mill-debug-bar.content').html(result);
         }
     });
 
-    
 };
 
 function hidedebugbarmenu(){
@@ -45,24 +46,17 @@ function showdebugbarmenu(){
 }
 
 function getdebugbarbody(elem){
-
     if($(elem).attr('data-opened') === 'true' && $('div[data-page="'+$(elem).attr('data-page')+ '"]').attr('data-opened') === 'true'){
-        
         $('div[data-page="'+$(elem).attr('data-page')+ '"]').attr('data-opened', 'false');
         $(elem).attr('data-opened', 'false');
         $('.debugbar .mill-debug-bar.content').slideToggle('slow'); 
- 
     }else if ($(elem).attr('data-opened') === 'false' && $('.mill-debug-bar.content').is(":hidden")){
-        
         $('a#debug-bar-'+$(elem).attr('data-page')).trigger('click');
         $(elem).attr('data-opened', 'true');
         $('div[data-page="'+$(elem).attr('data-page')+ '"]').attr('data-opened', 'true');
         $('.debugbar .mill-debug-bar.content').slideToggle('slow'); 
-        
     }else{
-        
-        $('a#debug-bar-'+$(elem).attr('data-page')).trigger('click');
-        
+        $('a#debug-bar-'+$(elem).attr('data-page')).trigger('click'); 
     }
 
 }

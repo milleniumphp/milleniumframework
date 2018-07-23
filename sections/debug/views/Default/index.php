@@ -4,7 +4,7 @@
 <div>
     <div class="debugbar container">
         <div class="mill-bar icons " style="background-color: #e6f2ff;">
-            <div class="debug-item logo" data-page="logo" onclick="getdebugbarbody(this)">
+            <div class="debug-item logo" data-page="logo" onclick="getdebugbarbody(this)" data-opened="false">
                 <img src="/assets/mill/system/icon.png" style="max-height: 46px;">
             </div>
             <div class="debug-item php text-center" data-page="php" onclick="getdebugbarbody(this)" data-opened="false">
@@ -22,9 +22,10 @@
                     <h4><?php echo $_GET['time'];?></h4>
                 </div>
             </div>
-            <div class="debug-item php text-center" data-page="log" onclick="getdebugbarbody(this)" data-opened="false">
+            
+            <div class="debug-item requests text-center" data-page="requests" onclick="getdebugbarbody(this)" data-opened="false">
                 <div class="vcenter">
-                    <h4>Log</h4>
+                    <h4>Requests</h4>
                 </div>
             </div>
             

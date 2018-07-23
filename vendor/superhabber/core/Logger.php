@@ -30,9 +30,9 @@ class Logger {
             self::$data['debug_requests'] = base\Request::$requests;
 
             
-            file_put_contents(ROOT . '/tmp/debug/'.$name.'.log', serialize(self::$data));  
+            file_put_contents(ROOT . '/tmp/debug/1.log', serialize(self::$data));  
             
-            $a = file_get_contents(ROOT . '/tmp/debug/'.$name.'.log');
+            $a = file_get_contents(ROOT . '/tmp/debug/1.log');
 
             
         }
