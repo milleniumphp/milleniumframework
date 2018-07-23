@@ -1,5 +1,5 @@
-<select class="form-control" name="lang" id="lang" style="margin-top: -6px;height: auto;">
-
+<select class="form-control" id="lang" style="margin-top: -6px;height: auto;" onchange="window.location = '/language/default/change?lang=' + $(this).val();">
+    
     <option value="<?= $this->language['code']; ?>">
         <?= $this->language['title'] ?>
     </option>
@@ -11,4 +11,5 @@
             </option>
         <?php endif; ?>
     <?php endforeach; ?>
+            
 </select>

@@ -8,7 +8,7 @@
         <title><?= $this->title ?> | <?= \mill\core\Props::getSetting('app')['name'] ?></title>
         <meta name="description" content="<?= $this->description ?>">
         <meta name="keywords" content="<?= $this->keywords ?>"> 
-        <meta name="csrf-token" content="<?php echo \mill\core\Props::getSetting('app')['_csrf'] ?>" />
+        <meta name="csrf-token" content="<?php echo \mill\core\Props::getSetting('app')['_csrf'] ?>">
         
         <?php mill\web\Scripts::styles() ?>
 
@@ -67,5 +67,7 @@
             </div>
         </div>
     </body>
-    <?php mill\web\Scripts::scripts('mini.js') ?>
+    
+    <?php mill\web\Scripts::scripts() ?>
+    
 </html>

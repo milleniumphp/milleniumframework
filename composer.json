@@ -21,7 +21,7 @@
         "phpmailer/phpmailer": "~6.0",
         "vlucas/valitron": "~1.4.3",
         "robmorgan/phinx": "^0.10.3",
-        "ircmaxell/random-lib": "^1.2"
+        "rych/random": "^0.1.0"
     },
     "require-dev": {
        "codeception/codeception": "^2.4.3"

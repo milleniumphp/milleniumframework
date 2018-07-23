@@ -24,7 +24,7 @@ class User {
     public static $properties = [];
     
     public function __construct() {
-        self::$properties = $_SESSION['user'][0];
+        if(isset($_SESSION['user'])) self::$properties = $_SESSION['user'][0];
     }
 
     public function isGuest(){
@@ -32,7 +32,7 @@ class User {
         return false;
     }
     
-    public function login($login, $password, $data = [], $options = []){
+    public function login($login, $password, $data = [], $options = ['key' => 'login']){
         if($login && $password){
             if(!empty($data)){
                 foreach ($data as $k => $v){
@@ -49,7 +49,7 @@ class User {
                 Model::$errors['type'][] = isset($options['wrong']) ?  $options['wrong'] : 'Incorrect data entered';
                 return false;
             }
-            $user = \R::findOne('user', 'login = ? LIMIT 1', [$login]);
+            $user = \R::findOne('user', "{$options['key']} = ? LIMIT 1", [$login]);
             if($user){
                 if(password_verify($password, $user->password)){
                     foreach ($user as $k => $v){

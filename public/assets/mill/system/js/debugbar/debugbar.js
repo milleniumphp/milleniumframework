@@ -1,5 +1,3 @@
-if(typeof Jquery === undefined) console.log('Mill scripts needs jquery');
-
 window.onload = function() {
     
     var loadTime = window.performance.timing.domContentLoadedEventEnd-window.performance.timing.navigationStart;

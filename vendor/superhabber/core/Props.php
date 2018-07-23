@@ -13,11 +13,9 @@ class Props {
     
     public function __construct($config = '/config/config.php') {
         $config = require(ROOT . $config);
-        
         foreach ($config as $k => $v){
             self::setSetting($k, $v);
-        }
-        
+        }  
     }
 
     public function setProperty($name, $value){

@@ -21,8 +21,8 @@ class Router {
         /**
          * default route for examples, debugbar
          */
-        '^debug/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'debug'],
-        '^language/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['prefix'=>'language'],
+        '^debug/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?'=> ['prefix'=>'debug'],
+        '^language/(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$'=> ['action'=>'view','prefix'=>'language'],
     ];
 
     /**
@@ -94,9 +94,11 @@ class Router {
             /**
              * if not a section use standart path \app\controllers
              */
-            if(self::$route['prefix'] != false){
+            if(!empty(self::$route['prefix'])){
+                
                 $controller = '\sections\\' . self::$route['prefix'] . 'controllers\\' . self::$route['controller'] . 'Controller';
             }else{
+                debug(self::$route);
                 $controller = '\app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
             }
 

@@ -15,21 +15,28 @@ class Logger {
     }
     
     public function debug($work) {
-        $route = Router::getRoute();
+        $route = Router::matchRoute(App::$uri);
         
         if ($work && ($route['prefix'] != 'debug\\')) {
+            
+            $name = substr(Props::getSetting('app')['_csrf'], 0, 8);
 
-            $query = str_replace('?', '&', ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'));
-
-            self::$data['route'] = $route;
+            self::$data['debug_route'] = $route;
+            
+            self::$data['debug_query'] = App::$uri ?: '/';
             
             self::$data['debug_db'] = \R::getLogs();
+            
+            self::$data['debug_requests'] = base\Request::$requests;
 
             
-            file_put_contents(ROOT . '/tmp/debug/1.log', serialize(self::$data));  
+            file_put_contents(ROOT . '/tmp/debug/'.$name.'.log', serialize(self::$data));  
+            
+            $a = file_get_contents(ROOT . '/tmp/debug/'.$name.'.log');
+
             
         }
-        $a = file_get_contents(ROOT . '/tmp/debug/1.log');
+        
         
     }
     

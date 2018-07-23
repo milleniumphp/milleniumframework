@@ -11,6 +11,8 @@ class App {
     public static $app;
     
     public static $bin;
+    
+    public static $uri;
 
     public function __construct() {
         /**
@@ -37,7 +39,7 @@ class App {
         self::$app = Registry::instance();
 
     }
-    
+
     /**
      * debug function for debug bar
      * @param bool $work work type
@@ -51,8 +53,9 @@ class App {
      * @return string csrf code
      */
     public static function generateCsrfCode(){
-        Props::setSetting('app', ['_csrf'=> bin2hex(openssl_random_pseudo_bytes(32)) ]);
+        Props::setSetting('app', ['_csrf'=> bin2hex(openssl_random_pseudo_bytes(16)) ]);
         $_SESSION['_csrf'] = Props::getSetting('app')['_csrf'];   
+        
         return (Props::getSetting('app')['_csrf']);
     }
 

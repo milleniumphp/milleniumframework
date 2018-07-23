@@ -4,13 +4,13 @@ require __DIR__ . '/../vendor/superhabber/libs/basic/aliases.php';
 require LIBS . '/basic/functions.php';
 
 use mill\core\Router;
-define('DEBUG', 0);
+define('DEBUG', 1);
 
 /**
  * page debugbar
  * 1 - start 
  */
-define('DEBUGBAR', 0);
+define('DEBUGBAR', 1);
 
 /**
  * gzip for page/
@@ -22,7 +22,7 @@ define('GZIP', 0);
 
 new mill\core\App;
 
-$query = str_replace('?', '&', ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'));
+\mill\core\App::$uri = str_replace('?', '&', ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'));
 
 Router::add('^pages/about$', ['controller'=>'Pages', 'action' => 'about', 'middleware'=> mill\core\base\User::middleware(function($obj){
     return [
@@ -39,7 +39,7 @@ Router::add('^$', ['controller'=>'Pages']);
 Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
 
 
-Router::dispatch($query);
+Router::dispatch(mill\core\App::$uri);
 
 if(DEBUGBAR){
     mill\core\App::debug();
