@@ -15,13 +15,16 @@
         <li>
             <a id="debug-bar-requests" href="#debug-bar-show-requests" data-toggle="pill">Requests</a>
         </li>
+        <li>
+            <a id="debug-bar-db" href="#debug-bar-show-db" data-toggle="pill">Database</a>
+        </li>
     </ul>
 </div>
 <div class="col-md-10">
-    <div id="temp1" class="tab-content col-xs-12 text-center" style="">
+    <div id="temp1" class="tab-content container-fluid col-xs-12 text-center" style="">
         <div class="tab-pane active " id="debug-bar-show-logo">
             <h3>Millenium PHP framework</h3>
-            <table class="table">
+            <table class="table table-bordered">
                 <tbody>
                     <tr>
                         <td>Version</td>
@@ -34,13 +37,55 @@
                     
                 </tbody>
             </table>
+            
+            <h3>SERVER settings</h3>
+            <div class="server">
+                <table class="table table-bordered" style="table-layout: fixed;width: 100%;">
+                    <tbody>
+                        <?php foreach ($log['debug_server'] as $k => $v): ?>
+                            <tr>
+                                <td class="col-md-4"><?=$k?></td>
+                                <td class="col-md-8"><?php print_r($v) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+            
         </div>
+        
+        <div class="tab-pane " id="debug-bar-show-db" style="margin:1em 0;">
+            <?php debug(array_pop($log['debug_db'])) ?>
+            <?php foreach($log['debug_db'] as $k => $v): ?>
+                <?php debug($k+1 . ' => ' . $v) ?>
+            <?php endforeach; ?>
+        </div>
+        
         <div class="tab-pane " id="debug-bar-show-php">
-            <?=$phpinfo?>
+            <?php echo $phpinfo ?>
         </div>
         
         <div class="tab-pane  " id="debug-bar-show-requests">
-            <?php debug($route['controller'])?>
+<!--            <ul class="nav nav-tabs nav-justified">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">Menu 1</a></li>
+                <li><a href="#">Menu 2</a></li>
+                <li><a href="#">Menu 3</a></li>
+            </ul>-->
+            
+            <div class="row">
+                <h4>$_GET</h4>
+                <p><?php debug($log['debug_get'] ?: '$_GET empty') ?></p>
+            </div>
+            <div class="row">
+                <h4>$_POST</h4>
+                <p><?php debug($log['debug_post'] ?: '$_POST empty') ?></p>
+            </div>
+            <div class="row">
+                <h4>$_REQUESTS</h4>
+                <p><?php debug($log['debug_requests'] ?: '$_REQUESTS empty') ?></p>
+            </div>
+
         </div>
         
         <div class="tab-pane" id="debug-bar-show-route">

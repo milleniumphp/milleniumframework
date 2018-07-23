@@ -14,7 +14,9 @@ class DefaultController extends \mill\core\base\Controller{
         $get = \mill\core\base\Request::$get;
         $route = \mill\core\Router::matchRoute(isset($get['route']) ? ltrim($get['route'], '/') : '/');
         
-        $log = file_get_contents(ROOT . '/tmp/debug/1.log');
+        $log = unserialize(file_get_contents(ROOT . '/tmp/debug/1.log'));
+        
+        unset($log['debug_server']['PATH']);
                 
         $this->set([
             'phpinfo' => $phpinfo,

@@ -29,6 +29,12 @@
                 </div>
             </div>
             
+            <div class="debug-item db text-center" data-page="db" onclick="getdebugbarbody(this)" data-opened="false">
+                <div class="vcenter">
+                    <h4>Database</h4>
+                </div>
+            </div>
+            
             <div class="debug-item hidebar" onclick="hidedebugbarmenu()">
                 <span class="glyphicon glyphicon-chevron-right vcenter"></span>
             </div>

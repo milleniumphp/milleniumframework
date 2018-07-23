@@ -28,6 +28,12 @@ class Logger {
             self::$data['debug_db'] = \R::getLogs();
             
             self::$data['debug_requests'] = base\Request::$requests;
+            
+            self::$data['debug_post'] = base\Request::$post;
+            
+            self::$data['debug_get'] = base\Request::$get;
+            
+            self::$data['debug_server'] = $_SERVER;
 
             
             file_put_contents(ROOT . '/tmp/debug/1.log', serialize(self::$data));  
