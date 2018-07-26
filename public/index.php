@@ -1,7 +1,5 @@
 <?php
-require __DIR__ . '/../vendor/autoload.php';
-require __DIR__ . '/../vendor/superhabber/libs/basic/aliases.php';
-require LIBS . '/basic/functions.php';
+$loader = require __DIR__ . '/../vendor/autoload.php';
 
 use mill\core\Router;
 define('DEBUG', 1);
@@ -10,7 +8,7 @@ define('DEBUG', 1);
  * page debugbar
  * 1 - start 
  */
-define('DEBUGBAR', 1);
+define('DEBUGBAR', 0);
 
 /**
  * gzip for page/
@@ -20,9 +18,7 @@ define('DEBUGBAR', 1);
  */
 define('GZIP', 0);
 
-new mill\core\App;
-
-\mill\core\App::$uri = str_replace('?', '&', ltrim(rtrim($_SERVER['REQUEST_URI'], '/'), '/'));
+new \mill\core\App($loader);
 
 Router::add('^pages/about$', ['controller'=>'Pages', 'action' => 'about', 'middleware'=> mill\core\base\User::middleware(function($obj){
     return [

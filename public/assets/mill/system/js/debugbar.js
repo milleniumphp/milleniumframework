@@ -4,7 +4,7 @@ window.onload = function() {
     var route = href.substring(href.indexOf('/', 9));
     var csrf = $('meta[name="csrf-token"]').attr('content').slice(0, 8);
     
-    console.log(csrf);
+    console.log("debug file is " + csrf + ".log");
     
     $.ajax({
         url: '/debug/default/', 

@@ -27,6 +27,10 @@
        "codeception/codeception": "^2.4.3"
     },
     "autoload": {
+        "files": [
+            "vendor/superhabber/libs/basic/aliases.php",
+            "vendor/superhabber/libs/basic/functions.php"
+        ],
         "psr-4": {
             "mill\\": "vendor/superhabber",
             "app\\": "app",

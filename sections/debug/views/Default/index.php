@@ -1,5 +1,5 @@
 <style>
-    <?php echo file_get_contents('assets/mill/system/css/debugbar/debugbar.css')?>
+    <?php echo file_get_contents('assets/mill/system/css/debugbar.css')?>
 </style>
 <div>
     <div class="debugbar container">

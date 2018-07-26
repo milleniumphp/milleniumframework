@@ -11,11 +11,39 @@ class Props {
     
     protected static $settings = [];
     
+    protected static $classes = [];
+
+
     public function __construct($config = '/config/config.php') {
         $config = require(ROOT . $config);
         foreach ($config as $k => $v){
             self::setSetting($k, $v);
+            if($k == 'components'){
+                foreach ($v as $key => $value){
+                    self::setClass($key, $value);
+                }
+            }
         }  
+    }
+    
+    public function __get($name) {
+        return new self::$classes[$name];
+    }
+
+
+    public static function setClass($name, $value) {
+        self::$classes[$name] = $value;
+    }
+    
+    public static function getClass($name){
+        if (isset(self::$classes[$name])) {
+            return self::$classes[$name];
+        }
+        return null;
+    }
+    
+    public static function getClasses(){
+        return self::$classes;
     }
 
     public function setProperty($name, $value){

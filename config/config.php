@@ -11,7 +11,8 @@ $config = [
         'cache' => '\mill\libs\Cache',
         'user'=> '\mill\core\base\User',
         'request'=> '\mill\core\base\Request',
-        'session' => '\mill\core\base\Session'
+        'session' => '\mill\core\base\Session',
+        'error' => 'mill\core\ErrorHandler'
     ],
     
     'url'=>[

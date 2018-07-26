@@ -6,33 +6,17 @@ namespace mill\core;
  * Main Class for Application
  * @author Yaroslav Palamarchuk
  */
-class App {
+class App extends base\Application{
 
-    public static $app;
-    
-    public static $bin;
-    
-    public static $uri;
-
-    public function __construct() {
-        /**
-         * error handler
-         */
-        new ErrorHandler();
-        /**
-         * standart consts on production
-         */
-        defined(DEBUG) or define(DEBUG, 0);
+    public function __construct($loader) {
         
-        defined(DEBUGBAR) or define(DEBUGBAR, 0);
-        /**
-         * start new session
-         */
-        session_start();
         /**
          * properties variable
          */
         self::$bin = new Props('/config/config.php');
+        
+        parent::__construct($loader, self::$bin->error);
+
         /**
          * app variable
          */
@@ -47,7 +31,7 @@ class App {
     public static function debug($work = true){
         new Logger($work);
     }
-    
+          
     /**
      * generationg csrf code of application
      * @return string csrf code

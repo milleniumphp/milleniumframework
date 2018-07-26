@@ -45,7 +45,7 @@ class PagesController extends AppController{
          * special htmlspecialchars method for post data
          * never use $_POST method
          */
-        $post = $this->request->post;
+        $post = $this->request->get(INPUT_POST);
         /**
         * create new user
         */
@@ -87,7 +87,7 @@ class PagesController extends AppController{
             /**
              * user saving
              */
-            if($user->validate($this->request->post) && $user->save('user')){
+            if($user->validate($this->request->get(INPUT_POST)) && $user->save('user')){
                 /**
                  * user registered
                  */
@@ -134,11 +134,12 @@ class PagesController extends AppController{
             ]
         ];
         $user = new \app\models\LoginForm();
-        if(!empty($this->request->post)){
+        if(!empty($this->request->get(INPUT_POST))){
+
             /**
              * make new user
              */
-            if($user->validate($this->request->post) && $user->login($data)){
+            if($user->validate($this->request->get(INPUT_POST)) && $user->login($data)){
                 /**
                  * maek new alert
                  */

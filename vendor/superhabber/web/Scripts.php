@@ -47,7 +47,7 @@ class Scripts {
             /**
              * debug bar js file
              */
-            $s['js'][] = '/assets/mill/system/js/debugbar/debugbar.js';
+            $s['js'][] = '/assets/mill/system/js/debugbar.js';
         }
 
         foreach ($s as $name => $script) {

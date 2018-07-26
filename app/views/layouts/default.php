@@ -1,14 +1,17 @@
-<?php use \mill\html\Url; ?>
+<?php 
+use \mill\html\Url;
+use \mill\core\App;
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title><?= $this->title ?> | <?= \mill\core\Props::getSetting('app')['name'] ?></title>
+        <title><?php echo $this->title ?> | <?php echo App::$bin->getSetting('app')['name'] ?></title>
         <meta name="description" content="<?= $this->description ?>">
         <meta name="keywords" content="<?= $this->keywords ?>"> 
-        <meta name="csrf-token" content="<?php echo \mill\core\Props::getSetting('app')['_csrf'] ?>">
+        <meta name="csrf-token" content="<?php echo App::$bin->getSetting('app')['_csrf'] ?>">
         
         <?php mill\web\Scripts::styles() ?>
 
@@ -27,7 +30,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?= Url::$baseUrl ?>">
-                    <?php echo \mill\core\Props::getSetting('app')['name'] ?>
+                    <?php echo App::$bin->getSetting('app')['name'] ?>
                 </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
