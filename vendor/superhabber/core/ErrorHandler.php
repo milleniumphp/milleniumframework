@@ -13,11 +13,8 @@ class ErrorHandler {
      * check debug or not
      */
     public function __construct() {  
-        if(DEBUG){
-            error_reporting(-1);
-        }else{
-            error_reporting(0);
-        }
+        DEBUG ? error_reporting(-1) : error_reporting(0);
+
         set_error_handler([$this, 'errorHandler']);
         ob_start();
         register_shutdown_function([$this, 'fatalErrorHandler']);
@@ -60,9 +57,8 @@ class ErrorHandler {
      */
     public function displayError($errno, $errstr, $errfile, $errline, $response = 500) {
         http_response_code($response);
-        if($response == 404 && !DEBUG){
-            die;
-        }
+        if($response == 404 && !DEBUG) die;
+
         if(DEBUG){
             require CORE . '/local/errors/dev.php';die;
         }else{

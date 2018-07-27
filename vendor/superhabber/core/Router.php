@@ -53,25 +53,20 @@ class Router {
                     }
                 }
                 //if route without action add index
-                if (!isset($route['action'])) {
-                    $route['action'] = 'index';
-                }
+                if (!isset($route['action'])) $route['action'] = 'index';
+                
                 /**
                  * if auth not exists set false
                  */
-                if(!isset($route['auth'])){
-                    $route['auth'] = false;
-                }
-                //prefix for controllers
-                if(!isset($route['prefix'])){
-                    $route['prefix'] = '';
-                }else{
-                    $route['prefix'] .= '\\'; 
-                }
-                $route['controller'] = self::upperCamelCase($route['controller']);
-                self::$route = $route;
+                if(!isset($route['auth'])) $route['auth'] = false;
                 
-                return self::$route;
+                //prefix for controllers
+                !isset($route['prefix']) ? $route['prefix'] = '' : $route['prefix'] .= '\\';
+                
+                
+                $route['controller'] = self::upperCamelCase($route['controller']);
+                
+                return self::$route = $route;
             }
             
         }
@@ -87,8 +82,7 @@ class Router {
      */
     public static function dispatch($url) {
         $url = self::removeQueryString($url);
-        
-        
+
         //if route exists
         if (self::matchRoute($url)) {
             /**
@@ -99,28 +93,12 @@ class Router {
             }else{
                 $controller = '\app\controllers\\' . self::$route['prefix'] . self::$route['controller'] . 'Controller';
             }
-
-            /**
-             * if page for authorized users
-             * but open if debug contstant exists
-             */
-            if( self::$route['auth'] === true && App::$app->user->isGuest() && !DEBUG){
-                /**
-                 * error controller with default view and layout
-                 */
-                $e = new base\ErrorController(404, null, null);
-                http_response_code(404);
-                $e->usererror(8,'Page not found');
-                die;  
-            }
             
             /**
              * if nor an error page 
              */
             if (class_exists($controller)) {
                 $cObj = new $controller(self::$route);
-                $errorview = isset($cObj->errorview) ? $cObj->errorview : 'default';
-                $errorlayout = $cObj->layout ?: LAYOUT;
                 //get action name[ indexAction ]
                 $action = self::lowerCamelCase(self::$route['action']) . 'Action';
                 if (method_exists($cObj, $action)) {
@@ -130,7 +108,6 @@ class Router {
                     if(!DEBUG){
                         $e = new base\ErrorController(404, $errorview, $errorlayout, self::$route);
                         $e->usererror(null, 'Page not found');
-                        
                     }else{
                         throw new \Exception('Method '. $controller .':'. $action .' not found');
                     }

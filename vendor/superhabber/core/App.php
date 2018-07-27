@@ -9,7 +9,10 @@ namespace mill\core;
 class App extends base\Application{
 
     public function __construct($loader) {
-        
+        /**
+         * start new session
+         */
+        session_start();
         /**
          * properties variable
          */
@@ -37,8 +40,8 @@ class App extends base\Application{
      * @return string csrf code
      */
     public static function generateCsrfCode(){
-        Props::setSetting('app', ['_csrf'=> bin2hex(openssl_random_pseudo_bytes(16)) ]);
-        $_SESSION['_csrf'] = Props::getSetting('app')['_csrf'];   
+        $_SESSION['_csrf'] = bin2hex(openssl_random_pseudo_bytes(16));
+        Props::setSetting('app', ['_csrf'=> $_SESSION['_csrf'] ]); 
         
         return (Props::getSetting('app')['_csrf']);
     }

@@ -29,10 +29,6 @@ class Application {
         defined(DEBUG) or define(DEBUG, 0);
         
         defined(DEBUGBAR) or define(DEBUGBAR, 0);
-        /**
-         * start new session
-         */
-        session_start();
     }
     
 }

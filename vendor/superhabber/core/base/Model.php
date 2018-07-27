@@ -23,7 +23,7 @@ class Model {
      * default instance
      */
     public function __construct() {
-        $this->pdo = Db::instance(); 
+        Db::instance(); 
     }
 
     public function load($data) {

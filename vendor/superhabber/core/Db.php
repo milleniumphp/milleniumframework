@@ -44,6 +44,9 @@ class Db {
              */
             \R::setup("{$real[0]['adapter']}:host={$real[0]['host']};dbname={$real[0]['name']};", $real[0]['user'], $real[0]['pass']);
         }
+        /**
+         * start logging for application
+         */
         \R::startLogging();
         
         \R::freeze(true);

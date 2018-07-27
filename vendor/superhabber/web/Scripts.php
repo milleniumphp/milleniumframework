@@ -43,12 +43,20 @@ class Scripts {
 
     public static function getScripts() {
         $s = require ROOT . '/config/scripts.php';
+
         if(DEBUG && DEBUGBAR){
             /**
              * debug bar js file
              */
             $s['js'][] = '/assets/mill/system/js/debugbar.js';
         }
+        
+        foreach($s['require'] as $k => $v){
+            self::$scripts[$k] = $v;
+        }
+        unset($s['require']);
+        
+        self::$scripts['js'][] = '/assets/mill/system/js/mill.js';
 
         foreach ($s as $name => $script) {
             foreach ($script as $sc) {

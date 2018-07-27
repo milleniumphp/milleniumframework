@@ -4,7 +4,7 @@ namespace mill\widgets\language;
 use mill\core\App;
 
 /**
- * Description of Language
+ * Language widget controller for language change
  *
  * @author Yaroslav Palamarchuk
  */
