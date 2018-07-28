@@ -12,6 +12,7 @@ use \mill\core\App;
         <meta name="description" content="<?= $this->description ?>">
         <meta name="keywords" content="<?= $this->keywords ?>"> 
         <meta name="csrf-token" content="<?php echo App::$bin->getSetting('app')['_csrf'] ?>">
+        <link rel="icon" href="/assets/mill/system/icon.png">
         
         <?php mill\web\Scripts::styles() ?>
 
@@ -21,7 +22,7 @@ use \mill\core\App;
         <![endif]-->
     </head>
     <body>
-        <nav class="container-fluid navbar navbar-default navbar-inverse navbar-fixed-top">
+        <nav class="container-fluid navbar navbar-default navbar-inverse">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
                     <span class="sr-only">Toggle navigation</span>

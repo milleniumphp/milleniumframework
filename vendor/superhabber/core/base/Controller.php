@@ -1,5 +1,4 @@
 <?php
-
 namespace mill\core\base;
 
 use app\models\Main;

@@ -7,6 +7,7 @@ namespace mill\core\base;
  * @author Документи
  */
 class Application {
+    
     public static $app;
     
     public static $bin;
@@ -29,6 +30,12 @@ class Application {
         defined(DEBUG) or define(DEBUG, 0);
         
         defined(DEBUGBAR) or define(DEBUGBAR, 0);
+    }
+    
+    public static function addRoutes($rules){
+        foreach($rules as $k => $v){
+            \mill\core\Router::add($k, $v);
+        }
     }
     
 }

@@ -12,6 +12,7 @@ class LoginForm extends \mill\core\base\Model {
         'password' => ''
         
     ];
+    
     public $rules = [
         'required' => [
             ['login'],

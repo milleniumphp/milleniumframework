@@ -37,9 +37,8 @@ class Model {
     public function validate($data) {
         $v = new \Valitron\Validator($data);
         $v->rules($this->rules);
-        if ($v->validate()) {
-            return true;
-        }
+        if ($v->validate()) return true;
+        
         self::$errors = $v->errors();
         return false;
     }

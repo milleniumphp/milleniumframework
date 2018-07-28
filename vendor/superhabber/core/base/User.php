@@ -1,5 +1,4 @@
 <?php
-
 namespace mill\core\base;
 
 /**
@@ -36,7 +35,7 @@ class User {
         if($login && $password){
             if(!empty($data)){
                 foreach ($data as $k => $v){
-                    if($v['login'] == $login && $v['password'] == $password){
+                    if(($v['login'] == $login) && ($v['password'] == $password)){
                         foreach ($v as $d) {
                             if ($d != 'password') {
                                 $_SESSION['user'][$k] = $v;

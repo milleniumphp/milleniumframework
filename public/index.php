@@ -18,22 +18,7 @@ define('DEBUGBAR', 0);
  */
 define('GZIP', 0);
 
-new \mill\core\App($loader);
-
-Router::add('^pages/about$', ['controller'=>'Pages', 'action' => 'about', 'middleware'=> mill\core\base\User::middleware(function($obj){
-    return [
-        'preaction' => function($obj){
-            
-        },
-        'type' => $obj::ALL_USER
-    ];
-    
-})]);
-
-Router::add('^$', ['controller'=>'Pages']);
-
-Router::add('^(?P<controller>[a-z-]+)/?(?P<action>[a-z-]+)?$');
-
+(new \mill\core\App($loader))->start();
 
 Router::dispatch(mill\core\App::$uri);
 

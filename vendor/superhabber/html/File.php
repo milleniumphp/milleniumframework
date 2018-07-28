@@ -28,10 +28,8 @@ class File {
         $i = 0;
         foreach ($data as $k =>$v){
             $n = $name ?: $data[$k]['name'];
-            
-            $uploadfile = WWW . $path . basename($n);
 
-            if (move_uploaded_file($data[$k]['tmp_name'], $uploadfile)) {
+            if (move_uploaded_file($data[$k]['tmp_name'], WWW . $path . basename($n))) {
                 continue;
             }
             $i++;

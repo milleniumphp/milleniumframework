@@ -2,15 +2,11 @@
 namespace mill\libs;
 
 /**
- * Description of Cache
+ * Cache
  * makes cache for data
  * @author Yaroslav Palamarchuk
  */
 class Cache {
-
-    public function __construct() {
-
-    }
 
     /**
      * create new cache file
@@ -21,12 +17,10 @@ class Cache {
     public function set($key, $data, $seconds = 3601) {
         $content['data'] = $data;
         $content['end_time'] = time() + $seconds;
-        if(!is_dir(CACHE)){
-            mkdir(CACHE);
-        }
-        if (file_put_contents(CACHE . '/' . md5($key) . '.txt', serialize($content))) {
-            return true;
-        }
+        if(!is_dir(CACHE)) mkdir(CACHE);
+        
+        if (file_put_contents(CACHE . '/' . md5($key) . '.txt', serialize($content))) return true;
+        
         return false;
     }
 

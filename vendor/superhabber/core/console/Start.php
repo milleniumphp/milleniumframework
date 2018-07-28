@@ -14,7 +14,6 @@ class Start {
         $this->argv = $ar;
     }
 
-    
     public function backup(){
         $backup = new \mill\core\console\database\Backup($this->argv); 
     }

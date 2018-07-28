@@ -1,6 +1,8 @@
 <?php
 namespace mill\core;
 
+use mill\BaseMill;
+
 /**
  * Description of App
  * Main Class for Application
@@ -24,6 +26,15 @@ class App extends base\Application{
          * app variable
          */
         self::$app = Registry::instance();
+
+    }
+    
+    public static function start(){
+        /**
+         * get url setting from config file
+         * used Props class for config parsing
+         */
+        parent::addRoutes(self::$bin->getSetting('url')['rules']);
 
     }
 

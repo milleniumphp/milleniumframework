@@ -5,7 +5,7 @@ namespace app\models;
  * Description of Sign Up Form Base Class
  *
  * @author Yaroslav Palamarchuk
- */
+*/
 class SignUpForm extends \mill\core\base\Model {
 
     public $attributes = [

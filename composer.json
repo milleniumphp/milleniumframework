@@ -29,7 +29,8 @@
     "autoload": {
         "files": [
             "vendor/superhabber/libs/basic/aliases.php",
-            "vendor/superhabber/libs/basic/functions.php"
+            "vendor/superhabber/libs/basic/functions.php",
+            "vendor/superhabber/Mill.php"
         ],
         "psr-4": {
             "mill\\": "vendor/superhabber",
