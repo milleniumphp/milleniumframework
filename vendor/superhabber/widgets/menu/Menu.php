@@ -103,12 +103,12 @@ class Menu {
         $data = $this->data;
 
 	foreach ($data as $id=>&$node) {    
-		if (!$node['parent']){
-			$tree[$id] = &$node;
-		}else{ 
-                    $data[$node['parent']]['childs'][$id] = &$node;
-		}
-	}
+            if (!$node['parent']) {
+                $tree[$id] = &$node;
+            } else {
+                $data[$node['parent']]['childs'][$id] = &$node;
+            }
+        }
         /**
          * tree wirh parents and childs
          */

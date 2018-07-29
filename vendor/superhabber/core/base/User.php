@@ -26,6 +26,7 @@ class User {
         if(isset($_SESSION['user'])) self::$properties = $_SESSION['user'][0];
     }
 
+
     public function isGuest(){
         if(empty(self::$properties)) return true;
         return false;
@@ -73,9 +74,8 @@ class User {
     public function property($name = ''){
         if($name){
             return self::$properties[$name];
-        }else{
-            return self::$properties;
         }
+        return self::$properties;
     }
     
     public static function middleware($rule){

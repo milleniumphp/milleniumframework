@@ -41,9 +41,6 @@ abstract class Controller {
         'description' => '', 
         'keywords' => ''
     ];
-    
-    public $request;
-    public $session;
 
     /**
      * for variables from controller to view
@@ -54,8 +51,6 @@ abstract class Controller {
         $this->route = $route ?: \mill\core\Router::getRoute();
         $this->view = $route['action'];
 
-        $this->request = \mill\core\App::$app->request;
-        $this->session = \mill\core\App::$app->session;
     }
 
     /**

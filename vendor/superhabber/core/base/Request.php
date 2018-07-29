@@ -8,11 +8,11 @@ namespace mill\core\base;
  */
 class Request {
 
-    public function get($name) {
+    public static function get($name) {
         return array_map ( 'htmlspecialchars', filter_input_array($name) ?: []);
     }
     
-    public function file(){
+    public static function file(){
         return array_map( 'htmlspecialchars', $_FILES );
     }
 

@@ -25,7 +25,7 @@ $config = [
                 'middleware' => mill\core\base\User::middleware(function($obj) {
                     return [
                         'preaction' => function($obj) {
-                                    
+                            
                         },
                         'type' => $obj::ALL_USER
                     ];

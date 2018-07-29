@@ -14,7 +14,7 @@ use \mill\core\App;
         <meta name="csrf-token" content="<?php echo App::$bin->getSetting('app')['_csrf'] ?>">
         <link rel="icon" href="/assets/mill/system/icon.png">
         
-        <?php mill\web\Scripts::styles() ?>
+        <?php $this->scripts->styles() ?>
 
         <!--[if lt IE 9]>
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -50,7 +50,7 @@ use \mill\core\App;
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <?php if (\mill\core\App::$app->user->isGuest()): ?>
+                    <?php if (\Mill::$user->isGuest()): ?>
                         <li><a href="<?= Url::to('/pages/signup') ?>"><span class="glyphicon glyphicon-user"></span> <?php __('signup') ?> </a></li>
                         <li><a href="<?= Url::to('/pages/login') ?>"><span class="glyphicon glyphicon-log-in"></span> <?php __('login') ?> </a></li>
                     <?php else: ?>
@@ -72,6 +72,6 @@ use \mill\core\App;
         </div>
     </body>
     
-    <?php mill\web\Scripts::scripts() ?>
+    <?php $this->scripts->scripts() ?>
     
 </html>

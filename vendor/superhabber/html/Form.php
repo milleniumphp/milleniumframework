@@ -48,8 +48,8 @@ class Form {
         /**
          * start new form
          */
-        echo "<form {$s}>";
-        echo "<input type='hidden' name='csrf_token' value='". \mill\core\Props::getSetting('app')['_csrf'] ."'>";
+        echo "<form {$s}>".
+        "<input type='hidden' name='csrf_token' value='". \mill\core\Props::getSetting('app')['_csrf'] ."'>";
     }
     
     /**

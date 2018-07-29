@@ -1,7 +1,6 @@
 <?php
 namespace app\controllers;
 
-use \mill\core\App;
 use \mill\html\Url;
 
 /**
@@ -17,7 +16,6 @@ class PagesController extends AppController{
     public function indexAction() {  
         $this->metatags['title'] = 'Main Page';
         $test = \R::findAll('languages');
-        
     }
 
     /**
@@ -46,7 +44,7 @@ class PagesController extends AppController{
          * special htmlspecialchars method for post data
          * never use $_POST method
          */
-        $post = $this->request->get(INPUT_POST);
+        $post = \Mill::$request->get(INPUT_POST);
         /**
         * create new user
         */
@@ -54,7 +52,7 @@ class PagesController extends AppController{
         /**
          * make new session for alerting
          */
-        $session = $this->session;
+        $session = \Mill::$session;
         /**
          * if data is uploaded
          */
@@ -88,7 +86,7 @@ class PagesController extends AppController{
             /**
              * user saving
              */
-            if($user->validate($this->request->get(INPUT_POST)) && $user->save('user')){
+            if($user->validate(\Mill::$request->get(INPUT_POST)) && $user->save('user')){
                 /**
                  * user registered
                  */
@@ -116,7 +114,7 @@ class PagesController extends AppController{
         /**
          * make new session
          */
-        $session = $this->session;
+        $session = \Mill::$session;
         /**
          * set meta tags of page
          */
@@ -135,12 +133,12 @@ class PagesController extends AppController{
             ]
         ];
         $user = new \app\models\LoginForm();
-        if(!empty($this->request->get(INPUT_POST))){
+        if(!empty(\Mill::$request->get(INPUT_POST))){
 
             /**
              * make new user
              */
-            if($user->validate($this->request->get(INPUT_POST)) && $user->login($data)){
+            if($user->validate(\Mill::$request->get(INPUT_POST)) && $user->login($data)){
                 /**
                  * maek new alert
                  */
@@ -159,7 +157,7 @@ class PagesController extends AppController{
      * base logout action for loginned user
      */
     public function logoutAction(){
-        App::$app->user->logout('/');
+        \Mill::$user->logout('/');
     }
     
 }

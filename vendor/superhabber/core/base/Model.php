@@ -1,17 +1,10 @@
 <?php
 namespace mill\core\base;
 
-use mill\core\Db;
 /**
  * @author Yaroslav Palamarchuk
  */
 class Model {
-
-    /**
-     * columns for form
-     * @var array
-     */
-    public $attributes = [];
 
     /**
      * registration errors
@@ -23,17 +16,14 @@ class Model {
      * default instance
      */
     public function __construct() {
-        Db::instance(); 
+        \mill\core\Db::instance(); 
     }
 
-    public function load($data) {
-        foreach ($this->attributes as $name => $value) {
-            if (isset($data[$name])) {
-                $this->attributes[$name] = $data[$name];
-            }
-        }
-    }
-
+    /**
+     * valitron validation method
+     * @param array $data post or get params to validate
+     * @return boolean
+     */
     public function validate($data) {
         $v = new \Valitron\Validator($data);
         $v->rules($this->rules);
@@ -42,7 +32,11 @@ class Model {
         self::$errors = $v->errors();
         return false;
     }
-
+    
+    /**
+     * get errors from valitron validator
+     * @param object $session session variable
+     */
     public function getErrors($session = null) {
         $errors = '<ul>';
         foreach (self::$errors as $error) {
@@ -55,22 +49,16 @@ class Model {
     }
 
     /**
-     * save user to the table
-     * @param string $table
-     * @return bool
+     * default user login method which can be changed in your child model
+     * @param array $data
+     * @param string $login login attribute
+     * @param string $password password attribute
+     * @return boolean
      */
-    public function save($table) {
-        $tbl = \R::dispense($table);
-        foreach ($this->attributes as $name => $value) {
-            $tbl->$name = $value;
-        }
-        return \R::store($tbl);
-    }
-
-    public function login($data = []) {
-        $login = !empty(trim($_POST['login'])) ? trim($_POST['login']) : null;
-        $password = !empty(trim($_POST['password'])) ? trim($_POST['password']) : null;
-        if(\mill\core\App::$app->user->login($login, $password, $data)) return true;
+    public function login($data = [], $login = 'login', $password = 'password') {
+        $login = !empty(trim($_POST[$login])) ? trim($_POST[$login]) : null;
+        $password = !empty(trim($_POST[$password])) ? trim($_POST[$password]) : null;
+        if(\Mill::$user->login($login, $password, $data)) return true;
     }
 
 }

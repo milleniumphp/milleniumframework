@@ -40,7 +40,6 @@ class Scripts {
         self::$scripts = self::getScripts();
     }
 
-
     public static function getScripts() {
         $s = require ROOT . '/config/scripts.php';
 

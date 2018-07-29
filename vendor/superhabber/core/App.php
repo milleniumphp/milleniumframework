@@ -30,6 +30,8 @@ class App extends base\Application{
     }
     
     public static function start(){
+        \Mill::init();
+        
         /**
          * get url setting from config file
          * used Props class for config parsing
