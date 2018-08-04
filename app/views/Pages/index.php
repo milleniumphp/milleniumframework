@@ -3,7 +3,7 @@
         <div class="container">
             <h1>Millenium Framework</h1>
             <h2>Will make you happy :)</h2>
-            <a href="https://milleniumphp.github.io" target="_blank" class="btn btn-primary btn-xl rounded-pill mt-5">Documentation</a>
+            <a href="https://docs-millphp.herokuapp.com" target="_blank" class="btn btn-primary btn-xl rounded-pill mt-5">Documentation</a>
         </div>
     </div>
     <h4>P.S now you are in<code> <?php echo '/app/views/Pages/index.php'?></code></h4>
