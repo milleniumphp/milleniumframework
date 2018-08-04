@@ -48,7 +48,7 @@ abstract class Controller {
      * */
     public function __construct($route) {
         new Main;
-        $this->route = $route ?: \mill\core\Router::getRoute();
+        $this->route = $route ?? \mill\core\Router::getRoute();
         $this->view = $route['action'];
 
     }

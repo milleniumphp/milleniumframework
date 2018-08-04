@@ -63,7 +63,6 @@ class Router {
                 //prefix for controllers
                 !isset($route['prefix']) ? $route['prefix'] = '' : $route['prefix'] .= '\\';
                 
-                
                 $route['controller'] = self::upperCamelCase($route['controller']);
                 
                 return self::$route = $route;

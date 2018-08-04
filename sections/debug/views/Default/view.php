@@ -67,8 +67,6 @@
                         </tr>
                         <?php foreach ($log['user'] as $k => $attribute): ?>
 
-
-
                             <tr>
                                 <td><?php echo $k ?></td>
                                 <td><?php echo $attribute ?></td>

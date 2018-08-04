@@ -40,11 +40,9 @@ class Language {
         /**
          * get all languages from user's settings file
          */
-        $locales = require ROOT . '/config/locales.php';
-        /**
-         * sort locales by base param 1 or 0
-         */
-        arsort($locales);
+        $locales = App::$bin->getSetting('locales');
+        
+        ksort($locales);
         
         return $locales;
     }

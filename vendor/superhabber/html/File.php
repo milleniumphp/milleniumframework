@@ -24,7 +24,7 @@ class File {
         /**
          * if isset needed other data uplaod it
          */
-        $data = $d ?: $this->files;
+        $data = $d ?? $this->files;
         $i = 0;
         foreach ($data as $k =>$v){
             $n = $name ?: $data[$k]['name'];

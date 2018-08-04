@@ -105,7 +105,7 @@ class Form {
         /**
          * if input type inserted use it
          */
-        $type = isset($options['type']) ? $options['type'] : 'text';
+        $type = $options['type'] ?? 'text';
         unset($options['type']);
         /**
          * label for input if exists
@@ -116,22 +116,22 @@ class Form {
          * name for input
          * default like a field name
          */
-        $name = isset($options['name']) ? $options['name'] : $field;
+        $name = $options['name'] ?? $field;
         unset($options['name']);
         /**
          * default class name if doesn't exists user's
          */
-        $class = isset($options['class']) ? $options['class'] : 'form-control';
+        $class = $options['class'] ?? 'form-control';
         unset($options['class']);
         /**
          * if label exsits
          */
-        $islabel = isset($options['label']) ? $options['label'] : $field;
+        $islabel = $options['label'] ?? $field;
         unset($options['label']);
         /**
          * placeholer for input
          */
-        $placeholder = isset($options['placeholder']) ? $options['placeholder'] : $islabel;
+        $placeholder = $options['placeholder'] ?? $islabel;
         unset($options['placeholder']);
         /**
          * other tags like multiple...
@@ -155,7 +155,7 @@ class Form {
                 $tags .= "$k='$v'";
             }
         }
-        $value = isset($_POST[$name]) ? $_POST[$name] : '';
+        $value = $_POST[$name] ?? '';
         /**
          * make new input tag with params
         */

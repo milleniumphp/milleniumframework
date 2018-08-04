@@ -8,7 +8,7 @@ define('DEBUG', 1);
  * page debugbar
  * 1 - start 
  */
-define('DEBUGBAR', 1);
+define('DEBUGBAR', 0);
 
 /**
  * gzip for page/

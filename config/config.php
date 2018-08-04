@@ -15,6 +15,19 @@ $config = [
         'error' => 'mill\core\ErrorHandler'
     ],
     
+    'locales' => [
+
+        'en' => [
+            'title' => 'English',
+            'base' => 1
+        ],
+
+        'ru' => [
+            'title' => 'Русский'
+        ],
+        
+    ],
+    
     'url'=>[
         'baseUrl' => '/',
         'rules' => [

@@ -24,8 +24,8 @@ class ErrorController extends Controller {
      * @param int $code
      */
     public function __construct($code, $view = '', $layout = '', $vroute = []) {
-        $this->errorview = $view ?: 'default';
-        $this->layout = $layout ?: LAYOUT;
+        $this->errorview = $view ?? 'default';
+        $this->layout = $layout ?? LAYOUT;
         $this->response = $code;
         $this->vroute = $vroute;
     }
