@@ -17,6 +17,11 @@
                     <h4>Route</h4>
                 </div>
             </div>
+            <div class="debug-item php text-center" data-page="user" onclick="getdebugbarbody(this)" data-opened="false">
+                <div class="vcenter">
+                    <h4>User(<?=!empty($log['user']) ?: '0'?>)</h4>
+                </div>
+            </div>
             <div class="debug-item php text-center" data-page="time" onclick="getdebugbarbody(this)" data-opened="false">
                 <div class="vcenter">
                     <h4><?php echo $_GET['time'];?></h4>

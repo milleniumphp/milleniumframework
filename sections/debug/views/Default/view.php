@@ -10,6 +10,9 @@
             <a id="debug-bar-route" href="#debug-bar-show-route" data-toggle="pill">Route</a>
         </li>
         <li>
+            <a id="debug-bar-user" href="#debug-bar-show-user" data-toggle="pill">User(<?=!empty($log['user']) ?: '0'?>)</a>
+        </li>
+        <li>
             <a id="debug-bar-time" href="#debug-bar-show-time" data-toggle="pill">Time</a>
         </li>
         <li>
@@ -54,6 +57,29 @@
             
         </div>
         
+        <div class="tab-pane active " id="debug-bar-show-user">
+            <?php if (!empty($log['user'])): ?>
+                <table class="table table-bordered">
+                    <tbody>
+                        <tr>
+                            <th>Attribute Name</th>
+                            <th>Attribute Value</th>
+                        </tr>
+                        <?php foreach ($log['user'] as $k => $attribute): ?>
+
+
+
+                            <tr>
+                                <td><?php echo $k ?></td>
+                                <td><?php echo $attribute ?></td>
+                            </tr>
+
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            <?php endif; ?>
+        </div>
+        
         <div class="tab-pane " id="debug-bar-show-db" style="margin:1em 0;">
             <?php debug(array_pop($log['debug_db'])) ?>
             <?php foreach($log['debug_db'] as $k => $v): ?>
@@ -66,12 +92,6 @@
         </div>
         
         <div class="tab-pane  " id="debug-bar-show-requests">
-<!--            <ul class="nav nav-tabs nav-justified">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">Menu 1</a></li>
-                <li><a href="#">Menu 2</a></li>
-                <li><a href="#">Menu 3</a></li>
-            </ul>-->
             
             <div class="row">
                 <h4>$_GET</h4>

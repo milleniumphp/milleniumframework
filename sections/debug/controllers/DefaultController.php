@@ -6,7 +6,9 @@ class DefaultController extends \mill\core\base\Controller{
     public $layout = false;
     
     public function indexAction() {
+        $log = unserialize(file_get_contents(ROOT . '/tmp/debug/1.log'));
         
+        $this->set(['log'=>$log]);
     }
     
     public function viewAction(){

@@ -34,6 +34,8 @@ class Logger {
             self::$data['debug_get'] = \Mill::$request->get(INPUT_GET);
             
             self::$data['debug_server'] = $_SERVER;
+            
+            self::$data['user'] = \Mill::$user->property();
 
             
             file_put_contents(ROOT . '/tmp/debug/1.log', serialize(self::$data));  
