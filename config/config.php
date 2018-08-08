@@ -35,14 +35,7 @@ $config = [
             '^pages/about$' => [
                 'controller' => 'Pages', 
                 'action' => 'about', 
-                'middleware' => mill\core\base\User::middleware(function($obj) {
-                    return [
-                        'preaction' => function($obj) {
-                            
-                        },
-                        'type' => $obj::ALL_USER
-                    ];
-            })],
+            ],
                     
             '^$' => [
                 'controller'=>'Pages'

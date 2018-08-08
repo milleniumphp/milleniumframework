@@ -10,9 +10,9 @@ class BaseMill {
     public static $session;
     
     public static function init() {
-        self::$user = \mill\core\Registry::instance()->user;
-        self::$request = \mill\core\Registry::instance()->request;
-        self::$session = \mill\core\Registry::instance()->session;
+        self::$user = \mill\core\App::$app->user;
+        self::$request = \mill\core\App::$app->request;
+        self::$session = \mill\core\App::$app->session;
     }
     
 }

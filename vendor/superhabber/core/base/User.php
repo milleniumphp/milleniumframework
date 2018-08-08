@@ -71,23 +71,8 @@ class User {
         redirect($redirect);
     }
     
-    public function property($name = ''){
-        if($name){
-            return self::$properties[$name];
-        }
-        return self::$properties;
-    }
-    
-    public static function middleware($rule){
-        if($rule(__CLASS__)['type']['auth'] == true && !empty(self::$properties) ){
-            $rule(__CLASS__)['preaction'](__CLASS__);
-        }else if ($rule(__CLASS__)['type']['guest'] == true && $rule(__CLASS__)['type']['auth'] == true ){
-            $rule(__CLASS__)['preaction'](__CLASS__);
-        }else{
-            $e = new \mill\core\base\ErrorController(404, null, null);
-            http_response_code(404);
-            $e->usererror(8,'Access Forbidden');
-        }
+    public function property($name = ''){ 
+        return $name ? self::$properties[$name] : self::$properties;
     }
     
 }

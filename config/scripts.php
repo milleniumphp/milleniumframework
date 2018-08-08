@@ -10,7 +10,7 @@ return [
     
     'require' => [
         'js' => [
-            'https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js',
+            '/assets/jquery/jquery.min.js',
             '/assets/bootstrap/js/bootstrap.min.js',
         ]
     ]
