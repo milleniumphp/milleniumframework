@@ -21,7 +21,7 @@ composer create-project superhabber/mill <folder_name>
 ```
 ## Documentation
 
-[documentation of framework](https://milleniumphp.github.io/documentation)
+[documentation of framework](https://docs-millphp.herokuapp.com)
 ## Testing
 
 -------
@@ -45,7 +45,7 @@ they perform testing in real browser.
 
 ## Main site
 
-[documentation of framework](https://milleniumphp.github.io/)
+[Millenium PHP organization](https://milleniumphp.herokuapp.com)
 
 ## Authors
 
@@ -54,4 +54,4 @@ See also the list of [contributors](https://github.com/milleniumphp/milleniumfra
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
