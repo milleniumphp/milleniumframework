@@ -50,15 +50,14 @@ class Model {
 
     /**
      * default user login method which can be changed in your child model
-     * @param array $data
      * @param string $login login attribute
      * @param string $password password attribute
      * @return boolean
      */
-    public function login($data = [], $login = 'login', $password = 'password') {
-        $login = !empty(trim($_POST[$login])) ? trim($_POST[$login]) : null;
-        $password = !empty(trim($_POST[$password])) ? trim($_POST[$password]) : null;
-        if(\Mill::$user->login($login, $password, $data)) return true;
+    public function login($login = '', $password = '', $options = ['login' => 'login', 'password' => 'password']) {
+        $login = !empty(trim($_POST[$options['login']])) ? trim($_POST[$options['login']]) : null;
+        $password = !empty(trim($_POST[$options['password']])) ? trim($_POST[$options['password']]) : null;
+        if(\Mill::$user->login($login, $password)) return true;
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 namespace app\controllers;
 
+use mill\core\base\User;
 use \mill\html\Url;
 
 /**
@@ -56,10 +57,6 @@ class PagesController extends AppController{
          * if data is uploaded
          */
         if(!empty($post)){
-            /**
-             * give new user data from your form
-             */
-            $user->load($post);
             
             /**
              * if there is some troubles
@@ -68,7 +65,7 @@ class PagesController extends AppController{
                 /**
                  * method for all errors
                  */
-                $user->getErrors();
+                $user->getErrors($session);
                 /**
                  * save data which user has written
                  */
@@ -76,29 +73,24 @@ class PagesController extends AppController{
                 /**
                  * refresh the page
                  */
-                Url::redirect();
+                //Url::redirect();
             }
             /**
              * password hashing
              */
-            $user->attributes['password'] = hashstring($user->attributes['password']);
+            $post['password'] = hashstring($post['password']);
             /**
              * user saving
              */
-            if($user->validate(\Mill::$request->get(INPUT_POST)) && $user->save('user')){
-                /**
-                 * user registered
-                 */
+            if($user->validate($post) && \Mill::$user->save($post, 'user')){
+	            Url::redirect('/');
             }else{
                 /**
                  * make danger message for user
                  */
                 $user->getErrors($session);
             }
-            /*
-             * and redirect to home page
-             */
-            Url::redirect('/'); 
+
         }
         
         $this->set([
@@ -111,35 +103,24 @@ class PagesController extends AppController{
      */
     public function loginAction(){
         /**
-         * make new session
+         * create new session
          */
         $session = \Mill::$session;
         /**
          * set meta tags of page
          */
         $this->metatags['title'] = 'Login';
-        /**
-         * if user clicks on submit button
-         */
-        $data = [
-            [
-                'login' => 'admin',
-                'password' => 'admin'
-            ],
-            [
-                'login' => 'user',
-                'password' => 'user'
-            ]
-        ];
+        $post = \Mill::$request->get(INPUT_POST);
+
         $user = new \app\models\LoginForm();
-        if(!empty(\Mill::$request->get(INPUT_POST))){
+        if(!empty($post)){
 
             /**
              * make new user
              */
-            if($user->validate(\Mill::$request->get(INPUT_POST)) && $user->login($data)){
+            if($user->validate($post) && $user->login($post['login'], $post['password'])){
                 /**
-                 * maek new alert
+                 * make new alert
                  */
                 Url::redirect('/');
             }else{
