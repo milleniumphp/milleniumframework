@@ -7,21 +7,6 @@ namespace mill\core\base;
  * @author Yaroslav Palamarchuk
  */
 class User {
-
-	/**
-	 * user middleware constants
-	 */
-    const AUTH_USER = [
-        'auth' => true,
-        'guest' => false
-    ];
-    
-    const REAL_USER = [];
-    
-    const ALL_USER = [
-        'auth' => true,
-        'guest' => true
-    ];
     
     public static $properties = [];
     
@@ -47,29 +32,14 @@ class User {
         return false;
     }
     
-    public function login($login, $password, $options = ['key' => 'login']){
+    public function login($login, $password, $options){
         if($login && $password){
-            if(!empty($data)){
-                foreach ($data as $k => $v){
-                    if(($v['login'] == $login) && ($v['password'] == $password)){
-                        foreach ($v as $d) {
-                            if ($d != 'password') {
-                                $_SESSION['user'][$k] = $v;
-                                self::$properties[$k] = $v;
-                            }
-                        }
-                        return true;
-                    }
-                }
-                Model::$errors['type'][] = isset($options['wrong']) ?  $options['wrong'] : 'Incorrect data entered';
-                return false;
-            }
-            $user = \R::findOne('user', "{$options['key']} = ? LIMIT 1", [$login]);
+            $user = \R::findOne('user', "{$options['login']} = ? LIMIT 1", [$login]);
             if($user){
                 if(password_verify($password, $user->password)){
                     foreach ($user as $k => $v){
-                        if($k != 'password'){
-                            $_SESSION['user'][$k] = $v;
+                        if($k != $options['password']){
+                            $_SESSION['user'] = $v;
                             self::$properties[$k] = $v;
                         }
                     }
@@ -79,6 +49,32 @@ class User {
         }
         return false;
         Model::$errors['type'][] = isset($options['wrong']) ?  $options['wrong'] : 'Incorrect data entered';
+    }
+
+	/**
+	 * @param array $data
+	 * @param string $login post login
+	 * @param string $password post password
+	 * @param array $options login and password names
+	 *
+	 * @return bool
+	 */
+    public function loginTest($data, $login, $password, $options){
+	    if(!empty($data)){
+		    foreach ($data as $k => $v){
+			    if(($v[$options['login']] == $login) && ($v[$options['password']] == $password)){
+				    foreach ($v as $d) {
+					    if ($d != $options['password']) {
+						    $_SESSION['user'] = $v;
+						    self::$properties[$k] = $v;
+					    }
+				    }
+				    return true;
+			    }
+		    }
+		    Model::$errors['type'][] = isset($options['wrong']) ?  $options['wrong'] : 'Incorrect data entered';
+		    return false;
+	    }
     }
 
 	/**

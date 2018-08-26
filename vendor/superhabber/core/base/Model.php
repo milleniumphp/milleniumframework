@@ -54,10 +54,16 @@ class Model {
      * @param string $password password attribute
      * @return boolean
      */
-    public function login($login = '', $password = '', $options = ['login' => 'login', 'password' => 'password']) {
+    public function login($options = ['login' => 'login', 'password' => 'password']) {
         $login = !empty(trim($_POST[$options['login']])) ? trim($_POST[$options['login']]) : null;
         $password = !empty(trim($_POST[$options['password']])) ? trim($_POST[$options['password']]) : null;
-        if(\Mill::$user->login($login, $password)) return true;
+        if(\Mill::$user->login($login, $password, $options)) return true;
+    }
+
+    public function loginTest($data, $login, $password, $options = ['login' => 'login', 'password' => 'password']){
+	    $login = !empty(trim($login)) ? trim($login) : null;
+	    $password = !empty(trim($password)) ? trim($password) : null;
+	    if(\Mill::$user->loginTest( $data, $login, $password, $options )) return true;
     }
 
 }
