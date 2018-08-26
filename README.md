@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/superhabber/mill/license.svg)](https://packagist.org/packages/superhabber/mill)
 #
 
-simple and modern framework
+simple and modern PHP framework
 
 ## Getting Started
 
